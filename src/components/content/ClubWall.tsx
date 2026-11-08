@@ -45,7 +45,7 @@ function LitStudio({ studio, index, order }: { studio: Studio; index: number; or
           <span className="num" dir="ltr">{String(index).padStart(2, "0")}</span>
           <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-glow shadow-glow" />
         </span>
-        <span className="font-display text-xl leading-tight text-paper group-hover:text-glow group-focus-visible:text-glow md:text-2xl">{lang === "he" ? studio.name : studio.nameEn}</span>
+        <span className="c-studio-name font-display text-xl leading-tight text-paper group-hover:text-glow group-focus-visible:text-glow md:text-2xl">{lang === "he" ? studio.name : studio.nameEn}</span>
         <span className="font-mono text-[0.66rem] text-muted">{lang === "he" ? studio.city : studio.cityEn} · {t({ he: "חבר מועדון מאז", en: "member since" })} <span className="num" dir="ltr">{studio.memberSince}</span></span>
       </TransitionLink>
     </SwitchOn>
@@ -54,12 +54,16 @@ function LitStudio({ studio, index, order }: { studio: Studio; index: number; or
 
 function Ghost({ index }: { index: number }) {
   const t = useTx();
+  // A reserved place: quiet (muted, still ≥ 7:1), switched on by scroll like every other element,
+  // and it turns to light under the pointer. Not a link, so not in the tab order.
   return (
-    <div className="c-ghost flex h-full flex-col justify-between gap-3 p-3 md:p-4" data-testid="club-ghost">
-      <span className="num font-mono text-[0.66rem] tracking-[0.12em]" dir="ltr">{String(index).padStart(2, "0")}</span>
-      <span className="font-display text-xl leading-tight md:text-2xl">{t({ he: "סטודיו ·", en: "Studio ·" })}</span>
-      <span className="font-mono text-[0.66rem]">{t({ he: "מקום שמור — הדגמה", en: "Reserved — demo" })}</span>
-    </div>
+    <SwitchOn offOpacity={0.14} hover delay={(index % 6) * 40} className="h-full">
+      <div className="c-ghost flex h-full flex-col justify-between gap-3 p-3 md:p-4" data-testid="club-ghost">
+        <span className="num font-mono text-[0.66rem] tracking-[0.12em]" dir="ltr">{String(index).padStart(2, "0")}</span>
+        <span className="c-ghost-name font-display text-xl leading-tight md:text-2xl">{t({ he: "סטודיו ·", en: "Studio ·" })}</span>
+        <span className="font-mono text-[0.66rem]">{t({ he: "מקום שמור — הדגמה", en: "Reserved — demo" })}</span>
+      </div>
+    </SwitchOn>
   );
 }
 

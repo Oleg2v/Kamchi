@@ -33,7 +33,6 @@ export function BrandList() {
               <TransitionLink
                 href={`/catalog?brand=${b.id}`}
                 className="c-switch grid grid-cols-[2.25rem_minmax(0,1fr)] items-baseline gap-x-3 gap-y-1.5 py-5 outline-offset-[-3px] md:grid-cols-[3rem_minmax(0,1fr)_minmax(0,1.3fr)_11rem] md:gap-x-8 md:py-6"
-                aria-label={`${b.name} — ${b.country} · ${b.founded} — ${count} ${countLabel}`}
               >
                 <span className="num text-xs text-muted" dir="ltr">{String(i + 1).padStart(2, "0")}</span>
                 <span lang="en" className="c-name font-display text-[1.75rem] leading-none tracking-wide md:text-[2.4rem]">{b.name}</span>

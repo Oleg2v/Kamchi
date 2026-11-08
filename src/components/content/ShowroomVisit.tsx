@@ -89,7 +89,7 @@ export function ShowroomVisit() {
       <SectionHead
         id="visit-h"
         eyebrow={t({ he: "ביקור באולם", en: "Visiting the showroom" })}
-        title={<><span className="num">5,000</span> {t({ he: "מ״ר, דולקים", en: "m², switched on" })}</>}
+        title={<><span className="num">5,000</span> {t({ he: "מ״ר דולקים", en: "m², switched on" })}</>}
         lede={t({
           he: "האולם בבני ברק עומד ליד מרכז העיצוב. באים עם תוכנית, הולכים בין החללים, ורואים כל גוף דולק במקומו.",
           en: "The showroom in Bnei Brak stands next to the Design Center. Come with a plan, walk between the rooms, and see every fixture lit in its place.",
@@ -102,11 +102,10 @@ export function ShowroomVisit() {
             <div>
               <p className="eyebrow mb-2">{t({ he: "כתובת", en: "Address" })}</p>
               <p className="text-lg text-paper">{t(ADDRESS)}</p>
-              <p className="mt-1 text-sm text-muted">{t({ he: "חניה בסביבה ובחניון מרכז העיצוב.", en: "Parking nearby and at the Design Center car park." })}</p>
             </div>
             <div>
               <p className="eyebrow mb-2">{t({ he: "שעות פתיחה", en: "Opening hours" })} <span className="badge-beta ms-2 align-baseline">{t({ he: "הדגמה", en: "Demo" })}</span></p>
-              <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-sm">
+              <dl className="inline-grid grid-cols-[auto_auto] gap-x-5 gap-y-1 text-sm">
                 <dt className="text-muted">{t({ he: "א׳–ה׳", en: "Sun–Thu" })}</dt>
                 <dd className="num" dir="ltr">9:00–19:00</dd>
                 <dt className="text-muted">{t({ he: "ו׳", en: "Fri" })}</dt>
@@ -121,7 +120,7 @@ export function ShowroomVisit() {
             <ShowroomPlan lit={planLit} />
           </div>
           <p className="mt-3 flex flex-wrap items-baseline justify-between gap-2 font-mono text-[0.68rem] text-muted">
-            <span>{t({ he: "תוכנית סכמטית של רצפת האולם — הדגמה, לא תוכנית מדידה.", en: "A schematic of the showroom floor — a demo, not a measured drawing." })}</span>
+            <span>{t({ he: "תוכנית סכמטית של האולם — הדגמה, לא תוכנית מדידה.", en: "A schematic plan of the showroom — a demo, not a measured drawing." })}</span>
             <span className="text-brass-light">{t({ he: "ללא מפות מוטמעות", en: "No embedded maps" })}</span>
           </p>
         </div>

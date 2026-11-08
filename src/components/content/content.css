@@ -44,16 +44,23 @@
 .c-plan-dot[data-lit="1"] { opacity: 1; animation: incandescent 120ms var(--ease-incandescent) both; }
 :root[data-all-lit="1"] .c-plan-dot { opacity: 1; animation: none; }
 
-/* ── Club wall: reserved places are unlit names that light under the pointer. ── */
-.c-ghost { color: var(--color-muted); opacity: 0.42; }
-.c-ghost:hover { opacity: 1; color: rgb(var(--glow-rgb)); text-shadow: 0 0 18px rgb(var(--glow-rgb) / 0.4); animation: incandescent 120ms var(--ease-incandescent) forwards; }
-:root[data-all-lit="1"] .c-ghost { opacity: 1; color: var(--color-paper); animation: none; }
+/* ── Club wall: reserved places are quiet names (muted, ≥ 7:1) that turn to light under the pointer;
+      the six real studios turn to light under pointer/focus and under "הכול דלוק". ── */
+.c-ghost { color: var(--color-muted); }
+.c-ghost:hover .c-ghost-name { color: rgb(var(--glow-rgb)); text-shadow: 0 0 18px rgb(var(--glow-rgb) / 0.4); animation: incandescent 120ms var(--ease-incandescent) forwards; }
+:root[data-all-lit="1"] .c-studio-name { color: rgb(var(--glow-rgb)); text-shadow: 0 0 22px rgb(var(--glow-rgb) / 0.4); }
 
 /* ── Project cards: the title turns to light with the fixture. ── */
 .c-card { transition: border-color 200ms var(--ease-out-slow); }
 .c-card[data-lit="1"] { border-color: rgb(var(--glow-rgb) / 0.45); }
 .c-card[data-lit="1"] .c-card-title { color: rgb(var(--glow-rgb)); text-shadow: 0 0 22px rgb(var(--glow-rgb) / 0.4); animation: incandescent 120ms var(--ease-incandescent) forwards; }
 :root[data-all-lit="1"] .c-card-title { animation: none; }
+
+/* Reduced motion: no ramps and, above all, no staggered delays holding a dot at its unlit keyframe. */
+@media (prefers-reduced-motion: reduce) {
+  .c-plan-dot, .c-seg, .c-node, .c-name, .c-card-title, .c-ghost-name, .c-switch::before { animation: none !important; }
+  .c-plan-dot { opacity: 1; }
+}
 
 /* Document pages: lists with brass markers. */
 .c-doc ul { list-style: disc; padding-inline-start: 1.25rem; }

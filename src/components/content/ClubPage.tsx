@@ -32,7 +32,7 @@ export function ClubPage() {
         eyebrow={t({ he: "המועדון", en: "The club" })}
         title={t({ he: "מועדון האדריכלים והמעצבים", en: "The architects\u2019 and designers\u2019 club" })}
         lede={t({
-          he: "כשישים סטודיו עובדים עם קמחי בתנאי סטודיו. היום המועדון הוא רשימת שמות בעמוד. ההצעה: כל שם נדלק — ונעשה שולחן עבודה.",
+          he: "כשישים סטודיו עובדים עם קמחי בתנאי סטודיו. היום המועדון הוא רשימת שמות בעמוד. ההצעה: כל שם נדלק — ונהפך לשולחן עבודה.",
           en: "About sixty studios work with Kamchi on studio terms. Today the club is a list of names on a page. The proposal: every name lights up, and becomes a desk.",
         })}
         actions={

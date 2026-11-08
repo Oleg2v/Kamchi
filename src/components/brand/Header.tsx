@@ -57,10 +57,12 @@ function AllLitToggle({ compact = false }: { compact?: boolean }) {
       aria-pressed={allLit}
       onClick={() => setAllLit(!allLit)}
       className={`inline-flex items-center gap-2 border px-2.5 py-1.5 text-[0.78rem] transition-colors ${allLit ? "border-glow text-glow shadow-glow" : "hairline text-muted hover:text-paper"}`}
+      aria-label={t({ he: "הכול דלוק", en: "All lit" })}
       title={t({ he: "להדליק את כל האלמנטים בבת אחת, בלי לחכות לאנימציות", en: "Light every element at once, without waiting for animations" })}
+      data-autopilot="all-lit"
     >
       <span aria-hidden className={`h-2 w-2 rounded-full ${allLit ? "bg-glow" : "bg-ash"}`} />
-      {!compact && t({ he: "הכול דלוק", en: "All lit" })}
+      <span className={compact ? "hidden xl:inline" : ""}>{t({ he: "הכול דלוק", en: "All lit" })}</span>
     </button>
   );
 }

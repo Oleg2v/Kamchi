@@ -10,8 +10,10 @@ import { TransitionLink } from "@/components/brand/TransitionLink";
 import { SwitchOn } from "@/components/light/SwitchOn";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { getFixture } from "@/lib/data";
+import { useInView } from "@/lib/hooks/useInView";
+import { useFinePointer } from "@/lib/hooks/useMedia";
+import { useReducedMotion } from "@/lib/hooks/useReducedMotion";
 import { useLang, useTx, type Bi } from "@/lib/i18n";
-import { useStore } from "@/lib/store";
 import { Lamp } from "./Lamp";
 
 type Reference = {
@@ -40,7 +42,7 @@ const REFERENCES: Reference[] = [
     id: "airport-city",
     title: { he: "Airport City", en: "Airport City" },
     sector: { he: "מסחר", en: "Commercial" },
-    brief: { he: "לובאים, מעברים וחזיתות בפארק עסקים.", en: "Lobbies, passages and facades in a business park." },
+    brief: { he: "לובי, מעברים וחזיתות בפארק עסקים.", en: "Lobbies, passages and facades in a business park." },
     fixtureId: "exenia-linea-incasso",
     href: "/catalog?type=linear",
     catalogLabel: { he: "גופים ליניאריים", en: "Linear fixtures" },
@@ -95,13 +97,19 @@ const REFERENCES: Reference[] = [
 
 function ReferenceCard({ r, index }: { r: Reference; index: number }) {
   const t = useTx();
-  const allLit = useStore((s) => s.allLit);
+  const lang = useLang();
+  // Pointer and focus are the switch; "הכול דלוק" / reduced motion light everything. Without a fine
+  // pointer there is no hover, so the fixture switches on as the card scrolls into view instead.
+  const reduced = useReducedMotion();
+  const fine = useFinePointer();
+  const [ref, inView] = useInView<HTMLLIElement>({ threshold: 0.45 });
   const [hot, setHot] = useState(false);
-  const lit = hot || allLit;
+  const lit = hot || reduced || (!fine && inView);
   const fixture = getFixture(r.fixtureId);
   const num = String(index + 1).padStart(2, "0");
+  const arrow = lang === "he" ? "\u2190" : "\u2192";
   return (
-    <li className={r.wide ? "sm:col-span-2 lg:col-span-3" : ""}>
+    <li ref={ref} className={r.wide ? "sm:col-span-2 lg:col-span-3" : ""}>
       <SwitchOn offOpacity={0.14} delay={index * 60} className="h-full">
         <TransitionLink
           href={r.href}
@@ -120,10 +128,10 @@ function ReferenceCard({ r, index }: { r: Reference; index: number }) {
             <p className="font-mono text-[0.7rem] tracking-[0.14em] text-brass-light">
               <span className="num" dir="ltr">{num}</span> · {t(r.sector)}
             </p>
-            <h2 className={`c-card-title mt-2 font-display leading-tight text-paper ${r.wide ? "text-3xl md:text-5xl" : "text-2xl md:text-[1.9rem]"}`}>{t(r.title)}</h2>
+            <h3 className={`c-card-title mt-2 font-display leading-tight text-paper ${r.wide ? "text-3xl md:text-5xl" : "text-2xl md:text-[1.9rem]"}`}>{t(r.title)}</h3>
             <p className={`mt-3 leading-relaxed text-muted ${r.wide ? "max-w-xl text-base md:text-lg" : "text-sm"}`}>{t(r.brief)}</p>
             <p className="mt-auto pt-6 font-mono text-[0.68rem] tracking-[0.1em] text-muted group-hover:text-glow group-focus-visible:text-glow">
-              {t({ he: "בקטלוג", en: "In the catalogue" })}: {t(r.catalogLabel)} ←
+              {t({ he: "בקטלוג", en: "In the catalogue" })}: {t(r.catalogLabel)} <span aria-hidden>{arrow}</span>
             </p>
           </div>
         </TransitionLink>
@@ -142,7 +150,7 @@ export function ProjectsPage() {
         eyebrow={t({ he: "פרויקטים", en: "Projects" })}
         title={t({ he: "אור שעובד שנים", en: "Light that works for years" })}
         lede={t({
-          he: "בפרויקט, האור צריך לעשות את עבודתו בלי שישימו לב אליו: ללובי, לקומת משרדים, לאולם תצוגה. אלה כמה מהמקומות שבהם קמחי עשתה את זה. עברו על קלף — והגוף נדלק.",
+          he: "בפרויקט, האור צריך לעשות את עבודתו בלי שישימו לב אליו: בלובי, בקומת משרדים, באולם תצוגה. אלה כמה מהמקומות שבהם קמחי עשתה את זה. עברו על כרטיס — והגוף נדלק.",
           en: "In a project, light has to do its job without being noticed: a lobby, an office floor, a showroom. These are some of the places where Kamchi did that. Pass over a card and its fixture switches on.",
         })}
         actions={

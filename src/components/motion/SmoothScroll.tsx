@@ -1,6 +1,6 @@
 "use client";
 import { ReactLenis, useLenis } from "lenis/react";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { getGsap } from "@/lib/motion/gsap";
 import { useReducedMotion } from "@/lib/hooks/useReducedMotion";
 
@@ -22,12 +22,19 @@ function Bridge() {
   return null;
 }
 
-/** Lenis smooth scroll + GSAP ScrollTrigger bridge. Disabled under reduced motion. */
+/**
+ * Lenis smooth scroll + GSAP ScrollTrigger bridge.
+ * Under reduced motion (or "הכול דלוק") Lenis stays mounted but behaves natively
+ * (lerp 1, no wheel smoothing), so toggling never remounts the page or drops focus.
+ */
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
   const reduced = useReducedMotion();
-  if (reduced) return <>{children}</>;
+  const options = useMemo(
+    () => ({ lerp: reduced ? 1 : 0.09, smoothWheel: !reduced, syncTouch: false, autoRaf: false }),
+    [reduced],
+  );
   return (
-    <ReactLenis root options={{ lerp: 0.09, smoothWheel: true, syncTouch: false, autoRaf: false }}>
+    <ReactLenis root options={options}>
       <Bridge />
       {children}
     </ReactLenis>

@@ -1,0 +1,28 @@
+/* ─────────────────────────────────────────────────────────────
+   Live mode — two panes, one brass line, a demo cursor that lives in the top layer.
+   Module-local; tokens come from globals.css.
+   ───────────────────────────────────────────────────────────── */
+
+.live-root { height: calc(100dvh - var(--header-h, 4.5rem)); min-height: 34rem; }
+
+.live-pane {
+  overflow-y: auto; overflow-x: clip; overscroll-behavior: contain; min-height: 0;
+  scrollbar-width: thin; scrollbar-color: var(--color-ash, #3a3a3a) transparent;
+}
+
+/* The demo cursor is a manual popover so it stays above native <dialog>s in the top layer. */
+.demo-cursor {
+  position: fixed; inset: auto; left: 0; top: 0; margin: 0; padding: 0; border: 0;
+  width: 0; height: 0; overflow: visible; background: transparent; color: inherit;
+  pointer-events: none; z-index: 120; will-change: transform;
+}
+.demo-cursor:popover-open { display: block; }
+.demo-cursor[data-visible="0"] { display: none; }
+.demo-cursor__ring { animation: demo-cursor-ring 700ms var(--ease-out-slow, cubic-bezier(0.16, 1, 0.3, 1)) forwards; }
+@keyframes demo-cursor-ring {
+  from { transform: translate(-50%, -50%) scale(0.45); opacity: 0.9; }
+  to   { transform: translate(-50%, -50%) scale(2.3); opacity: 0; }
+}
+
+/* The relight preview: the photo under a pool of light, the fixture drawn over it. */
+.live-relight__photo { transition: filter 120ms var(--ease-incandescent, cubic-bezier(0.2, 0.9, 0.3, 1)); }

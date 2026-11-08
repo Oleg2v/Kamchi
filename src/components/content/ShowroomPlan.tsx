@@ -121,7 +121,7 @@ export function ShowroomPlan({ lit }: { lit: boolean }) {
         <g key={`d-${i}`} className="c-plan-dot" data-lit={lit ? "1" : "0"} style={delay(k++)}>
           <circle cx={x} cy={y} r={r * sc * 5.5} fill={`url(#${uid}-halo)`} opacity={lit ? 1 : 0} />
           <circle cx={x} cy={y} r={r * sc} fill={dot} filter={lit ? `url(#${uid}-bloom)` : undefined} />
-          <circle cx={x} cy={y} r={r * sc * 0.6} fill={lit ? "#fff6e8" : ash} />
+          <circle cx={x} cy={y} r={r * sc * 0.6} fill={lit ? "var(--color-paper)" : ash} />
         </g>
       ))}
 
