@@ -29,8 +29,20 @@ function parseSpec(search: string): CaptureSpec {
   return { p: Number(q.get("p")) || 0 };
 }
 
+/** ?compact=1 previews the compact auto-mode card the portal embeds (not deterministic). */
+function CompactPreview() {
+  return (
+    <div style={{ position: "fixed", inset: 0, zIndex: 95, background: "#050505", display: "grid", placeItems: "center" }}>
+      <div style={{ width: 520 }} className="panel p-3">
+        <RoomSceneInternal mode="auto" compact onFullyLit={() => { document.documentElement.dataset.heroFullyLit = "1"; }} />
+      </div>
+    </div>
+  );
+}
+
 export default function HeroCapturePage() {
   const [spec, setSpec] = useState<CaptureSpec | null>(null);
+  const [compact, setCompact] = useState(false);
   const [tick, setTick] = useState(0);
   const pending = useRef<((n: number) => void) | null>(null);
   const frames = useRef(0);
@@ -38,6 +50,7 @@ export default function HeroCapturePage() {
   // Bare stage: hide the chrome without touching other modules.
   useEffect(() => {
     setSpec(parseSpec(window.location.search));
+    setCompact(new URLSearchParams(window.location.search).get("compact") === "1");
     const hidden: HTMLElement[] = [];
     const hide = (el: Element | null) => {
       if (el instanceof HTMLElement) { el.style.setProperty("display", "none", "important"); hidden.push(el); }
@@ -92,6 +105,7 @@ export default function HeroCapturePage() {
 
   const captureSpec = useMemo(() => spec ?? undefined, [spec]);
 
+  if (compact) return <CompactPreview />;
   return (
     <div style={{ position: "fixed", inset: 0, zIndex: 95, background: "#050505" }} data-tick={tick}>
       {captureSpec && (

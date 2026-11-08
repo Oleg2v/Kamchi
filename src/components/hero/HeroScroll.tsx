@@ -28,7 +28,7 @@ function HeroTitle({ on, instant = false, overlay = true, onNeedLight }: { on: b
     <div className={overlay ? "pointer-events-none absolute inset-x-0 bottom-0 pb-[7vh]" : "pt-8"}>
       <div className="container-x">
         <div
-          className={`switch-on ${on ? (instant ? "is-on-instant" : "is-on") : ""} max-w-full`}
+          className={`switch-on ${on ? (instant ? "is-on-instant" : "is-on") : ""} w-fit max-w-full`}
           style={{ "--off-opacity": 0 } as CSSProperties}
           data-on={on ? "1" : "0"}
         >

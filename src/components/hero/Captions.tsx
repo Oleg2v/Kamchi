@@ -27,10 +27,10 @@ const CAPTION_W = 200;
 const groupOf = (ids: LightId[]) => LIGHTS.filter((l) => ids.includes(l.id));
 
 export const CAPTION_GROUPS: CaptionGroup[] = [
-  { id: "pendant", members: ["pendant"], at: { x: 0.17, y: 0.47 }, corner: "tl", caption: groupOf(["pendant"])[0].caption },
-  { id: "sconces", members: ["sconce-l", "sconce-r"], at: { x: 0.33, y: 0.41 }, corner: "tl", caption: groupOf(["sconce-l"])[0].caption },
-  { id: "spots", members: ["spot-1", "spot-2", "spot-3"], at: { x: 0.53, y: 0.2 }, corner: "tr", caption: groupOf(["spot-1"])[0].caption },
-  { id: "floor", members: ["floor"], at: { x: 0.69, y: 0.33 }, corner: "bl", caption: groupOf(["floor"])[0].caption },
+  { id: "pendant", members: ["pendant"], at: { x: 0.155, y: 0.47 }, corner: "tl", caption: groupOf(["pendant"])[0].caption },
+  { id: "sconces", members: ["sconce-l", "sconce-r"], at: { x: 0.312, y: 0.4 }, corner: "tl", caption: groupOf(["sconce-l"])[0].caption },
+  { id: "spots", members: ["spot-1", "spot-2", "spot-3"], at: { x: 0.525, y: 0.185 }, corner: "tr", caption: groupOf(["spot-1"])[0].caption },
+  { id: "floor", members: ["floor"], at: { x: 0.71, y: 0.3 }, corner: "bl", caption: groupOf(["floor"])[0].caption },
 ];
 
 function CaptionBody({ g, lang }: { g: CaptionGroup; lang: "he" | "en" }) {
