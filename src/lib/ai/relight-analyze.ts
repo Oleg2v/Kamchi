@@ -38,16 +38,21 @@ export function analyzePhoto(img: CanvasImageSource, width: number, height: numb
   }
   const ambient = total / (COLS * rows);
 
-  // Candidate surface cells: lower 60 %, brighter than the scene, flat.
+  // Candidate surface cells: lower 60 %, brighter than most of the lower half, flat.
   const minRow = Math.floor(rows * 0.4);
-  const bright = Math.max(0.42, ambient * 0.98);
+  const lowerLums: number[] = [];
+  for (let r = Math.floor(rows * 0.5); r < rows; r++) for (let col = 0; col < COLS; col++) lowerLums.push(lum[r * COLS + col]);
+  lowerLums.sort((a, b) => a - b);
+  const p55 = lowerLums[Math.floor(lowerLums.length * 0.55)] ?? 0.45;
+  const bright = Math.max(0.3, Math.min(p55, ambient * 0.98));
   const ok = new Uint8Array(COLS * rows);
   for (let r = minRow; r < rows; r++) for (let col = 0; col < COLS; col++) {
     const i = r * COLS + col;
     if (lum[i] >= bright && vari[i] <= 0.012) ok[i] = 1;
   }
 
-  // Connected components (4-neighbour); best = area × luminance × horizontal bias.
+  // Connected components (4-neighbour). A surface reaches the bottom quarter of the frame (a wall
+  // alone does not); best = area × luminance × horizontal bias.
   const seen = new Uint8Array(COLS * rows);
   let best: { x0: number; y0: number; x1: number; y1: number; area: number; score: number } | null = null;
   const stack: number[] = [];
@@ -68,6 +73,7 @@ export function analyzePhoto(img: CanvasImageSource, width: number, height: numb
       }
     }
     if (area < 4) continue;
+    if (y1 < rows * 0.72 || y0 < rows * 0.3) continue;
     const w = x1 - x0 + 1, h = y1 - y0 + 1;
     const horizontal = Math.min(2.2, w / h);
     const score = area * (lsum / area) * (0.7 + 0.3 * horizontal);

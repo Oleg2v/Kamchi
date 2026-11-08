@@ -76,16 +76,23 @@ export function opticalFrac(f: Fixture, suspension: boolean): { x: number; y: nu
 export const isHanging = (f: Fixture) => f.type === "pendant" || f.type === "chandelier" || (f.type === "linear" && f.art.kind === "bar");
 
 const SURFACE_HE: Record<RelightPlacement["surface"], string> = {
-  table: "השולחן", sofa: "הספה", bed: "המיטה", desk: "שולחן העבודה", floor: "הרצפה", counter: "משטח העבודה", wall: "הקיר", unknown: "המשטח",
+  table: "השולחן", sofa: "הספה", bed: "המיטה", desk: "שולחן העבודה", floor: "אזור הישיבה", counter: "משטח העבודה", wall: "הקיר", unknown: "המשטח",
 };
 const SURFACE_EN: Record<RelightPlacement["surface"], string> = {
-  table: "the table", sofa: "the sofa", bed: "the bed", desk: "the desk", floor: "the floor", counter: "the counter", wall: "the wall", unknown: "the surface",
+  table: "the table", sofa: "the sofa", bed: "the bed", desk: "the desk", floor: "the seating area", counter: "the counter", wall: "the wall", unknown: "the surface",
 };
+
+/** A pool on a horizontal surface is a flat ellipse in perspective: ry never exceeds 0.55 × rx. */
+function flatPool(cx: number, cy: number, rx: number, ry: number) {
+  return { cx, cy, rx, ry: clamp(Math.min(ry, rx * 0.55), 0.03, 0.22) };
+}
 
 /** Fixture type + photo analysis → placement. Deterministic. */
 export function placementFromAnalysis(a: PhotoAnalysis, f: Fixture): RelightPlacement {
   const box = a.surfaceBox;
   const cx = box.x + box.w / 2;
+  // A tall box means the region climbs a wall: the pool belongs on its lower part.
+  const poolY = box.y + box.h * (box.h > 0.42 ? 0.62 : 0.42);
   const m = a.ceilingM.toFixed(1);
   const sHe = SURFACE_HE[a.surface], sEn = SURFACE_EN[a.surface];
   const base = { surface: a.surface, surfaceBox: box, ceilingM: a.ceilingM, ambient: a.ambient };
@@ -97,9 +104,9 @@ export function placementFromAnalysis(a: PhotoAnalysis, f: Fixture): RelightPlac
       const scale = ch ? clamp(0.2 + f.art.width * 0.14, 0.22, 0.36) : clamp(0.1 + f.art.width * 0.1, 0.1, 0.22);
       return {
         ...base,
-        anchor: { x: cx, y: clamp(box.y - (ch ? 0.26 : 0.17), 0.08, 0.6) },
+        anchor: { x: cx, y: clamp(poolY - (ch ? 0.5 : 0.42), 0.08, 0.6) },
         scale,
-        pool: { cx, cy: box.y + box.h * 0.42, rx: clamp(box.w * (ch ? 0.6 : 0.5), 0.08, 0.45), ry: clamp(box.h * 0.36, 0.03, 0.22) },
+        pool: flatPool(cx, poolY, clamp(box.w * (ch ? 0.6 : 0.5), 0.08, 0.45), box.h * 0.36),
         rationale: {
           he: `${f.nameHe} תלוי מעל ${sHe}, כ־75 ס״מ מהמשטח: האור נופל על ${sHe} ולא מסנוור את היושבים. תקרה מוערכת ${m} מ׳.`,
           en: `${f.name} hangs about 75 cm above ${sEn}: light lands on ${sEn} without glare for the people around it. Estimated ceiling ${m} m.`,
@@ -109,9 +116,9 @@ export function placementFromAnalysis(a: PhotoAnalysis, f: Fixture): RelightPlac
     case "linear":
       return {
         ...base,
-        anchor: { x: cx, y: clamp(box.y - 0.15, 0.08, 0.6) },
+        anchor: { x: cx, y: clamp(poolY - 0.4, 0.08, 0.6) },
         scale: clamp(0.3 + f.art.width * 0.1, 0.3, 0.45),
-        pool: { cx, cy: box.y + box.h * 0.4, rx: clamp(box.w * 0.58, 0.1, 0.5), ry: clamp(box.h * 0.3, 0.03, 0.2) },
+        pool: flatPool(cx, poolY, clamp(box.w * 0.58, 0.1, 0.5), box.h * 0.3),
         rationale: {
           he: `פרופיל ליניארי לאורך ${sHe}, בגובה כ־80 ס״מ מהמשטח: אור אחיד לכל האורך בלי נקודות מסנוורות. תקרה מוערכת ${m} מ׳.`,
           en: `A linear profile along ${sEn}, about 80 cm above it: even light along the whole length with no hot spots. Estimated ceiling ${m} m.`,
@@ -122,7 +129,7 @@ export function placementFromAnalysis(a: PhotoAnalysis, f: Fixture): RelightPlac
         ...base,
         anchor: { x: cx, y: 0.07 },
         scale: clamp(0.12 + f.art.width * 0.08, 0.12, 0.2),
-        pool: { cx, cy: box.y + box.h * 0.45, rx: clamp(box.w * 0.65, 0.12, 0.5), ry: clamp(box.h * 0.5, 0.05, 0.25) },
+        pool: flatPool(cx, poolY, clamp(box.w * 0.65, 0.12, 0.5), box.h * 0.5),
         rationale: {
           he: `${f.nameHe} צמוד לתקרה מעל מרכז החלל: אור כללי רחב ורך, מתאים לתקרה של ${m} מ׳ שבה גוף תלוי היה נמוך מדי.`,
           en: `${f.name} flush to the ceiling over the centre of the room: broad, soft general light — right for a ${m} m ceiling where a pendant would hang too low.`,
@@ -133,7 +140,7 @@ export function placementFromAnalysis(a: PhotoAnalysis, f: Fixture): RelightPlac
         ...base,
         anchor: { x: cx, y: 0.04 },
         scale: 0.06,
-        pool: { cx, cy: box.y + box.h * 0.4, rx: clamp(box.w * 0.3, 0.06, 0.3), ry: clamp(box.h * 0.26, 0.03, 0.15) },
+        pool: flatPool(cx, poolY, clamp(box.w * 0.3, 0.06, 0.3), box.h * 0.26),
         rationale: {
           he: `שקוע תקרה בזווית ${f.art.beam}° מעל ${sHe}: אלומה ממוקדת, תקרה נקייה. בתקרה של ${m} מ׳ נמליץ על מרחק של כ־1.2 מ׳ בין היחידות.`,
           en: `A ${f.art.beam}° recessed downlight over ${sEn}: a focused beam and a clean ceiling. At ${m} m, space the units about 1.2 m apart.`,
@@ -144,7 +151,7 @@ export function placementFromAnalysis(a: PhotoAnalysis, f: Fixture): RelightPlac
         ...base,
         anchor: { x: 0.5, y: 0.05 },
         scale: 0.44,
-        pool: { cx, cy: box.y + box.h * 0.4, rx: clamp(box.w * 0.55, 0.1, 0.45), ry: clamp(box.h * 0.3, 0.03, 0.2) },
+        pool: flatPool(cx, poolY, clamp(box.w * 0.55, 0.1, 0.45), box.h * 0.3),
         rationale: {
           he: `פס צבירה לאורך התקרה עם ראשים מכוונים אל ${sHe} ואל הקיר: גמישות מלאה כשמזיזים רהיטים. תקרה מוערכת ${m} מ׳.`,
           en: `A ceiling track with heads aimed at ${sEn} and the wall: full flexibility when the furniture moves. Estimated ceiling ${m} m.`,
