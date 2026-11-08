@@ -1,0 +1,28 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "kamchi",
+  "main": ".open-next/worker.js",
+  "account_id": "be9447e281c6e9198712ade2d0241029",
+  "compatibility_date": "2026-11-02",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "workers_dev": true,
+  "observability": { "enabled": true },
+  // Production: the concept lives on the studio's own domain (unlisted, noindex).
+  "routes": [{ "pattern": "kamchi.kikkey.com", "custom_domain": true }],
+  "vars": {
+    "KAMCHI_AI_MODEL": "claude-opus-5-5"
+  },
+  // Secrets (set with `wrangler secret put ANTHROPIC_API_KEY`), never in this file.
+  "env": {
+    "preview": {
+      "name": "kamchi-preview",
+      "routes": [],
+      "workers_dev": true,
+      "vars": { "KAMCHI_AI_MODEL": "claude-opus-5-5" }
+    }
+  }
+}
