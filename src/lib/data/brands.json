@@ -1,0 +1,178 @@
+[
+  {
+    "id": "artemide",
+    "name": "Artemide",
+    "country": "Italy",
+    "founded": 1960,
+    "tagline": {
+      "he": "הנדסת אור איטלקית שמתחילה מהאדם, לא מהגוף.",
+      "en": "Italian light engineering that starts with the person, not the fixture."
+    },
+    "heroFixtureId": "artemide-luce-sospesa"
+  },
+  {
+    "id": "vibia",
+    "name": "Vibia",
+    "country": "Spain",
+    "founded": 1987,
+    "tagline": {
+      "he": "אור שמעצב את החלל סביבו, בשקט ובצורות פשוטות.",
+      "en": "Light that shapes the space around it, quietly and in simple forms."
+    },
+    "heroFixtureId": "vibia-nube"
+  },
+  {
+    "id": "bomma",
+    "name": "Bomma",
+    "country": "Czech Republic",
+    "founded": 2012,
+    "tagline": {
+      "he": "זכוכית בוהמית מנופחת ביד, עבה מספיק כדי להרגיש בה את היד שיצרה אותה.",
+      "en": "Bohemian glass blown by hand, thick enough to feel the maker in it."
+    },
+    "heroFixtureId": "bomma-perla"
+  },
+  {
+    "id": "terzani",
+    "name": "Terzani",
+    "country": "Italy",
+    "founded": 1972,
+    "tagline": {
+      "he": "מתכת מעובדת ביד שהופכת אור לתכשיט של החלל.",
+      "en": "Hand-worked metal that turns light into jewellery for a room."
+    },
+    "heroFixtureId": "terzani-pioggia"
+  },
+  {
+    "id": "panzeri",
+    "name": "Panzeri",
+    "country": "Italy",
+    "founded": 1947,
+    "tagline": {
+      "he": "כמעט שמונים שנה של ייצור איטלקי: אור יומיומי, מדויק ומאופק.",
+      "en": "Almost eighty years of Italian making: everyday light, precise and restrained."
+    },
+    "heroFixtureId": "panzeri-tondo-sospeso"
+  },
+  {
+    "id": "fabbian",
+    "name": "Fabbian",
+    "country": "Italy",
+    "founded": 1961,
+    "tagline": {
+      "he": "זכוכית ונציאנית ומתכת, בצורות שמחזיקות עשרות שנים.",
+      "en": "Venetian glass and metal, in forms that hold up for decades."
+    },
+    "heroFixtureId": "fabbian-vetro-cono"
+  },
+  {
+    "id": "exenia",
+    "name": "Exenia",
+    "country": "Italy",
+    "founded": 1993,
+    "tagline": {
+      "he": "תאורה אדריכלית: הגוף נעלם ונשאר רק האור.",
+      "en": "Architectural lighting: the fixture disappears and only the light remains."
+    },
+    "heroFixtureId": "exenia-binario"
+  },
+  {
+    "id": "ole",
+    "name": "Olé",
+    "country": "Spain",
+    "founded": 1999,
+    "tagline": {
+      "he": "חומרים טבעיים וידיים ספרדיות: עץ, בד ואור חם.",
+      "en": "Natural materials and Spanish hands: wood, fabric and warm light."
+    },
+    "heroFixtureId": "ole-junco"
+  },
+  {
+    "id": "neko",
+    "name": "Neko",
+    "country": "Italy",
+    "founded": 2005,
+    "tagline": {
+      "he": "גופים טכניים קטנים ככל האפשר, עם אופטיקה מדויקת.",
+      "en": "Technical fixtures as small as possible, with precise optics."
+    },
+    "heroFixtureId": "neko-rail"
+  },
+  {
+    "id": "cangini-tucci",
+    "name": "Cangini & Tucci",
+    "country": "Italy",
+    "founded": 1980,
+    "tagline": {
+      "he": "זכוכית מנופחת בבית מלאכה משפחתי, כל פריט שונה מעט מחברו.",
+      "en": "Glass blown in a family workshop, every piece slightly different from the next."
+    },
+    "heroFixtureId": "cangini-tucci-nuvola"
+  },
+  {
+    "id": "dechem",
+    "name": "Dechem",
+    "country": "Czech Republic",
+    "founded": 2012,
+    "tagline": {
+      "he": "סטודיו זכוכית צ'כי: צורות גיאומטריות שקטות ואור חיוור.",
+      "en": "A Czech glass studio: quiet geometric forms and pale light."
+    },
+    "heroFixtureId": "dechem-mesic"
+  },
+  {
+    "id": "icone",
+    "name": "Icone",
+    "country": "Italy",
+    "founded": 2006,
+    "tagline": {
+      "he": "מינימליזם איטלקי: קווים דקים שנעלמים בתקרה.",
+      "en": "Italian minimalism: thin lines that vanish into the ceiling."
+    },
+    "heroFixtureId": "icone-orlo"
+  },
+  {
+    "id": "avolux",
+    "name": "Avolux",
+    "country": "Italy",
+    "founded": 2001,
+    "tagline": {
+      "he": "תאורה טכנית אמינה לפרויקטים, זמינה במלאי.",
+      "en": "Dependable technical lighting for projects, kept in stock."
+    },
+    "heroFixtureId": "avolux-traccia"
+  },
+  {
+    "id": "vesoi",
+    "name": "Vesoi",
+    "country": "Italy",
+    "founded": 1990,
+    "tagline": {
+      "he": "עיצוב איטלקי צעיר: פרטים קטנים שפותרים בעיות גדולות.",
+      "en": "Young Italian design: small details that solve big problems."
+    },
+    "heroFixtureId": "vesoi-nodo"
+  },
+  {
+    "id": "aldo-bernardi",
+    "name": "Aldo Bernardi",
+    "country": "Italy",
+    "founded": 1932,
+    "tagline": {
+      "he": "קרמיקה, פליז וחרס מהוונטו, לבתים שמחפשים חום.",
+      "en": "Ceramic, brass and terracotta from the Veneto, for homes that want warmth."
+    },
+    "heroFixtureId": "aldo-bernardi-lanterna"
+  },
+  {
+    "id": "swarovski",
+    "name": "Swarovski",
+    "country": "Austria",
+    "founded": 1895,
+    "tagline": {
+      "he": "גביש אוסטרי חתוך במדויק, שמפזר אור לאלפי נקודות.",
+      "en": "Precisely cut Austrian crystal that scatters light into a thousand points."
+    },
+    "heroFixtureId": "swarovski-cristallo-cascata"
+  }
+]

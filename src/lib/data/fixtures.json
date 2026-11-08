@@ -1,0 +1,3961 @@
+[
+  {
+    "id": "artemide-luce-sospesa",
+    "slug": "artemide-luce-sospesa",
+    "brand": "artemide",
+    "name": "Luce Sospesa",
+    "nameHe": "לוצ'ה סוספזה",
+    "type": "pendant",
+    "spaces": [
+      "dining",
+      "living"
+    ],
+    "lumens": 2600,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 24,
+    "ip": 20,
+    "dimming": [
+      "phase",
+      "push"
+    ],
+    "size": {
+      "w": 60,
+      "h": 4,
+      "diameter": 60
+    },
+    "finishes": [
+      "white",
+      "black"
+    ],
+    "price": 7490,
+    "leadTime": "weeks-6-8",
+    "stock": 2,
+    "designer": "Matteo Ferrante",
+    "year": 2021,
+    "description": {
+      "he": "דיסקית אלומיניום דקה בקוטר 60 ס״מ, עם אור ישיר אל השולחן ואור עקיף רך המוחזר אל התקרה. מתאימה לפינת אוכל או לאי מטבח, בגובה תלייה של 70–80 ס״מ מהמשטח.",
+      "en": "A slim 60 cm aluminium disc that throws light down onto the table and bounces a soft wash back to the ceiling. Hang it 70–80 cm above a dining table or kitchen island."
+    },
+    "tags": [
+      "disc",
+      "dining",
+      "dimmable",
+      "aluminium",
+      "statement"
+    ],
+    "art": {
+      "kind": "disc",
+      "width": 0.8,
+      "height": 0.12,
+      "drop": 0.5,
+      "body": "#F2EEE6",
+      "emissive": "#FFE2B8",
+      "count": 1,
+      "shape": "pool",
+      "beam": 110
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 5
+  },
+  {
+    "id": "artemide-ramo-terra",
+    "slug": "artemide-ramo-terra",
+    "brand": "artemide",
+    "name": "Ramo Terra",
+    "nameHe": "ראמו טרה",
+    "type": "floor",
+    "spaces": [
+      "living",
+      "office",
+      "bedroom"
+    ],
+    "lumens": 1800,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 16,
+    "ip": 20,
+    "dimming": [
+      "phase",
+      "push"
+    ],
+    "size": {
+      "w": 30,
+      "h": 180,
+      "d": 30
+    },
+    "finishes": [
+      "black",
+      "white",
+      "brass"
+    ],
+    "price": 6900,
+    "leadTime": "weeks-6-8",
+    "stock": 1,
+    "designer": "Matteo Ferrante",
+    "year": 2019,
+    "description": {
+      "he": "מנורת רצפה על גזע אלומיניום דק, עם ראש מתכוונן ואור עקיף המופנה אל התקרה. פתרון שקט לפינת ישיבה או ליד שולחן עבודה, בלי סנוור.",
+      "en": "A thin aluminium stem with an adjustable head that sends indirect light up to the ceiling. A quiet choice next to a sofa or a desk, with no glare in the eye."
+    },
+    "tags": [
+      "floor",
+      "indirect",
+      "adjustable",
+      "dimmable",
+      "aluminium"
+    ],
+    "art": {
+      "kind": "stem",
+      "width": 0.25,
+      "height": 0.9,
+      "drop": 0,
+      "body": "#141414",
+      "emissive": "#FFE2B8",
+      "count": 1,
+      "shape": "wash",
+      "beam": 90
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 4
+  },
+  {
+    "id": "artemide-ramo-tavolo",
+    "slug": "artemide-ramo-tavolo",
+    "brand": "artemide",
+    "name": "Ramo Tavolo",
+    "nameHe": "ראמו טאבולו",
+    "type": "table",
+    "spaces": [
+      "office",
+      "bedroom"
+    ],
+    "lumens": 650,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 7,
+    "ip": 20,
+    "dimming": [
+      "phase",
+      "push"
+    ],
+    "size": {
+      "w": 20,
+      "h": 45,
+      "d": 20
+    },
+    "finishes": [
+      "black",
+      "white"
+    ],
+    "price": 2490,
+    "leadTime": "weeks-6-8",
+    "stock": 3,
+    "designer": "Matteo Ferrante",
+    "year": 2019,
+    "description": {
+      "he": "גרסת השולחן של סדרת ראמו: ראש LED קטן על זרוע מתכווננת, עם מפסק מגע בבסיס. מנורת קריאה לשידה או לשולחן כתיבה.",
+      "en": "The desk version of the Ramo family: a small LED head on an adjustable arm, with a touch switch in the base. A reading lamp for a nightstand or a writing desk."
+    },
+    "tags": [
+      "table",
+      "reading",
+      "adjustable",
+      "dimmable",
+      "touch"
+    ],
+    "art": {
+      "kind": "stem",
+      "width": 0.2,
+      "height": 0.7,
+      "drop": 0,
+      "body": "#F2EEE6",
+      "emissive": "#FFE2B8",
+      "count": 1,
+      "shape": "cone",
+      "beam": 70
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 3
+  },
+  {
+    "id": "artemide-incasso-puro",
+    "slug": "artemide-incasso-puro",
+    "brand": "artemide",
+    "name": "Incasso Puro",
+    "nameHe": "אינקאסו פורו",
+    "type": "recessed",
+    "spaces": [
+      "bathroom",
+      "hallway",
+      "kitchen"
+    ],
+    "lumens": 900,
+    "kelvin": [
+      2700,
+      3000,
+      4000
+    ],
+    "cri": 90,
+    "watts": 9,
+    "ip": 44,
+    "dimming": [
+      "dali",
+      "push"
+    ],
+    "size": {
+      "w": 8,
+      "h": 9,
+      "diameter": 8
+    },
+    "finishes": [
+      "white",
+      "black"
+    ],
+    "price": 690,
+    "leadTime": "stock",
+    "stock": 36,
+    "description": {
+      "he": "שקוע תקרה עגול ללא מסגרת, עם רפלקטור שקוע עמוק ומסך נגד סנוור. מתאים לחדרי רחצה ולמסדרונות, גם בתקרה נמוכה.",
+      "en": "A round trimless downlight with a deep-set reflector and anti-glare baffle. Suited to bathrooms and corridors, including low ceilings."
+    },
+    "tags": [
+      "recessed",
+      "technical",
+      "trimless",
+      "ip44",
+      "dali"
+    ],
+    "art": {
+      "kind": "puck",
+      "width": 0.4,
+      "height": 0.1,
+      "drop": 0,
+      "body": "#F2EEE6",
+      "emissive": "#FFF1DC",
+      "count": 1,
+      "shape": "spot",
+      "beam": 36
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 2
+  },
+  {
+    "id": "artemide-anello-soffitto",
+    "slug": "artemide-anello-soffitto",
+    "brand": "artemide",
+    "name": "Anello Soffitto",
+    "nameHe": "אנלו סופיטו",
+    "type": "ceiling",
+    "spaces": [
+      "living",
+      "kitchen",
+      "hallway"
+    ],
+    "lumens": 3200,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 30,
+    "ip": 20,
+    "dimming": [
+      "phase",
+      "push"
+    ],
+    "size": {
+      "w": 70,
+      "h": 6,
+      "diameter": 70
+    },
+    "finishes": [
+      "white",
+      "black",
+      "brass"
+    ],
+    "price": 5900,
+    "leadTime": "weeks-6-8",
+    "stock": 0,
+    "description": {
+      "he": "טבעת צמודת תקרה בקוטר 70 ס״מ עם דיפיוזר אופלי, המפיצה אור אחיד בלי נקודות חמות. תאורה כללית לסלון או למטבח כשאין גובה לתלייה.",
+      "en": "A 70 cm surface-mounted ring with an opal diffuser that spreads even light without hot spots. General lighting for a living room or kitchen where there is no height to suspend."
+    },
+    "tags": [
+      "ceiling",
+      "ring",
+      "opal",
+      "dimmable",
+      "low-ceiling"
+    ],
+    "art": {
+      "kind": "ring",
+      "width": 0.8,
+      "height": 0.1,
+      "drop": 0,
+      "body": "#B8955B",
+      "emissive": "#FFE2B8",
+      "count": 1,
+      "shape": "diffuse",
+      "beam": 240
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 3
+  },
+  {
+    "id": "vibia-nube",
+    "slug": "vibia-nube",
+    "brand": "vibia",
+    "name": "Nube",
+    "nameHe": "נובה",
+    "type": "pendant",
+    "spaces": [
+      "dining",
+      "living",
+      "kitchen"
+    ],
+    "lumens": 2400,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 22,
+    "ip": 20,
+    "dimming": [
+      "phase",
+      "push"
+    ],
+    "size": {
+      "w": 55,
+      "h": 28,
+      "diameter": 55
+    },
+    "finishes": [
+      "white",
+      "terracotta",
+      "black"
+    ],
+    "price": 6490,
+    "leadTime": "weeks-6-8",
+    "stock": 1,
+    "designer": "Clara Montero",
+    "year": 2020,
+    "description": {
+      "he": "אהיל כיפה רחב מאלומיניום צבוע, עם מקור LED מוסתר ודיפיוזר פנימי. מעל שולחן אוכל הוא יוצר בריכת אור חמה בלי לחשוף את הנורה.",
+      "en": "A wide painted-aluminium dome with a hidden LED source and an inner diffuser. Over a dining table it creates a warm pool of light without ever showing the lamp."
+    },
+    "tags": [
+      "dome",
+      "dining",
+      "dimmable",
+      "statement",
+      "matte"
+    ],
+    "art": {
+      "kind": "dome",
+      "width": 0.75,
+      "height": 0.4,
+      "drop": 0.45,
+      "body": "#B3674A",
+      "emissive": "#FFE2B8",
+      "count": 1,
+      "shape": "pool",
+      "beam": 100
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 5
+  },
+  {
+    "id": "vibia-pliegue",
+    "slug": "vibia-pliegue",
+    "brand": "vibia",
+    "name": "Pliegue",
+    "nameHe": "פליאגה",
+    "type": "wall",
+    "spaces": [
+      "hallway",
+      "bedroom",
+      "living"
+    ],
+    "lumens": 1100,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 11,
+    "ip": 20,
+    "dimming": [
+      "phase"
+    ],
+    "size": {
+      "w": 24,
+      "h": 32,
+      "d": 10
+    },
+    "finishes": [
+      "white",
+      "terracotta",
+      "concrete"
+    ],
+    "price": 2890,
+    "leadTime": "weeks-6-8",
+    "stock": 2,
+    "designer": "Clara Montero",
+    "year": 2018,
+    "description": {
+      "he": "גוף קיר מקופל מפח, שקפליו מפזרים את האור למעלה ולמטה. מתאים לצד המיטה או כשורה לאורך מסדרון, במיוחד על קיר בטון או טיח.",
+      "en": "A folded sheet-metal wall light whose creases throw light both up and down. Works beside a bed or in a row along a corridor, especially on concrete or plaster."
+    },
+    "tags": [
+      "wall",
+      "up-down",
+      "sculptural",
+      "dimmable"
+    ],
+    "art": {
+      "kind": "sconce",
+      "width": 0.5,
+      "height": 0.6,
+      "drop": 0,
+      "body": "#8E8E8A",
+      "emissive": "#FFE2B8",
+      "count": 1,
+      "shape": "wash",
+      "beam": 120
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 4
+  },
+  {
+    "id": "vibia-sendero",
+    "slug": "vibia-sendero",
+    "brand": "vibia",
+    "name": "Sendero",
+    "nameHe": "סנדרו",
+    "type": "outdoor",
+    "spaces": [
+      "outdoor"
+    ],
+    "lumens": 800,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 80,
+    "watts": 9,
+    "ip": 65,
+    "dimming": [
+      "none"
+    ],
+    "size": {
+      "w": 12,
+      "h": 80,
+      "d": 12
+    },
+    "finishes": [
+      "black",
+      "bronze"
+    ],
+    "price": 3490,
+    "leadTime": "weeks-2-4",
+    "stock": 2,
+    "description": {
+      "he": "עמוד גינה בגובה 80 ס״מ מאלומיניום צבוע, עם אור מופנה כלפי מטה אל השביל. מיועד לשבילי גישה ולגינות, ללא סנוור אל החלונות.",
+      "en": "An 80 cm painted-aluminium bollard that directs light down onto the path. Meant for entrance walks and gardens, with no glare towards the windows."
+    },
+    "tags": [
+      "outdoor",
+      "bollard",
+      "ip65",
+      "garden",
+      "path"
+    ],
+    "art": {
+      "kind": "bollard",
+      "width": 0.2,
+      "height": 0.85,
+      "drop": 0,
+      "body": "#141414",
+      "emissive": "#FFD9A8",
+      "count": 1,
+      "shape": "wash",
+      "beam": 180
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 3
+  },
+  {
+    "id": "vibia-trazo",
+    "slug": "vibia-trazo",
+    "brand": "vibia",
+    "name": "Trazo",
+    "nameHe": "טראסו",
+    "type": "linear",
+    "spaces": [
+      "office",
+      "commercial",
+      "kitchen"
+    ],
+    "lumens": 4200,
+    "kelvin": [
+      3000,
+      4000
+    ],
+    "cri": 90,
+    "watts": 38,
+    "ip": 20,
+    "dimming": [
+      "dali",
+      "1-10v"
+    ],
+    "size": {
+      "w": 150,
+      "h": 5,
+      "d": 5
+    },
+    "finishes": [
+      "black",
+      "white"
+    ],
+    "price": 5490,
+    "leadTime": "weeks-2-4",
+    "stock": 3,
+    "description": {
+      "he": "פרופיל תלוי באורך 150 ס״מ עם דיפיוזר מיקרו-פריזמטי, לאור עבודה אחיד מעל שולחן ישיבות או אי מטבח. ניתן לחבר כמה יחידות לקו רציף.",
+      "en": "A 150 cm suspended profile with a micro-prismatic diffuser for even task light over a meeting table or kitchen island. Can be joined into continuous runs."
+    },
+    "tags": [
+      "linear",
+      "technical",
+      "office",
+      "dali",
+      "task"
+    ],
+    "art": {
+      "kind": "bar",
+      "width": 0.9,
+      "height": 0.1,
+      "drop": 0.3,
+      "body": "#141414",
+      "emissive": "#FFF1DC",
+      "count": 1,
+      "shape": "diffuse",
+      "beam": 110
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 3
+  },
+  {
+    "id": "vibia-lluvia",
+    "slug": "vibia-lluvia",
+    "brand": "vibia",
+    "name": "Lluvia",
+    "nameHe": "יוביה",
+    "type": "pendant",
+    "spaces": [
+      "hallway",
+      "living",
+      "dining"
+    ],
+    "lumens": 1200,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 12,
+    "ip": 20,
+    "dimming": [
+      "phase",
+      "push"
+    ],
+    "size": {
+      "w": 8,
+      "h": 60,
+      "diameter": 8
+    },
+    "finishes": [
+      "white",
+      "black",
+      "brass"
+    ],
+    "price": 3290,
+    "leadTime": "weeks-6-8",
+    "stock": 0,
+    "designer": "Pau Ribalta",
+    "year": 2022,
+    "description": {
+      "he": "גליל צר ומוארך לתלייה בודדת או בקבוצות בגבהים שונים, כמו טיפות גשם. מתאים לחלל מדרגות או לכניסה עם תקרה גבוהה.",
+      "en": "A slim, elongated cylinder to hang alone or in groups at staggered heights, like falling rain. Ideal for a stairwell or an entrance hall with a tall ceiling."
+    },
+    "tags": [
+      "cylinder",
+      "stairwell",
+      "cluster",
+      "dimmable",
+      "double-height"
+    ],
+    "art": {
+      "kind": "cylinder",
+      "width": 0.15,
+      "height": 0.7,
+      "drop": 0.6,
+      "body": "#F2EEE6",
+      "emissive": "#FFE2B8",
+      "count": 1,
+      "shape": "pool",
+      "beam": 90
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 3
+  },
+  {
+    "id": "bomma-perla",
+    "slug": "bomma-perla",
+    "brand": "bomma",
+    "name": "Perla",
+    "nameHe": "פרלה",
+    "type": "pendant",
+    "spaces": [
+      "dining",
+      "living",
+      "bedroom"
+    ],
+    "lumens": 900,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 9,
+    "ip": 20,
+    "dimming": [
+      "phase"
+    ],
+    "size": {
+      "w": 30,
+      "h": 30,
+      "diameter": 30
+    },
+    "finishes": [
+      "clear-glass",
+      "smoke-glass",
+      "opal-glass",
+      "brass"
+    ],
+    "price": 4290,
+    "leadTime": "weeks-6-8",
+    "stock": 2,
+    "designer": "Tereza Hrubá",
+    "year": 2019,
+    "description": {
+      "he": "כדור זכוכית מנופח ביד בקוטר 30 ס״מ, בעובי דופן של כסנטימטר, על מתלה פליז מעובד. בזכוכית מעושנת האור מתרכך לגוון של בין ערביים.",
+      "en": "A hand-blown 30 cm glass sphere with walls almost a centimetre thick, on a machined brass fitting. In smoked glass the light softens to something like dusk."
+    },
+    "tags": [
+      "glass",
+      "hand-blown",
+      "globe",
+      "dining",
+      "statement"
+    ],
+    "art": {
+      "kind": "globe",
+      "width": 0.55,
+      "height": 0.55,
+      "drop": 0.5,
+      "body": "#D9E2E6",
+      "emissive": "#FFE2B8",
+      "count": 1,
+      "shape": "halo",
+      "beam": 300
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 5
+  },
+  {
+    "id": "bomma-korale",
+    "slug": "bomma-korale",
+    "brand": "bomma",
+    "name": "Korále",
+    "nameHe": "קוראלה",
+    "type": "chandelier",
+    "spaces": [
+      "living",
+      "dining",
+      "commercial"
+    ],
+    "lumens": 6500,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 60,
+    "ip": 20,
+    "dimming": [
+      "phase",
+      "push"
+    ],
+    "size": {
+      "w": 120,
+      "h": 90,
+      "d": 90
+    },
+    "finishes": [
+      "clear-glass",
+      "amber-glass",
+      "brass"
+    ],
+    "price": 48900,
+    "leadTime": "weeks-10-12",
+    "stock": 0,
+    "designer": "Tereza Hrubá",
+    "year": 2021,
+    "description": {
+      "he": "אשכול של תשעה גופי זכוכית בגדלים שונים, כל אחד מנופח בנפרד ומורכב על מסגרת פליז. מיועד לחלל כפול או ללובי, ומותאם למידות החלל.",
+      "en": "A cluster of nine individually blown glass bodies in varied sizes, mounted on a brass frame. Made for a double-height space or lobby, and configured to the room's dimensions."
+    },
+    "tags": [
+      "chandelier",
+      "glass",
+      "hand-blown",
+      "cluster",
+      "bespoke",
+      "statement"
+    ],
+    "art": {
+      "kind": "cluster",
+      "width": 0.85,
+      "height": 0.6,
+      "drop": 0.35,
+      "body": "#D9A35A",
+      "emissive": "#FFD9A8",
+      "count": 9,
+      "shape": "halo",
+      "beam": 300
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 4
+  },
+  {
+    "id": "bomma-mlha",
+    "slug": "bomma-mlha",
+    "brand": "bomma",
+    "name": "Mlha",
+    "nameHe": "מלהה",
+    "type": "table",
+    "spaces": [
+      "bedroom",
+      "living"
+    ],
+    "lumens": 500,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 6,
+    "ip": 20,
+    "dimming": [
+      "phase"
+    ],
+    "size": {
+      "w": 22,
+      "h": 30,
+      "diameter": 22
+    },
+    "finishes": [
+      "opal-glass",
+      "smoke-glass",
+      "black"
+    ],
+    "price": 3190,
+    "leadTime": "weeks-2-4",
+    "stock": 3,
+    "description": {
+      "he": "מנורת שולחן מזכוכית אופלית מנופחת על בסיס פלדה שחורה. אור רך ומפוזר שמתאים לשידה ליד המיטה או למדף בסלון.",
+      "en": "A blown opal-glass table lamp on a black steel base. Soft, diffused light for a bedside table or a living room shelf."
+    },
+    "tags": [
+      "table",
+      "glass",
+      "opal",
+      "bedside",
+      "dimmable"
+    ],
+    "art": {
+      "kind": "globe",
+      "width": 0.5,
+      "height": 0.5,
+      "drop": 0,
+      "body": "#EDEDEA",
+      "emissive": "#FFE2B8",
+      "count": 1,
+      "shape": "halo",
+      "beam": 320
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 3
+  },
+  {
+    "id": "bomma-pramen",
+    "slug": "bomma-pramen",
+    "brand": "bomma",
+    "name": "Pramen",
+    "nameHe": "פראמן",
+    "type": "wall",
+    "spaces": [
+      "bathroom",
+      "bedroom",
+      "hallway"
+    ],
+    "lumens": 800,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 8,
+    "ip": 44,
+    "dimming": [
+      "phase"
+    ],
+    "size": {
+      "w": 10,
+      "h": 35,
+      "d": 12
+    },
+    "finishes": [
+      "clear-glass",
+      "opal-glass",
+      "chrome"
+    ],
+    "price": 2690,
+    "leadTime": "weeks-6-8",
+    "stock": 1,
+    "description": {
+      "he": "גליל זכוכית מלוטשת בחיתוכים על בסיס כרום, מוגן IP44 ומתאים לשני צדי המראה בחדר הרחצה. הליטוש מפזר את האור על הפנים בלי צללים חדים.",
+      "en": "A cut-glass cylinder on a chrome base, rated IP44 for either side of a bathroom mirror. The cutting scatters light across the face without hard shadows."
+    },
+    "tags": [
+      "wall",
+      "glass",
+      "cut-glass",
+      "bathroom",
+      "ip44",
+      "mirror"
+    ],
+    "art": {
+      "kind": "cylinder",
+      "width": 0.2,
+      "height": 0.7,
+      "drop": 0,
+      "body": "#D9E2E6",
+      "emissive": "#FFF1DC",
+      "count": 1,
+      "shape": "wash",
+      "beam": 160
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 3
+  },
+  {
+    "id": "bomma-kapka",
+    "slug": "bomma-kapka",
+    "brand": "bomma",
+    "name": "Kapka",
+    "nameHe": "קאפקה",
+    "type": "pendant",
+    "spaces": [
+      "kitchen",
+      "dining",
+      "hallway"
+    ],
+    "lumens": 1300,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 13,
+    "ip": 20,
+    "dimming": [
+      "phase",
+      "push"
+    ],
+    "size": {
+      "w": 24,
+      "h": 40,
+      "diameter": 24
+    },
+    "finishes": [
+      "amber-glass",
+      "clear-glass",
+      "smoke-glass"
+    ],
+    "price": 3890,
+    "leadTime": "weeks-6-8",
+    "stock": 2,
+    "designer": "Jakub Vondra",
+    "year": 2023,
+    "description": {
+      "he": "גוף זכוכית בצורת טיפה מוארכת, מנופח לתוך תבנית ואז מלוטש ביד. שלושה כאלה מעל אי מטבח, בזכוכית ענברית, נותנים אור חם במיוחד.",
+      "en": "An elongated drop of glass, mould-blown and then hand-polished. Three of them over a kitchen island in amber glass give a very warm light."
+    },
+    "tags": [
+      "glass",
+      "drop",
+      "kitchen",
+      "island",
+      "dimmable"
+    ],
+    "art": {
+      "kind": "dome",
+      "width": 0.45,
+      "height": 0.6,
+      "drop": 0.55,
+      "body": "#D9A35A",
+      "emissive": "#FFD9A8",
+      "count": 1,
+      "shape": "pool",
+      "beam": 110
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 3
+  },
+  {
+    "id": "terzani-pioggia",
+    "slug": "terzani-pioggia",
+    "brand": "terzani",
+    "name": "Pioggia",
+    "nameHe": "פיוג'ה",
+    "type": "chandelier",
+    "spaces": [
+      "living",
+      "commercial",
+      "dining"
+    ],
+    "lumens": 9000,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 85,
+    "ip": 20,
+    "dimming": [
+      "phase",
+      "push"
+    ],
+    "size": {
+      "w": 90,
+      "h": 160,
+      "diameter": 90
+    },
+    "finishes": [
+      "nickel",
+      "brass"
+    ],
+    "price": 68000,
+    "leadTime": "weeks-10-12",
+    "stock": 0,
+    "designer": "Livia Castellani",
+    "year": 2017,
+    "description": {
+      "he": "מאות חוליות ניקל זעירות המושחלות ביד על חוטי פלדה, יורדות כמטר וחצי מהתקרה. נקודות ה-LED מוסתרות בבסיס התלייה והאור נשבר על המתכת מלמעלה. פריט לחלל כפול או ללובי.",
+      "en": "Hundreds of tiny nickel links threaded by hand onto steel wires, falling a metre and a half from the canopy. The LED points sit hidden in the canopy and the light breaks over the metal from above. A piece for a double-height room or a lobby."
+    },
+    "tags": [
+      "chandelier",
+      "cascade",
+      "hand-made",
+      "metal",
+      "statement",
+      "bespoke"
+    ],
+    "art": {
+      "kind": "cascade",
+      "width": 0.7,
+      "height": 0.85,
+      "drop": 0.2,
+      "body": "#AFB2B5",
+      "emissive": "#FFD9A8",
+      "count": 12,
+      "shape": "halo",
+      "beam": 280
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 5
+  },
+  {
+    "id": "terzani-anello-oro",
+    "slug": "terzani-anello-oro",
+    "brand": "terzani",
+    "name": "Anello d'Oro",
+    "nameHe": "אנלו ד'אורו",
+    "type": "pendant",
+    "spaces": [
+      "dining",
+      "living"
+    ],
+    "lumens": 2200,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 22,
+    "ip": 20,
+    "dimming": [
+      "phase",
+      "push"
+    ],
+    "size": {
+      "w": 80,
+      "h": 3,
+      "diameter": 80
+    },
+    "finishes": [
+      "brass",
+      "nickel"
+    ],
+    "price": 12900,
+    "leadTime": "weeks-6-8",
+    "stock": 1,
+    "designer": "Livia Castellani",
+    "year": 2020,
+    "description": {
+      "he": "טבעת פליז מוברש בקוטר 80 ס״מ, בעובי של שלושה סנטימטרים בלבד, עם רצועת אור פנימית מפוזרת. תלויה על שלושה כבלים דקים מעל שולחן אוכל עגול.",
+      "en": "A brushed-brass ring 80 cm across and only three centimetres thick, with a diffused inner band of light. Hangs on three thin cables above a round dining table."
+    },
+    "tags": [
+      "ring",
+      "brass",
+      "dining",
+      "dimmable",
+      "minimal"
+    ],
+    "art": {
+      "kind": "ring",
+      "width": 0.85,
+      "height": 0.1,
+      "drop": 0.45,
+      "body": "#B8955B",
+      "emissive": "#FFE2B8",
+      "count": 1,
+      "shape": "diffuse",
+      "beam": 220
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 4
+  },
+  {
+    "id": "terzani-filo-parete",
+    "slug": "terzani-filo-parete",
+    "brand": "terzani",
+    "name": "Filo Parete",
+    "nameHe": "פילו פארטה",
+    "type": "wall",
+    "spaces": [
+      "bedroom",
+      "living",
+      "hallway"
+    ],
+    "lumens": 600,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 6,
+    "ip": 20,
+    "dimming": [
+      "phase"
+    ],
+    "size": {
+      "w": 15,
+      "h": 45,
+      "d": 8
+    },
+    "finishes": [
+      "brass",
+      "nickel",
+      "black"
+    ],
+    "price": 3690,
+    "leadTime": "weeks-6-8",
+    "stock": 2,
+    "description": {
+      "he": "פס פליז צר ומוארך על הקיר, עם שלושה חוטי מתכת רפויים שמפזרים את האור בנצנוץ עדין. מתאים לצד המיטה במקום מנורת שידה.",
+      "en": "A narrow brass strip on the wall, with three loose metal threads that scatter the light in a faint shimmer. Works beside the bed in place of a nightstand lamp."
+    },
+    "tags": [
+      "wall",
+      "brass",
+      "bedside",
+      "hand-made",
+      "dimmable"
+    ],
+    "art": {
+      "kind": "sconce",
+      "width": 0.3,
+      "height": 0.7,
+      "drop": 0,
+      "body": "#B8955B",
+      "emissive": "#FFE2B8",
+      "count": 1,
+      "shape": "wash",
+      "beam": 140
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 3
+  },
+  {
+    "id": "terzani-velo-cascata",
+    "slug": "terzani-velo-cascata",
+    "brand": "terzani",
+    "name": "Velo Cascata",
+    "nameHe": "ולו קסקטה",
+    "type": "chandelier",
+    "spaces": [
+      "dining",
+      "living",
+      "hallway"
+    ],
+    "lumens": 4500,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 42,
+    "ip": 20,
+    "dimming": [
+      "phase",
+      "push"
+    ],
+    "size": {
+      "w": 60,
+      "h": 100,
+      "diameter": 60
+    },
+    "finishes": [
+      "nickel",
+      "brass",
+      "black"
+    ],
+    "price": 32900,
+    "leadTime": "weeks-10-12",
+    "stock": 0,
+    "designer": "Livia Castellani",
+    "year": 2019,
+    "description": {
+      "he": "גרסה צרה וקומפקטית של הקסקדה: וילון של שרשראות מתכת דקות באורך מטר, לחלל מדרגות או מעל שולחן אוכל צר. ניתן להזמין באורך מותאם.",
+      "en": "A narrower, more compact cascade: a metre-long curtain of fine metal chains for a stairwell or above a narrow dining table. Available in made-to-measure lengths."
+    },
+    "tags": [
+      "chandelier",
+      "cascade",
+      "stairwell",
+      "hand-made",
+      "bespoke"
+    ],
+    "art": {
+      "kind": "cascade",
+      "width": 0.5,
+      "height": 0.8,
+      "drop": 0.25,
+      "body": "#141414",
+      "emissive": "#FFD9A8",
+      "count": 8,
+      "shape": "halo",
+      "beam": 260
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 4
+  },
+  {
+    "id": "terzani-stelo-terra",
+    "slug": "terzani-stelo-terra",
+    "brand": "terzani",
+    "name": "Stelo Terra",
+    "nameHe": "סטלו טרה",
+    "type": "floor",
+    "spaces": [
+      "living",
+      "bedroom"
+    ],
+    "lumens": 1400,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 14,
+    "ip": 20,
+    "dimming": [
+      "phase",
+      "push"
+    ],
+    "size": {
+      "w": 35,
+      "h": 175,
+      "d": 35
+    },
+    "finishes": [
+      "brass",
+      "nickel"
+    ],
+    "price": 11900,
+    "leadTime": "weeks-6-8",
+    "stock": 1,
+    "description": {
+      "he": "מנורת רצפה על גזע פליז, עם ראש מרשת מתכת ארוגה שמפזרת את האור סביב. פריט לפינת סלון, יותר אווירה מאשר אור קריאה.",
+      "en": "A floor lamp on a brass stem, topped with a woven metal mesh head that spreads light all round. A living room piece — more atmosphere than reading light."
+    },
+    "tags": [
+      "floor",
+      "brass",
+      "mesh",
+      "hand-made",
+      "ambient"
+    ],
+    "art": {
+      "kind": "stem",
+      "width": 0.3,
+      "height": 0.9,
+      "drop": 0,
+      "body": "#B8955B",
+      "emissive": "#FFE2B8",
+      "count": 1,
+      "shape": "halo",
+      "beam": 200
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 3
+  },
+  {
+    "id": "panzeri-tondo-sospeso",
+    "slug": "panzeri-tondo-sospeso",
+    "brand": "panzeri",
+    "name": "Tondo Sospeso",
+    "nameHe": "טונדו סוספזו",
+    "type": "pendant",
+    "spaces": [
+      "dining",
+      "office",
+      "kitchen"
+    ],
+    "lumens": 3000,
+    "kelvin": [
+      2700,
+      3000,
+      4000
+    ],
+    "cri": 90,
+    "watts": 28,
+    "ip": 20,
+    "dimming": [
+      "phase",
+      "push"
+    ],
+    "size": {
+      "w": 80,
+      "h": 5,
+      "diameter": 80
+    },
+    "finishes": [
+      "white",
+      "black",
+      "oak"
+    ],
+    "price": 6990,
+    "leadTime": "stock",
+    "stock": 4,
+    "description": {
+      "he": "דיסקית תלויה בקוטר 80 ס״מ עם מסגרת אלון ודיפיוזר אופלי, המאירה למטה ולמעלה בו-זמנית. מתאימה לשולחן אוכל גדול או לחדר ישיבות.",
+      "en": "An 80 cm suspended disc with an oak frame and opal diffuser, lighting down and up at the same time. Suited to a large dining table or a meeting room."
+    },
+    "tags": [
+      "disc",
+      "oak",
+      "dining",
+      "up-down",
+      "dimmable"
+    ],
+    "art": {
+      "kind": "disc",
+      "width": 0.85,
+      "height": 0.1,
+      "drop": 0.45,
+      "body": "#B88A5C",
+      "emissive": "#FFF1DC",
+      "count": 1,
+      "shape": "pool",
+      "beam": 120
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 5
+  },
+  {
+    "id": "panzeri-piano",
+    "slug": "panzeri-piano",
+    "brand": "panzeri",
+    "name": "Piano",
+    "nameHe": "פיאנו",
+    "type": "ceiling",
+    "spaces": [
+      "kitchen",
+      "bedroom",
+      "hallway"
+    ],
+    "lumens": 2800,
+    "kelvin": [
+      2700,
+      3000,
+      4000
+    ],
+    "cri": 90,
+    "watts": 26,
+    "ip": 20,
+    "dimming": [
+      "phase",
+      "push"
+    ],
+    "size": {
+      "w": 50,
+      "h": 7,
+      "diameter": 50
+    },
+    "finishes": [
+      "white",
+      "black",
+      "oak"
+    ],
+    "price": 3490,
+    "leadTime": "stock",
+    "stock": 8,
+    "description": {
+      "he": "צמוד תקרה עגול ודק בקוטר 50 ס״מ, עם דיפיוזר אופלי בגוון חם. תאורה בסיסית אחידה לחדר שינה, למטבח או למסדרון.",
+      "en": "A thin 50 cm round ceiling light with a warm opal diffuser. Even base lighting for a bedroom, kitchen or hallway."
+    },
+    "tags": [
+      "ceiling",
+      "disc",
+      "opal",
+      "dimmable"
+    ],
+    "art": {
+      "kind": "disc",
+      "width": 0.7,
+      "height": 0.1,
+      "drop": 0,
+      "body": "#F2EEE6",
+      "emissive": "#FFF1DC",
+      "count": 1,
+      "shape": "diffuse",
+      "beam": 200
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 2
+  },
+  {
+    "id": "panzeri-riga",
+    "slug": "panzeri-riga",
+    "brand": "panzeri",
+    "name": "Riga",
+    "nameHe": "ריגה",
+    "type": "linear",
+    "spaces": [
+      "office",
+      "kitchen",
+      "commercial"
+    ],
+    "lumens": 3600,
+    "kelvin": [
+      3000,
+      4000
+    ],
+    "cri": 90,
+    "watts": 32,
+    "ip": 20,
+    "dimming": [
+      "dali",
+      "1-10v"
+    ],
+    "size": {
+      "w": 120,
+      "h": 4,
+      "d": 6
+    },
+    "finishes": [
+      "black",
+      "white",
+      "oak"
+    ],
+    "price": 4290,
+    "leadTime": "stock",
+    "stock": 6,
+    "description": {
+      "he": "פרופיל תלוי באורך 120 ס״מ בציפוי אלון, עם אור ישיר למטה ורצועת אור עקיף למעלה. מעל אי מטבח או שולחן עבודה.",
+      "en": "A 120 cm suspended profile faced in oak, with direct light down and an indirect strip up. For a kitchen island or a work table."
+    },
+    "tags": [
+      "linear",
+      "oak",
+      "task",
+      "dali",
+      "up-down"
+    ],
+    "art": {
+      "kind": "bar",
+      "width": 0.85,
+      "height": 0.1,
+      "drop": 0.35,
+      "body": "#B88A5C",
+      "emissive": "#FFF1DC",
+      "count": 1,
+      "shape": "diffuse",
+      "beam": 120
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 3
+  },
+  {
+    "id": "panzeri-sentiero",
+    "slug": "panzeri-sentiero",
+    "brand": "panzeri",
+    "name": "Sentiero",
+    "nameHe": "סנטיירו",
+    "type": "outdoor",
+    "spaces": [
+      "outdoor"
+    ],
+    "lumens": 600,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 80,
+    "watts": 7,
+    "ip": 65,
+    "dimming": [
+      "none"
+    ],
+    "size": {
+      "w": 10,
+      "h": 60,
+      "d": 10
+    },
+    "finishes": [
+      "bronze",
+      "black"
+    ],
+    "price": 2290,
+    "leadTime": "weeks-2-4",
+    "stock": 3,
+    "description": {
+      "he": "עמוד נמוך בגובה 60 ס״מ בגימור ברונזה, עם חריץ אור אחד המופנה אל הקרקע. לסימון שבילים ומדרגות גן.",
+      "en": "A low 60 cm post in bronze finish with a single slot of light aimed at the ground. For marking paths and garden steps."
+    },
+    "tags": [
+      "outdoor",
+      "bollard",
+      "ip65",
+      "path",
+      "bronze"
+    ],
+    "art": {
+      "kind": "bollard",
+      "width": 0.18,
+      "height": 0.75,
+      "drop": 0,
+      "body": "#5A4634",
+      "emissive": "#FFD9A8",
+      "count": 1,
+      "shape": "wash",
+      "beam": 160
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 2
+  },
+  {
+    "id": "fabbian-vetro-cono",
+    "slug": "fabbian-vetro-cono",
+    "brand": "fabbian",
+    "name": "Vetro Cono",
+    "nameHe": "וטרו קונו",
+    "type": "pendant",
+    "spaces": [
+      "kitchen",
+      "dining",
+      "bedroom"
+    ],
+    "lumens": 1500,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 15,
+    "ip": 20,
+    "dimming": [
+      "phase",
+      "push"
+    ],
+    "size": {
+      "w": 28,
+      "h": 32,
+      "diameter": 28
+    },
+    "finishes": [
+      "clear-glass",
+      "smoke-glass",
+      "amber-glass",
+      "chrome"
+    ],
+    "price": 4690,
+    "leadTime": "weeks-2-4",
+    "stock": 3,
+    "designer": "Enrico Dal Bò",
+    "year": 2016,
+    "description": {
+      "he": "חרוט זכוכית מנופח בעובי משתנה, עבה בשפה ודק למעלה, עם ראש כרום. האור מתרכז על המשטח שמתחת ומתפזר בעדינות דרך הזכוכית סביב.",
+      "en": "A blown glass cone of varying thickness, heavy at the rim and thin at the top, with a chrome head. Light concentrates on the surface below and leaks softly through the glass around."
+    },
+    "tags": [
+      "glass",
+      "cone",
+      "kitchen",
+      "hand-blown",
+      "dimmable"
+    ],
+    "art": {
+      "kind": "cone",
+      "width": 0.5,
+      "height": 0.6,
+      "drop": 0.5,
+      "body": "#4A4A4D",
+      "emissive": "#FFE2B8",
+      "count": 1,
+      "shape": "cone",
+      "beam": 80
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 5
+  },
+  {
+    "id": "fabbian-mezzaluna",
+    "slug": "fabbian-mezzaluna",
+    "brand": "fabbian",
+    "name": "Mezzaluna",
+    "nameHe": "מצאלונה",
+    "type": "wall",
+    "spaces": [
+      "bedroom",
+      "hallway",
+      "living"
+    ],
+    "lumens": 900,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 9,
+    "ip": 20,
+    "dimming": [
+      "phase"
+    ],
+    "size": {
+      "w": 30,
+      "h": 15,
+      "d": 12
+    },
+    "finishes": [
+      "opal-glass",
+      "chrome",
+      "brass"
+    ],
+    "price": 1890,
+    "leadTime": "weeks-2-4",
+    "stock": 3,
+    "description": {
+      "he": "חצי כיפה מזכוכית אופלית צמודה לקיר, עם אור המופנה כלפי מעלה. קלאסיקה שקטה למסדרונות ולחדרי שינה.",
+      "en": "A half-dome of opal glass flush to the wall, throwing light upward. A quiet classic for corridors and bedrooms."
+    },
+    "tags": [
+      "wall",
+      "opal",
+      "uplight",
+      "glass"
+    ],
+    "art": {
+      "kind": "sconce",
+      "width": 0.6,
+      "height": 0.35,
+      "drop": 0,
+      "body": "#EDEDEA",
+      "emissive": "#FFE2B8",
+      "count": 1,
+      "shape": "wash",
+      "beam": 150
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 3
+  },
+  {
+    "id": "fabbian-colonna",
+    "slug": "fabbian-colonna",
+    "brand": "fabbian",
+    "name": "Colonna",
+    "nameHe": "קולונה",
+    "type": "floor",
+    "spaces": [
+      "living",
+      "commercial",
+      "hallway"
+    ],
+    "lumens": 2000,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 20,
+    "ip": 20,
+    "dimming": [
+      "phase",
+      "push"
+    ],
+    "size": {
+      "w": 25,
+      "h": 160,
+      "diameter": 25
+    },
+    "finishes": [
+      "opal-glass",
+      "smoke-glass",
+      "brass"
+    ],
+    "price": 9900,
+    "leadTime": "weeks-6-8",
+    "stock": 1,
+    "designer": "Enrico Dal Bò",
+    "year": 2021,
+    "description": {
+      "he": "עמוד זכוכית אופלית בגובה 160 ס״מ, מורכב מחמש חוליות מנופחות המוארות מבפנים לכל אורכן. תאורת רצפה פיסולית לפינת סלון או ללובי.",
+      "en": "A 160 cm column of opal glass, built from five blown sections lit from within along their full height. Sculptural floor lighting for a living room corner or a lobby."
+    },
+    "tags": [
+      "floor",
+      "glass",
+      "column",
+      "sculptural",
+      "dimmable"
+    ],
+    "art": {
+      "kind": "stem",
+      "width": 0.3,
+      "height": 0.9,
+      "drop": 0,
+      "body": "#EDEDEA",
+      "emissive": "#FFE2B8",
+      "count": 1,
+      "shape": "diffuse",
+      "beam": 300
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 4
+  },
+  {
+    "id": "fabbian-fiammella",
+    "slug": "fabbian-fiammella",
+    "brand": "fabbian",
+    "name": "Fiammella",
+    "nameHe": "פיאמלה",
+    "type": "table",
+    "spaces": [
+      "bedroom",
+      "living"
+    ],
+    "lumens": 450,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 5,
+    "ip": 20,
+    "dimming": [
+      "phase"
+    ],
+    "size": {
+      "w": 18,
+      "h": 28,
+      "d": 18
+    },
+    "finishes": [
+      "opal-glass",
+      "amber-glass",
+      "brass"
+    ],
+    "price": 1990,
+    "leadTime": "weeks-2-4",
+    "stock": 3,
+    "description": {
+      "he": "פנס שולחן קטן מזכוכית מנופחת על בסיס פליז, עם נורת LED בעוצמה נמוכה. מנורת אווירה לשידה או לפינת קריאה.",
+      "en": "A small blown-glass table lantern on a brass base, with a low-output LED lamp. A mood lamp for a nightstand or a reading corner."
+    },
+    "tags": [
+      "table",
+      "lantern",
+      "glass",
+      "ambient"
+    ],
+    "art": {
+      "kind": "lantern",
+      "width": 0.45,
+      "height": 0.6,
+      "drop": 0,
+      "body": "#D9A35A",
+      "emissive": "#FFD9A8",
+      "count": 1,
+      "shape": "halo",
+      "beam": 300
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 2
+  },
+  {
+    "id": "exenia-punto",
+    "slug": "exenia-punto",
+    "brand": "exenia",
+    "name": "Punto",
+    "nameHe": "פונטו",
+    "type": "recessed",
+    "spaces": [
+      "kitchen",
+      "hallway",
+      "living"
+    ],
+    "lumens": 1000,
+    "kelvin": [
+      2700,
+      3000,
+      4000
+    ],
+    "cri": 90,
+    "watts": 9,
+    "ip": 20,
+    "dimming": [
+      "dali",
+      "1-10v"
+    ],
+    "size": {
+      "w": 7,
+      "h": 10,
+      "diameter": 7
+    },
+    "finishes": [
+      "black",
+      "white"
+    ],
+    "price": 590,
+    "leadTime": "stock",
+    "stock": 40,
+    "description": {
+      "he": "ספוט שקוע בקוטר 7 ס״מ, עם מקור LED שקוע עמוק ורפלקטור מושחר נגד סנוור. פתרון בסיסי לתקרות גבס במטבח ובמסדרון.",
+      "en": "A 7 cm recessed spot with a deep-set LED and a blackened anti-glare reflector. The basic choice for plasterboard ceilings in kitchens and corridors."
+    },
+    "tags": [
+      "recessed",
+      "technical",
+      "spot",
+      "dali",
+      "low-glare"
+    ],
+    "art": {
+      "kind": "puck",
+      "width": 0.35,
+      "height": 0.1,
+      "drop": 0,
+      "body": "#141414",
+      "emissive": "#FFF1DC",
+      "count": 1,
+      "shape": "spot",
+      "beam": 30
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 2
+  },
+  {
+    "id": "exenia-binario",
+    "slug": "exenia-binario",
+    "brand": "exenia",
+    "name": "Binario",
+    "nameHe": "בינאריו",
+    "type": "track",
+    "spaces": [
+      "commercial",
+      "living",
+      "office"
+    ],
+    "lumens": 1200,
+    "kelvin": [
+      3000,
+      4000
+    ],
+    "cri": 90,
+    "watts": 12,
+    "ip": 20,
+    "dimming": [
+      "dali",
+      "push",
+      "casambi"
+    ],
+    "size": {
+      "w": 6,
+      "h": 14,
+      "d": 6
+    },
+    "finishes": [
+      "black",
+      "white"
+    ],
+    "price": 890,
+    "leadTime": "stock",
+    "stock": 24,
+    "description": {
+      "he": "ספוט צר בקוטר 6 ס״מ לפס צבירה תלת-פאזי, עם עדשה מתחלפת 24° או 36°. להארת תמונות וחלונות ראווה, וגם לסלון עם תקרה גבוהה.",
+      "en": "A slim 6 cm track head for three-phase rail, with interchangeable 24° and 36° lenses. For lighting artwork and shop displays, and for living rooms with high ceilings."
+    },
+    "tags": [
+      "track",
+      "technical",
+      "accent",
+      "casambi",
+      "retail"
+    ],
+    "art": {
+      "kind": "trackhead",
+      "width": 0.8,
+      "height": 0.3,
+      "drop": 0,
+      "body": "#141414",
+      "emissive": "#FFF1DC",
+      "count": 3,
+      "shape": "spot",
+      "beam": 36
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 4
+  },
+  {
+    "id": "exenia-foro-trimless",
+    "slug": "exenia-foro-trimless",
+    "brand": "exenia",
+    "name": "Foro Trimless",
+    "nameHe": "פורו טרימלס",
+    "type": "recessed",
+    "spaces": [
+      "living",
+      "bedroom",
+      "hallway"
+    ],
+    "lumens": 700,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 95,
+    "watts": 7,
+    "ip": 20,
+    "dimming": [
+      "dali",
+      "push"
+    ],
+    "size": {
+      "w": 5,
+      "h": 9,
+      "diameter": 5
+    },
+    "finishes": [
+      "white",
+      "black"
+    ],
+    "price": 790,
+    "leadTime": "stock",
+    "stock": 30,
+    "description": {
+      "he": "שקוע מיניאטורי בקוטר 5 ס״מ ללא מסגרת, המטויח לתוך התקרה ונעלם בה. CRI 95 להארת בדים וחומרים בסלון ובחדרי שינה.",
+      "en": "A miniature 5 cm trimless downlight, plastered into the ceiling until it disappears. CRI 95 for rendering fabrics and materials in living rooms and bedrooms."
+    },
+    "tags": [
+      "recessed",
+      "trimless",
+      "technical",
+      "cri95",
+      "minimal"
+    ],
+    "art": {
+      "kind": "puck",
+      "width": 0.3,
+      "height": 0.1,
+      "drop": 0,
+      "body": "#F2EEE6",
+      "emissive": "#FFF1DC",
+      "count": 1,
+      "shape": "spot",
+      "beam": 28
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 2
+  },
+  {
+    "id": "exenia-linea-incasso",
+    "slug": "exenia-linea-incasso",
+    "brand": "exenia",
+    "name": "Linea Incasso",
+    "nameHe": "ליניאה אינקאסו",
+    "type": "linear",
+    "spaces": [
+      "commercial",
+      "office",
+      "hallway"
+    ],
+    "lumens": 2400,
+    "kelvin": [
+      3000,
+      4000
+    ],
+    "cri": 90,
+    "watts": 22,
+    "ip": 20,
+    "dimming": [
+      "dali",
+      "1-10v"
+    ],
+    "size": {
+      "w": 100,
+      "h": 6,
+      "d": 3.5
+    },
+    "finishes": [
+      "black",
+      "white"
+    ],
+    "price": 2990,
+    "leadTime": "stock",
+    "stock": 10,
+    "description": {
+      "he": "פרופיל שקוע ברוחב 3.5 ס״מ לתקרת גבס, באורך מטר, עם דיפיוזר אופלי שקוע. נקי ושקט, לקווי אור רציפים במסדרונות ובמשרדים.",
+      "en": "A 3.5 cm wide recessed profile for plasterboard, one metre long, with a recessed opal diffuser. Clean and unobtrusive, for continuous lines of light in corridors and offices."
+    },
+    "tags": [
+      "linear",
+      "recessed",
+      "technical",
+      "dali",
+      "office"
+    ],
+    "art": {
+      "kind": "bar",
+      "width": 0.9,
+      "height": 0.1,
+      "drop": 0,
+      "body": "#F2EEE6",
+      "emissive": "#FFF1DC",
+      "count": 1,
+      "shape": "diffuse",
+      "beam": 110
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 2
+  },
+  {
+    "id": "ole-farol",
+    "slug": "ole-farol",
+    "brand": "ole",
+    "name": "Farol",
+    "nameHe": "פארול",
+    "type": "table",
+    "spaces": [
+      "bedroom",
+      "living"
+    ],
+    "lumens": 400,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 5,
+    "ip": 20,
+    "dimming": [
+      "phase"
+    ],
+    "size": {
+      "w": 20,
+      "h": 35,
+      "d": 20
+    },
+    "finishes": [
+      "oak",
+      "black",
+      "white"
+    ],
+    "price": 1690,
+    "leadTime": "stock",
+    "stock": 7,
+    "designer": "Inés Vallejo",
+    "year": 2022,
+    "description": {
+      "he": "פנס שולחן ממסגרת אלון עם דיפיוזר בד מתוח וידית נשיאה. מנורת אווירה ניידת לשידה או לפינת ישיבה.",
+      "en": "A table lantern with an oak frame, a stretched fabric diffuser and a carrying handle. A portable mood lamp for a nightstand or a seating corner."
+    },
+    "tags": [
+      "table",
+      "lantern",
+      "oak",
+      "fabric",
+      "portable"
+    ],
+    "art": {
+      "kind": "lantern",
+      "width": 0.45,
+      "height": 0.65,
+      "drop": 0,
+      "body": "#B88A5C",
+      "emissive": "#FFD9A8",
+      "count": 1,
+      "shape": "halo",
+      "beam": 280
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 2
+  },
+  {
+    "id": "ole-junco",
+    "slug": "ole-junco",
+    "brand": "ole",
+    "name": "Junco",
+    "nameHe": "חונקו",
+    "type": "floor",
+    "spaces": [
+      "living",
+      "dining"
+    ],
+    "lumens": 2200,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 22,
+    "ip": 20,
+    "dimming": [
+      "phase",
+      "push"
+    ],
+    "size": {
+      "w": 160,
+      "h": 210,
+      "d": 40
+    },
+    "finishes": [
+      "black",
+      "brass",
+      "oak"
+    ],
+    "price": 8900,
+    "leadTime": "weeks-2-4",
+    "stock": 2,
+    "designer": "Inés Vallejo",
+    "year": 2021,
+    "description": {
+      "he": "מנורת קשת ברוחב 160 ס״מ על בסיס שיש, עם אהיל בד רחב בקצה הזרוע. פתרון לפינת ישיבה או לשולחן אוכל כשאין נקודת חשמל בתקרה.",
+      "en": "A 160 cm arc lamp on a marble base, with a wide fabric shade at the end of the arm. For a seating area or dining table where there is no ceiling point."
+    },
+    "tags": [
+      "floor",
+      "arc",
+      "fabric",
+      "marble",
+      "dimmable"
+    ],
+    "art": {
+      "kind": "arc",
+      "width": 0.9,
+      "height": 0.9,
+      "drop": 0,
+      "body": "#B8955B",
+      "emissive": "#FFE2B8",
+      "count": 1,
+      "shape": "pool",
+      "beam": 100
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 4
+  },
+  {
+    "id": "ole-cesta",
+    "slug": "ole-cesta",
+    "brand": "ole",
+    "name": "Cesta",
+    "nameHe": "ססטה",
+    "type": "pendant",
+    "spaces": [
+      "dining",
+      "kitchen",
+      "living"
+    ],
+    "lumens": 1400,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 14,
+    "ip": 20,
+    "dimming": [
+      "phase",
+      "push"
+    ],
+    "size": {
+      "w": 50,
+      "h": 35,
+      "diameter": 50
+    },
+    "finishes": [
+      "oak",
+      "black",
+      "white"
+    ],
+    "price": 3290,
+    "leadTime": "weeks-2-4",
+    "stock": 3,
+    "description": {
+      "he": "אהיל ארוג מרצועות אלון דקות על שלד פלדה, עם דיפיוזר פנימי. האור יורד אל השולחן ומצייר על התקרה את דוגמת האריגה.",
+      "en": "A shade woven from thin oak strips over a steel frame, with an inner diffuser. Light falls onto the table and traces the weave pattern on the ceiling."
+    },
+    "tags": [
+      "pendant",
+      "oak",
+      "woven",
+      "dining",
+      "hand-made"
+    ],
+    "art": {
+      "kind": "dome",
+      "width": 0.7,
+      "height": 0.5,
+      "drop": 0.5,
+      "body": "#B88A5C",
+      "emissive": "#FFE2B8",
+      "count": 1,
+      "shape": "pool",
+      "beam": 110
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 3
+  },
+  {
+    "id": "ole-marea",
+    "slug": "ole-marea",
+    "brand": "ole",
+    "name": "Marea",
+    "nameHe": "מריאה",
+    "type": "wall",
+    "spaces": [
+      "bathroom",
+      "hallway",
+      "bedroom"
+    ],
+    "lumens": 700,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 7,
+    "ip": 44,
+    "dimming": [
+      "phase"
+    ],
+    "size": {
+      "w": 9,
+      "h": 30,
+      "d": 11
+    },
+    "finishes": [
+      "white",
+      "black",
+      "brass"
+    ],
+    "price": 1290,
+    "leadTime": "stock",
+    "stock": 9,
+    "description": {
+      "he": "גליל קיר צר מאלומיניום צבוע, עם אור למעלה ולמטה ואטימה IP44. מתאים לצד מראה בחדר הרחצה או לאורך מסדרון.",
+      "en": "A slim painted-aluminium wall cylinder with light up and down, sealed to IP44. Fits beside a bathroom mirror or along a corridor."
+    },
+    "tags": [
+      "wall",
+      "up-down",
+      "ip44",
+      "bathroom",
+      "cylinder"
+    ],
+    "art": {
+      "kind": "cylinder",
+      "width": 0.2,
+      "height": 0.65,
+      "drop": 0,
+      "body": "#F2EEE6",
+      "emissive": "#FFE2B8",
+      "count": 1,
+      "shape": "wash",
+      "beam": 170
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 2
+  },
+  {
+    "id": "neko-micro",
+    "slug": "neko-micro",
+    "brand": "neko",
+    "name": "Micro",
+    "nameHe": "מיקרו",
+    "type": "recessed",
+    "spaces": [
+      "bathroom",
+      "kitchen",
+      "hallway"
+    ],
+    "lumens": 550,
+    "kelvin": [
+      2700,
+      3000,
+      4000
+    ],
+    "cri": 90,
+    "watts": 5,
+    "ip": 65,
+    "dimming": [
+      "dali",
+      "push"
+    ],
+    "size": {
+      "w": 4.5,
+      "h": 7,
+      "diameter": 4.5
+    },
+    "finishes": [
+      "black",
+      "white"
+    ],
+    "price": 390,
+    "leadTime": "stock",
+    "stock": 40,
+    "description": {
+      "he": "ספוט שקוע זעיר בקוטר 4.5 ס״מ, אטום IP65, להארת מקלחונים, נישות וארונות. כמה כאלה בשורה מספיקים למסדרון שלם.",
+      "en": "A tiny 4.5 cm recessed spot, sealed to IP65, for showers, niches and wardrobes. A few in a row are enough for an entire corridor."
+    },
+    "tags": [
+      "recessed",
+      "mini",
+      "ip65",
+      "technical",
+      "shower"
+    ],
+    "art": {
+      "kind": "puck",
+      "width": 0.25,
+      "height": 0.1,
+      "drop": 0,
+      "body": "#141414",
+      "emissive": "#FFF1DC",
+      "count": 1,
+      "shape": "spot",
+      "beam": 32
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 1
+  },
+  {
+    "id": "neko-rail",
+    "slug": "neko-rail",
+    "brand": "neko",
+    "name": "Rail 48",
+    "nameHe": "רייל 48",
+    "type": "track",
+    "spaces": [
+      "commercial",
+      "kitchen",
+      "office"
+    ],
+    "lumens": 900,
+    "kelvin": [
+      3000,
+      4000
+    ],
+    "cri": 90,
+    "watts": 9,
+    "ip": 20,
+    "dimming": [
+      "dali",
+      "casambi"
+    ],
+    "size": {
+      "w": 4,
+      "h": 10,
+      "d": 4
+    },
+    "finishes": [
+      "black",
+      "white"
+    ],
+    "price": 690,
+    "leadTime": "stock",
+    "stock": 30,
+    "description": {
+      "he": "ספוט למסילה מגנטית 48V בקוטר 4 ס״מ, שניתן להזיז לאורך הפס בלי כלים. למטבחים ולחללי עבודה שבהם הסידור משתנה.",
+      "en": "A 4 cm head for 48V magnetic track, repositioned freely along the rail without tools. For kitchens and workspaces where the layout keeps changing."
+    },
+    "tags": [
+      "track",
+      "magnetic",
+      "48v",
+      "technical",
+      "modular"
+    ],
+    "art": {
+      "kind": "trackhead",
+      "width": 0.8,
+      "height": 0.25,
+      "drop": 0,
+      "body": "#F2EEE6",
+      "emissive": "#FFF1DC",
+      "count": 4,
+      "shape": "spot",
+      "beam": 30
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 2
+  },
+  {
+    "id": "neko-disco",
+    "slug": "neko-disco",
+    "brand": "neko",
+    "name": "Disco",
+    "nameHe": "דיסקו",
+    "type": "ceiling",
+    "spaces": [
+      "office",
+      "hallway",
+      "commercial"
+    ],
+    "lumens": 2000,
+    "kelvin": [
+      3000,
+      4000
+    ],
+    "cri": 90,
+    "watts": 18,
+    "ip": 20,
+    "dimming": [
+      "dali",
+      "push"
+    ],
+    "size": {
+      "w": 35,
+      "h": 4,
+      "diameter": 35
+    },
+    "finishes": [
+      "white",
+      "black"
+    ],
+    "price": 1490,
+    "leadTime": "stock",
+    "stock": 12,
+    "description": {
+      "he": "צמוד תקרה דק בקוטר 35 ס״מ, בעובי 4 ס״מ בלבד, עם דיפיוזר אופלי. גוף טכני למסדרונות, לחדרי שירות ולמשרדים.",
+      "en": "A thin 35 cm ceiling disc, only 4 cm deep, with an opal diffuser. A technical surface light for corridors, service rooms and offices."
+    },
+    "tags": [
+      "ceiling",
+      "technical",
+      "slim",
+      "dali",
+      "office"
+    ],
+    "art": {
+      "kind": "disc",
+      "width": 0.6,
+      "height": 0.1,
+      "drop": 0,
+      "body": "#F2EEE6",
+      "emissive": "#FFF1DC",
+      "count": 1,
+      "shape": "diffuse",
+      "beam": 180
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 1
+  },
+  {
+    "id": "cangini-tucci-bolla",
+    "slug": "cangini-tucci-bolla",
+    "brand": "cangini-tucci",
+    "name": "Bolla",
+    "nameHe": "בולה",
+    "type": "pendant",
+    "spaces": [
+      "dining",
+      "bedroom",
+      "kitchen"
+    ],
+    "lumens": 800,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 8,
+    "ip": 20,
+    "dimming": [
+      "phase"
+    ],
+    "size": {
+      "w": 25,
+      "h": 25,
+      "diameter": 25
+    },
+    "finishes": [
+      "clear-glass",
+      "amber-glass",
+      "smoke-glass",
+      "brass"
+    ],
+    "price": 2890,
+    "leadTime": "weeks-2-4",
+    "stock": 2,
+    "description": {
+      "he": "בועת זכוכית מנופחת ביד עם בועיות אוויר לכודות בדופן, על מתלה פליז. שלוש או ארבע בגבהים שונים מעל שולחן קטן.",
+      "en": "A hand-blown glass bubble with tiny air pockets trapped in the wall, on a brass fitting. Hang three or four at staggered heights over a small table."
+    },
+    "tags": [
+      "glass",
+      "hand-blown",
+      "globe",
+      "cluster",
+      "brass"
+    ],
+    "art": {
+      "kind": "globe",
+      "width": 0.5,
+      "height": 0.5,
+      "drop": 0.55,
+      "body": "#D9E2E6",
+      "emissive": "#FFE2B8",
+      "count": 1,
+      "shape": "halo",
+      "beam": 300
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 3
+  },
+  {
+    "id": "cangini-tucci-nuvola",
+    "slug": "cangini-tucci-nuvola",
+    "brand": "cangini-tucci",
+    "name": "Nuvola",
+    "nameHe": "נובולה",
+    "type": "chandelier",
+    "spaces": [
+      "living",
+      "dining",
+      "commercial"
+    ],
+    "lumens": 5200,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 48,
+    "ip": 20,
+    "dimming": [
+      "phase",
+      "push"
+    ],
+    "size": {
+      "w": 110,
+      "h": 70,
+      "d": 80
+    },
+    "finishes": [
+      "clear-glass",
+      "amber-glass",
+      "smoke-glass",
+      "brass"
+    ],
+    "price": 29900,
+    "leadTime": "weeks-10-12",
+    "stock": 0,
+    "description": {
+      "he": "ענן של שתים-עשרה בועות זכוכית בשלושה גדלים ושלושה גוונים, כל אחת מנופחת בנפרד בבית המלאכה. מורכב באתר לפי מידות החדר.",
+      "en": "A cloud of twelve glass bubbles in three sizes and three tints, each blown separately in the workshop. Assembled on site to the room's dimensions."
+    },
+    "tags": [
+      "chandelier",
+      "glass",
+      "hand-blown",
+      "cluster",
+      "bespoke",
+      "statement"
+    ],
+    "art": {
+      "kind": "cluster",
+      "width": 0.85,
+      "height": 0.55,
+      "drop": 0.35,
+      "body": "#D9E2E6",
+      "emissive": "#FFE2B8",
+      "count": 12,
+      "shape": "halo",
+      "beam": 300
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 5
+  },
+  {
+    "id": "cangini-tucci-goccia-parete",
+    "slug": "cangini-tucci-goccia-parete",
+    "brand": "cangini-tucci",
+    "name": "Goccia Parete",
+    "nameHe": "גוצ'ה פארטה",
+    "type": "wall",
+    "spaces": [
+      "hallway",
+      "bedroom",
+      "living"
+    ],
+    "lumens": 500,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 5,
+    "ip": 20,
+    "dimming": [
+      "phase"
+    ],
+    "size": {
+      "w": 12,
+      "h": 22,
+      "d": 14
+    },
+    "finishes": [
+      "clear-glass",
+      "amber-glass",
+      "brass"
+    ],
+    "price": 1790,
+    "leadTime": "weeks-2-4",
+    "stock": 3,
+    "description": {
+      "he": "טיפת זכוכית בודדת על זרוע פליז קצרה, להארה נקודתית ורכה. לשורה לאורך מסדרון או לצד מראה בחדר שינה.",
+      "en": "A single drop of glass on a short brass arm, for soft point lighting. For a row along a corridor or beside a bedroom mirror."
+    },
+    "tags": [
+      "wall",
+      "glass",
+      "hand-blown",
+      "brass",
+      "accent"
+    ],
+    "art": {
+      "kind": "sconce",
+      "width": 0.35,
+      "height": 0.55,
+      "drop": 0,
+      "body": "#D9A35A",
+      "emissive": "#FFD9A8",
+      "count": 1,
+      "shape": "wash",
+      "beam": 150
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 2
+  },
+  {
+    "id": "dechem-mesic",
+    "slug": "dechem-mesic",
+    "brand": "dechem",
+    "name": "Měsíc",
+    "nameHe": "מייסיץ'",
+    "type": "pendant",
+    "spaces": [
+      "living",
+      "dining",
+      "bedroom"
+    ],
+    "lumens": 1000,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 10,
+    "ip": 20,
+    "dimming": [
+      "phase",
+      "push"
+    ],
+    "size": {
+      "w": 35,
+      "h": 35,
+      "diameter": 35
+    },
+    "finishes": [
+      "opal-glass",
+      "smoke-glass",
+      "brass"
+    ],
+    "price": 5490,
+    "leadTime": "weeks-6-8",
+    "stock": 1,
+    "designer": "Ondřej Šimek",
+    "year": 2020,
+    "description": {
+      "he": "כדור זכוכית אופלית בקוטר 35 ס״מ, מנופח בפה ונחתך ישר בתחתיתו, כך שנותר פתח אור צר כלפי מטה. אור ירח חיוור לסלון או לחדר שינה.",
+      "en": "A 35 cm mouth-blown opal sphere cut flat at the bottom, leaving a narrow opening of light downward. Pale moonlight for a living room or bedroom."
+    },
+    "tags": [
+      "glass",
+      "hand-blown",
+      "globe",
+      "opal",
+      "statement"
+    ],
+    "art": {
+      "kind": "globe",
+      "width": 0.6,
+      "height": 0.6,
+      "drop": 0.45,
+      "body": "#EDEDEA",
+      "emissive": "#FFE2B8",
+      "count": 1,
+      "shape": "halo",
+      "beam": 320
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 4
+  },
+  {
+    "id": "dechem-kamen",
+    "slug": "dechem-kamen",
+    "brand": "dechem",
+    "name": "Kámen",
+    "nameHe": "קאמן",
+    "type": "table",
+    "spaces": [
+      "bedroom",
+      "living"
+    ],
+    "lumens": 400,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 5,
+    "ip": 20,
+    "dimming": [
+      "phase"
+    ],
+    "size": {
+      "w": 20,
+      "h": 24,
+      "diameter": 20
+    },
+    "finishes": [
+      "smoke-glass",
+      "clear-glass",
+      "black"
+    ],
+    "price": 2990,
+    "leadTime": "weeks-6-8",
+    "stock": 2,
+    "description": {
+      "he": "מנורת שולחן בצורת אבן מעוגלת מזכוכית מעושנת עבה, עם מקור LED בבסיס. אור עמום וחם לשידה.",
+      "en": "A table lamp shaped like a rounded stone in thick smoked glass, with the LED source in the base. Dim, warm light for a nightstand."
+    },
+    "tags": [
+      "table",
+      "glass",
+      "smoked",
+      "bedside",
+      "sculptural"
+    ],
+    "art": {
+      "kind": "globe",
+      "width": 0.5,
+      "height": 0.5,
+      "drop": 0,
+      "body": "#4A4A4D",
+      "emissive": "#FFD9A8",
+      "count": 1,
+      "shape": "halo",
+      "beam": 300
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 2
+  },
+  {
+    "id": "dechem-trubka",
+    "slug": "dechem-trubka",
+    "brand": "dechem",
+    "name": "Trubka",
+    "nameHe": "טרובקה",
+    "type": "pendant",
+    "spaces": [
+      "kitchen",
+      "dining",
+      "hallway"
+    ],
+    "lumens": 1100,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 11,
+    "ip": 20,
+    "dimming": [
+      "phase",
+      "push"
+    ],
+    "size": {
+      "w": 10,
+      "h": 45,
+      "diameter": 10
+    },
+    "finishes": [
+      "clear-glass",
+      "smoke-glass",
+      "opal-glass"
+    ],
+    "price": 3490,
+    "leadTime": "weeks-6-8",
+    "stock": 0,
+    "description": {
+      "he": "צינור זכוכית באורך 45 ס״מ עם מקור LED מוארך בתוכו וקצוות מלוטשים. שלושה עד חמישה בשורה מעל אי מטבח ארוך.",
+      "en": "A 45 cm glass tube with an elongated LED source inside and polished ends. Hang three to five in a row over a long kitchen island."
+    },
+    "tags": [
+      "glass",
+      "cylinder",
+      "kitchen",
+      "island",
+      "dimmable"
+    ],
+    "art": {
+      "kind": "cylinder",
+      "width": 0.18,
+      "height": 0.7,
+      "drop": 0.5,
+      "body": "#D9E2E6",
+      "emissive": "#FFE2B8",
+      "count": 1,
+      "shape": "pool",
+      "beam": 100
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 3
+  },
+  {
+    "id": "icone-orlo",
+    "slug": "icone-orlo",
+    "brand": "icone",
+    "name": "Orlo",
+    "nameHe": "אורלו",
+    "type": "ceiling",
+    "spaces": [
+      "living",
+      "hallway",
+      "bedroom"
+    ],
+    "lumens": 2600,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 24,
+    "ip": 20,
+    "dimming": [
+      "phase",
+      "push"
+    ],
+    "size": {
+      "w": 60,
+      "h": 3,
+      "diameter": 60
+    },
+    "finishes": [
+      "white",
+      "black",
+      "brass"
+    ],
+    "price": 3990,
+    "leadTime": "weeks-2-4",
+    "stock": 3,
+    "designer": "Giulia Serafini",
+    "year": 2022,
+    "description": {
+      "he": "טבעת צמודת תקרה בעובי 3 ס״מ בלבד, עם ערוץ אור אופלי צר לכל היקפה. כמעט נעלמת כשהיא כבויה.",
+      "en": "A surface-mounted ring only 3 cm deep, with a narrow opal channel of light around its full circumference. Nearly disappears when switched off."
+    },
+    "tags": [
+      "ceiling",
+      "ring",
+      "minimal",
+      "slim",
+      "dimmable"
+    ],
+    "art": {
+      "kind": "ring",
+      "width": 0.75,
+      "height": 0.1,
+      "drop": 0,
+      "body": "#141414",
+      "emissive": "#FFE2B8",
+      "count": 1,
+      "shape": "diffuse",
+      "beam": 230
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 4
+  },
+  {
+    "id": "icone-binario-magnetico",
+    "slug": "icone-binario-magnetico",
+    "brand": "icone",
+    "name": "Binario Magnetico",
+    "nameHe": "בינאריו מגנטיקו",
+    "type": "track",
+    "spaces": [
+      "living",
+      "commercial",
+      "office"
+    ],
+    "lumens": 1000,
+    "kelvin": [
+      2700,
+      3000,
+      4000
+    ],
+    "cri": 90,
+    "watts": 10,
+    "ip": 20,
+    "dimming": [
+      "dali",
+      "push",
+      "casambi"
+    ],
+    "size": {
+      "w": 3.5,
+      "h": 9,
+      "d": 3.5
+    },
+    "finishes": [
+      "black",
+      "white"
+    ],
+    "price": 790,
+    "leadTime": "stock",
+    "stock": 20,
+    "description": {
+      "he": "ראש ספוט צר במיוחד למסילה מגנטית שקועה, בקוטר 3.5 ס״מ ובזווית 24°. לתאורת הדגשה בסלון ובגלריות.",
+      "en": "An extra-slim spot head for recessed magnetic track, 3.5 cm across with a 24° beam. Accent lighting for living rooms and galleries."
+    },
+    "tags": [
+      "track",
+      "magnetic",
+      "accent",
+      "minimal",
+      "casambi"
+    ],
+    "art": {
+      "kind": "trackhead",
+      "width": 0.8,
+      "height": 0.25,
+      "drop": 0,
+      "body": "#141414",
+      "emissive": "#FFF1DC",
+      "count": 5,
+      "shape": "spot",
+      "beam": 24
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 2
+  },
+  {
+    "id": "icone-asta",
+    "slug": "icone-asta",
+    "brand": "icone",
+    "name": "Asta",
+    "nameHe": "אסטה",
+    "type": "floor",
+    "spaces": [
+      "living",
+      "bedroom",
+      "office"
+    ],
+    "lumens": 1300,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 13,
+    "ip": 20,
+    "dimming": [
+      "phase",
+      "push"
+    ],
+    "size": {
+      "w": 25,
+      "h": 185,
+      "d": 25
+    },
+    "finishes": [
+      "black",
+      "brass",
+      "white"
+    ],
+    "price": 5490,
+    "leadTime": "weeks-2-4",
+    "stock": 2,
+    "description": {
+      "he": "מוט פלדה בקוטר 2 ס״מ ובגובה 185 ס״מ, עם פס LED מוסתר שמאיר במשיק את הקיר שלידו. עומד בפינה ומאיר בלי להיראות.",
+      "en": "A 2 cm steel rod, 185 cm tall, with a concealed LED strip that grazes the wall beside it. Stands in a corner and lights without being seen."
+    },
+    "tags": [
+      "floor",
+      "minimal",
+      "wall-grazing",
+      "dimmable",
+      "slim"
+    ],
+    "art": {
+      "kind": "stem",
+      "width": 0.2,
+      "height": 0.9,
+      "drop": 0,
+      "body": "#141414",
+      "emissive": "#FFE2B8",
+      "count": 1,
+      "shape": "wash",
+      "beam": 100
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 3
+  },
+  {
+    "id": "avolux-spot-incasso",
+    "slug": "avolux-spot-incasso",
+    "brand": "avolux",
+    "name": "Spot Incasso",
+    "nameHe": "ספוט אינקאסו",
+    "type": "recessed",
+    "spaces": [
+      "kitchen",
+      "bathroom",
+      "commercial"
+    ],
+    "lumens": 1100,
+    "kelvin": [
+      2700,
+      3000,
+      4000
+    ],
+    "cri": 90,
+    "watts": 10,
+    "ip": 44,
+    "dimming": [
+      "dali",
+      "1-10v"
+    ],
+    "size": {
+      "w": 9,
+      "h": 11,
+      "diameter": 9
+    },
+    "finishes": [
+      "white",
+      "black"
+    ],
+    "price": 490,
+    "leadTime": "stock",
+    "stock": 40,
+    "description": {
+      "he": "שקוע תקרה מתכוונן בקוטר 9 ס״מ, עם הטיה של 25 מעלות ואטימה IP44. גוף עבודה סטנדרטי למטבחים, לחדרי רחצה ולחללים מסחריים.",
+      "en": "An adjustable 9 cm downlight with 25° of tilt and IP44 sealing. A standard workhorse for kitchens, bathrooms and commercial spaces."
+    },
+    "tags": [
+      "recessed",
+      "adjustable",
+      "ip44",
+      "technical",
+      "stock"
+    ],
+    "art": {
+      "kind": "puck",
+      "width": 0.4,
+      "height": 0.1,
+      "drop": 0,
+      "body": "#F2EEE6",
+      "emissive": "#FFF1DC",
+      "count": 1,
+      "shape": "spot",
+      "beam": 38
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 1
+  },
+  {
+    "id": "avolux-traccia",
+    "slug": "avolux-traccia",
+    "brand": "avolux",
+    "name": "Traccia",
+    "nameHe": "טראצ'ה",
+    "type": "track",
+    "spaces": [
+      "commercial",
+      "office",
+      "kitchen"
+    ],
+    "lumens": 1500,
+    "kelvin": [
+      3000,
+      4000
+    ],
+    "cri": 90,
+    "watts": 14,
+    "ip": 20,
+    "dimming": [
+      "dali",
+      "1-10v"
+    ],
+    "size": {
+      "w": 7,
+      "h": 16,
+      "d": 7
+    },
+    "finishes": [
+      "black",
+      "white"
+    ],
+    "price": 790,
+    "leadTime": "stock",
+    "stock": 28,
+    "description": {
+      "he": "ספוט לפס צבירה תלת-פאזי עם 1500 לומן, לתאורה כללית בחללים מסחריים ובמטבחים גדולים. זמין במלאי בכמויות.",
+      "en": "A three-phase track head delivering 1500 lumens, for general lighting in commercial spaces and large kitchens. Stocked in quantity."
+    },
+    "tags": [
+      "track",
+      "technical",
+      "commercial",
+      "dali",
+      "stock"
+    ],
+    "art": {
+      "kind": "trackhead",
+      "width": 0.8,
+      "height": 0.3,
+      "drop": 0,
+      "body": "#141414",
+      "emissive": "#FFF1DC",
+      "count": 4,
+      "shape": "spot",
+      "beam": 36
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 2
+  },
+  {
+    "id": "avolux-quadro",
+    "slug": "avolux-quadro",
+    "brand": "avolux",
+    "name": "Quadro",
+    "nameHe": "קוואדרו",
+    "type": "recessed",
+    "spaces": [
+      "kitchen",
+      "hallway",
+      "commercial"
+    ],
+    "lumens": 800,
+    "kelvin": [
+      3000,
+      4000
+    ],
+    "cri": 90,
+    "watts": 8,
+    "ip": 20,
+    "dimming": [
+      "dali",
+      "push"
+    ],
+    "size": {
+      "w": 8,
+      "h": 9,
+      "d": 8
+    },
+    "finishes": [
+      "white",
+      "black"
+    ],
+    "price": 450,
+    "leadTime": "stock",
+    "stock": 36,
+    "description": {
+      "he": "שקוע מרובע 8×8 ס״מ עם מסגרת דקה ורפלקטור שחור. למי שמעדיף קו ישר על פני עיגול, במטבח ובמסדרון.",
+      "en": "A square 8×8 cm downlight with a thin frame and black reflector. For those who prefer a straight line to a circle, in the kitchen and corridor."
+    },
+    "tags": [
+      "recessed",
+      "square",
+      "technical",
+      "dali"
+    ],
+    "art": {
+      "kind": "puck",
+      "width": 0.35,
+      "height": 0.1,
+      "drop": 0,
+      "body": "#141414",
+      "emissive": "#FFF1DC",
+      "count": 1,
+      "shape": "spot",
+      "beam": 36
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 1
+  },
+  {
+    "id": "vesoi-nodo",
+    "slug": "vesoi-nodo",
+    "brand": "vesoi",
+    "name": "Nodo",
+    "nameHe": "נודו",
+    "type": "pendant",
+    "spaces": [
+      "dining",
+      "kitchen",
+      "living"
+    ],
+    "lumens": 1600,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 15,
+    "ip": 20,
+    "dimming": [
+      "phase",
+      "push"
+    ],
+    "size": {
+      "w": 30,
+      "h": 36,
+      "diameter": 30
+    },
+    "finishes": [
+      "black",
+      "white",
+      "copper"
+    ],
+    "price": 3690,
+    "leadTime": "weeks-2-4",
+    "stock": 3,
+    "designer": "Alessio Bruni",
+    "year": 2019,
+    "description": {
+      "he": "חרוט אלומיניום מסובב, עם קשר בכבל התלייה שקובע את הגובה בלי כלים. גימור הנחושת מחמם את האור המוחזר מבפנים.",
+      "en": "A spun-aluminium cone with a knot in the suspension cable that sets the height without tools. The copper finish warms the light reflected from inside."
+    },
+    "tags": [
+      "cone",
+      "copper",
+      "dining",
+      "dimmable",
+      "adjustable"
+    ],
+    "art": {
+      "kind": "cone",
+      "width": 0.5,
+      "height": 0.6,
+      "drop": 0.5,
+      "body": "#B87333",
+      "emissive": "#FFE2B8",
+      "count": 1,
+      "shape": "cone",
+      "beam": 75
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 4
+  },
+  {
+    "id": "vesoi-ombra",
+    "slug": "vesoi-ombra",
+    "brand": "vesoi",
+    "name": "Ombra",
+    "nameHe": "אומברה",
+    "type": "floor",
+    "spaces": [
+      "living",
+      "bedroom"
+    ],
+    "lumens": 1800,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 18,
+    "ip": 20,
+    "dimming": [
+      "phase",
+      "push"
+    ],
+    "size": {
+      "w": 120,
+      "h": 200,
+      "d": 35
+    },
+    "finishes": [
+      "black",
+      "white",
+      "copper"
+    ],
+    "price": 6490,
+    "leadTime": "weeks-2-4",
+    "stock": 2,
+    "designer": "Alessio Bruni",
+    "year": 2020,
+    "description": {
+      "he": "מנורת קשת קומפקטית ברוחב 120 ס״מ, עם ראש כיפה קטן ובסיס פלדה שטוח שנכנס מתחת לספה. לפינת קריאה בסלון.",
+      "en": "A compact 120 cm arc lamp with a small dome head and a flat steel base that slides under the sofa. For a reading corner in the living room."
+    },
+    "tags": [
+      "floor",
+      "arc",
+      "reading",
+      "dimmable",
+      "compact"
+    ],
+    "art": {
+      "kind": "arc",
+      "width": 0.85,
+      "height": 0.9,
+      "drop": 0,
+      "body": "#141414",
+      "emissive": "#FFE2B8",
+      "count": 1,
+      "shape": "pool",
+      "beam": 90
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 3
+  },
+  {
+    "id": "vesoi-linea-sottile",
+    "slug": "vesoi-linea-sottile",
+    "brand": "vesoi",
+    "name": "Linea Sottile",
+    "nameHe": "ליניאה סוטילה",
+    "type": "linear",
+    "spaces": [
+      "office",
+      "dining",
+      "commercial"
+    ],
+    "lumens": 3000,
+    "kelvin": [
+      2700,
+      3000,
+      4000
+    ],
+    "cri": 90,
+    "watts": 27,
+    "ip": 20,
+    "dimming": [
+      "dali",
+      "push",
+      "casambi"
+    ],
+    "size": {
+      "w": 180,
+      "h": 3,
+      "d": 2.5
+    },
+    "finishes": [
+      "black",
+      "white",
+      "copper"
+    ],
+    "price": 6900,
+    "leadTime": "stock",
+    "stock": 2,
+    "description": {
+      "he": "קו תלוי באורך 180 ס״מ ובעובי 2.5 ס״מ בלבד, עם אור מפוזר כלפי מטה. מעל שולחן עבודה ארוך או דלפק קבלה.",
+      "en": "A 180 cm suspended line only 2.5 cm thick, with diffused light downward. Over a long work table or a reception counter."
+    },
+    "tags": [
+      "linear",
+      "slim",
+      "office",
+      "casambi",
+      "dimmable"
+    ],
+    "art": {
+      "kind": "bar",
+      "width": 0.95,
+      "height": 0.1,
+      "drop": 0.35,
+      "body": "#141414",
+      "emissive": "#FFF1DC",
+      "count": 1,
+      "shape": "diffuse",
+      "beam": 110
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 3
+  },
+  {
+    "id": "aldo-bernardi-lanterna",
+    "slug": "aldo-bernardi-lanterna",
+    "brand": "aldo-bernardi",
+    "name": "Lanterna",
+    "nameHe": "לנטרנה",
+    "type": "outdoor",
+    "spaces": [
+      "outdoor",
+      "hallway"
+    ],
+    "lumens": 700,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 80,
+    "watts": 8,
+    "ip": 54,
+    "dimming": [
+      "phase"
+    ],
+    "size": {
+      "w": 22,
+      "h": 42,
+      "d": 22
+    },
+    "finishes": [
+      "terracotta",
+      "bronze",
+      "black"
+    ],
+    "price": 2890,
+    "leadTime": "weeks-2-4",
+    "stock": 3,
+    "description": {
+      "he": "פנס קיר מחרס מזוגג ביד עם כיסוי זכוכית אופלית, מוגן IP54. לקיר כניסה, לחצר או למרפסת מקורה, עם אור חם ונעים.",
+      "en": "A hand-glazed terracotta wall lantern with an opal glass cover, rated IP54. For an entrance wall, a courtyard or a covered terrace, with warm, gentle light."
+    },
+    "tags": [
+      "outdoor",
+      "lantern",
+      "terracotta",
+      "ip54",
+      "hand-made"
+    ],
+    "art": {
+      "kind": "lantern",
+      "width": 0.5,
+      "height": 0.75,
+      "drop": 0,
+      "body": "#B3674A",
+      "emissive": "#FFD9A8",
+      "count": 1,
+      "shape": "halo",
+      "beam": 280
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 4
+  },
+  {
+    "id": "aldo-bernardi-ceramica-parete",
+    "slug": "aldo-bernardi-ceramica-parete",
+    "brand": "aldo-bernardi",
+    "name": "Ceramica Parete",
+    "nameHe": "צ'רמיקה פארטה",
+    "type": "wall",
+    "spaces": [
+      "bathroom",
+      "outdoor",
+      "hallway"
+    ],
+    "lumens": 600,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 6,
+    "ip": 54,
+    "dimming": [
+      "phase"
+    ],
+    "size": {
+      "w": 18,
+      "h": 20,
+      "d": 10
+    },
+    "finishes": [
+      "terracotta",
+      "white",
+      "concrete"
+    ],
+    "price": 1590,
+    "leadTime": "weeks-2-4",
+    "stock": 2,
+    "description": {
+      "he": "גוף קיר מקרמיקה יצוקה, בגימור חרס טבעי או זיגוג לבן, עם אור כלפי מעלה. מתאים לחדר רחצה כפרי וגם לקיר גינה מוגן.",
+      "en": "A cast ceramic wall light in natural terracotta or white glaze, lighting upward. Suits a rustic bathroom as well as a sheltered garden wall."
+    },
+    "tags": [
+      "wall",
+      "ceramic",
+      "ip54",
+      "uplight",
+      "hand-made"
+    ],
+    "art": {
+      "kind": "sconce",
+      "width": 0.45,
+      "height": 0.5,
+      "drop": 0,
+      "body": "#B3674A",
+      "emissive": "#FFD9A8",
+      "count": 1,
+      "shape": "wash",
+      "beam": 140
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 2
+  },
+  {
+    "id": "aldo-bernardi-piatto",
+    "slug": "aldo-bernardi-piatto",
+    "brand": "aldo-bernardi",
+    "name": "Piatto",
+    "nameHe": "פיאטו",
+    "type": "ceiling",
+    "spaces": [
+      "hallway",
+      "bedroom",
+      "kitchen"
+    ],
+    "lumens": 1500,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 90,
+    "watts": 15,
+    "ip": 20,
+    "dimming": [
+      "phase"
+    ],
+    "size": {
+      "w": 40,
+      "h": 8,
+      "diameter": 40
+    },
+    "finishes": [
+      "terracotta",
+      "white",
+      "concrete"
+    ],
+    "price": 1990,
+    "leadTime": "weeks-2-4",
+    "stock": 3,
+    "description": {
+      "he": "צלחת קרמיקה בקוטר 40 ס״מ צמודה לתקרה, עם דיפיוזר אופלי מוסתר בשוליים. גוף צנוע לכניסה, למטבח כפרי או לחדר שינה.",
+      "en": "A 40 cm ceramic plate mounted flush to the ceiling, with an opal diffuser hidden at the rim. A modest piece for an entrance, a country kitchen or a bedroom."
+    },
+    "tags": [
+      "ceiling",
+      "ceramic",
+      "disc",
+      "hand-made"
+    ],
+    "art": {
+      "kind": "disc",
+      "width": 0.65,
+      "height": 0.15,
+      "drop": 0,
+      "body": "#B3674A",
+      "emissive": "#FFE2B8",
+      "count": 1,
+      "shape": "diffuse",
+      "beam": 190
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 2
+  },
+  {
+    "id": "swarovski-cristallo-cascata",
+    "slug": "swarovski-cristallo-cascata",
+    "brand": "swarovski",
+    "name": "Cristallo Cascata",
+    "nameHe": "קריסטלו קסקטה",
+    "type": "chandelier",
+    "spaces": [
+      "living",
+      "commercial",
+      "dining"
+    ],
+    "lumens": 11000,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 95,
+    "watts": 100,
+    "ip": 20,
+    "dimming": [
+      "phase",
+      "push"
+    ],
+    "size": {
+      "w": 100,
+      "h": 180,
+      "diameter": 100
+    },
+    "finishes": [
+      "chrome",
+      "brass"
+    ],
+    "price": 98000,
+    "leadTime": "weeks-10-12",
+    "stock": 0,
+    "designer": "Hanna Reiter",
+    "year": 2018,
+    "description": {
+      "he": "מפל גבישים מלוטשים באורך 180 ס״מ, תלוי על חוטי פלדה מבסיס כרום עגול. האור ממקורות LED בעלי CRI 95 נשבר דרך הגביש ומתפזר לכל החלל. ללובי, לגרם מדרגות כפול או לאולם אירועים.",
+      "en": "A 180 cm cascade of polished crystals hung on steel wires from a round chrome canopy. CRI 95 LED sources refract through the crystal and scatter light across the whole space. For a lobby, a double-height stair or an event space."
+    },
+    "tags": [
+      "chandelier",
+      "crystal",
+      "cascade",
+      "statement",
+      "bespoke",
+      "cri95"
+    ],
+    "art": {
+      "kind": "cascade",
+      "width": 0.75,
+      "height": 0.9,
+      "drop": 0.1,
+      "body": "#C9CCD1",
+      "emissive": "#FFF1DC",
+      "count": 12,
+      "shape": "halo",
+      "beam": 300
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 5
+  },
+  {
+    "id": "swarovski-lacrima",
+    "slug": "swarovski-lacrima",
+    "brand": "swarovski",
+    "name": "Lacrima",
+    "nameHe": "לקרימה",
+    "type": "pendant",
+    "spaces": [
+      "dining",
+      "bedroom",
+      "hallway"
+    ],
+    "lumens": 900,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 95,
+    "watts": 9,
+    "ip": 20,
+    "dimming": [
+      "phase"
+    ],
+    "size": {
+      "w": 14,
+      "h": 22,
+      "diameter": 14
+    },
+    "finishes": [
+      "clear-glass",
+      "chrome"
+    ],
+    "price": 6900,
+    "leadTime": "weeks-6-8",
+    "stock": 2,
+    "description": {
+      "he": "טיפת גביש מלוטש יחידה בגובה 22 ס״מ על כבל דק, עם מקור LED מוסתר בראש הכרום. לשורה מעל שולחן אוכל צר או ליד המיטה.",
+      "en": "A single polished crystal drop 22 cm tall on a fine cable, with the LED hidden in the chrome head. For a row above a narrow dining table or beside the bed."
+    },
+    "tags": [
+      "crystal",
+      "drop",
+      "pendant",
+      "cri95",
+      "dimmable"
+    ],
+    "art": {
+      "kind": "globe",
+      "width": 0.35,
+      "height": 0.5,
+      "drop": 0.6,
+      "body": "#D9E2E6",
+      "emissive": "#FFF1DC",
+      "count": 1,
+      "shape": "halo",
+      "beam": 300
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 3
+  },
+  {
+    "id": "swarovski-faccetta",
+    "slug": "swarovski-faccetta",
+    "brand": "swarovski",
+    "name": "Faccetta",
+    "nameHe": "פאצ'טה",
+    "type": "wall",
+    "spaces": [
+      "hallway",
+      "bedroom",
+      "living"
+    ],
+    "lumens": 700,
+    "kelvin": [
+      2700,
+      3000
+    ],
+    "cri": 95,
+    "watts": 7,
+    "ip": 20,
+    "dimming": [
+      "phase"
+    ],
+    "size": {
+      "w": 15,
+      "h": 30,
+      "d": 9
+    },
+    "finishes": [
+      "chrome",
+      "brass"
+    ],
+    "price": 5900,
+    "leadTime": "weeks-6-8",
+    "stock": 1,
+    "description": {
+      "he": "גוף קיר עם לוח גביש חתוך בפאות על גב כרום, שמפזר את האור בנקודות קטנות על הקיר. לחדר שינה או לכניסה.",
+      "en": "A wall light with a faceted crystal panel on a chrome back, scattering the light into small points across the wall. For a bedroom or an entrance."
+    },
+    "tags": [
+      "wall",
+      "crystal",
+      "faceted",
+      "chrome",
+      "cri95"
+    ],
+    "art": {
+      "kind": "sconce",
+      "width": 0.35,
+      "height": 0.6,
+      "drop": 0,
+      "body": "#C9CCD1",
+      "emissive": "#FFF1DC",
+      "count": 1,
+      "shape": "wash",
+      "beam": 150
+    },
+    "files": {
+      "spec": "/demo-files/spec-sheet.pdf",
+      "ies": "/demo-files/fixture.ies",
+      "dwg": "/demo-files/fixture.dxf"
+    },
+    "featured": 3
+  }
+]

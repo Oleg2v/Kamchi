@@ -1,0 +1,219 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────────────────────
+   Kamchi — "האור נדלק". Light is the only decoration.
+   Tokens: Night, Charcoal, Ash, Paper, Warm White 2700K, Brass.
+   ───────────────────────────────────────────────────────────── */
+@theme {
+  --color-night: #050505;
+  --color-charcoal: #141414;
+  --color-ash: #3a3a3a;
+  --color-paper: #f2eee6;
+  --color-muted: #a9a59d;      /* 8.3:1 on night */
+  --color-warm: #ffd9a8;       /* 2700K */
+  --color-brass: #b8955b;      /* 7.3:1 on night — small text on night only */
+  --color-brass-light: #c9a86b;/* use for brass text on charcoal */
+
+  --font-display: var(--font-david), "David Libre", "Times New Roman", serif;
+  --font-display-en: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-ui: var(--font-heebo), Heebo, system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-plex), "IBM Plex Mono", ui-monospace, monospace;
+
+  --ease-incandescent: cubic-bezier(0.2, 0.9, 0.3, 1);
+  --ease-out-slow: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --animate-incandescent: incandescent 120ms var(--ease-incandescent) forwards;
+  --animate-flash-warm: flash-warm 1200ms ease-out forwards;
+  --animate-filament: filament 700ms var(--ease-incandescent) forwards;
+  --animate-pulse-dot: pulse-dot 2.4s ease-in-out infinite;
+
+  @keyframes incandescent {
+    0%   { opacity: 0.08; filter: brightness(0.25) saturate(2.4) sepia(0.6); }
+    35%  { opacity: 0.55; filter: brightness(0.6)  saturate(1.8) sepia(0.35); }
+    70%  { opacity: 1;    filter: brightness(1.08) saturate(1.1) sepia(0.05); }
+    100% { opacity: 1;    filter: brightness(1)    saturate(1)   sepia(0); }
+  }
+  @keyframes flash-warm {
+    0%   { box-shadow: 0 0 0 0 rgb(var(--glow-rgb) / 0), inset 0 0 0 1px rgb(var(--glow-rgb) / 0); }
+    12%  { box-shadow: 0 0 48px 4px rgb(var(--glow-rgb) / 0.55), inset 0 0 0 1px rgb(var(--glow-rgb) / 0.9); }
+    100% { box-shadow: 0 0 0 0 rgb(var(--glow-rgb) / 0), inset 0 0 0 1px rgb(var(--glow-rgb) / 0); }
+  }
+  @keyframes filament {
+    0%   { stroke-dashoffset: 1; opacity: 0.1; filter: drop-shadow(0 0 0 rgb(var(--glow-rgb) / 0)); }
+    40%  { stroke-dashoffset: 0.4; opacity: 0.6; filter: drop-shadow(0 0 4px rgb(255 140 60 / 0.6)); }
+    100% { stroke-dashoffset: 0; opacity: 1; filter: drop-shadow(0 0 14px rgb(var(--glow-rgb) / 0.9)); }
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 0.35; transform: scale(0.85); }
+    50%      { opacity: 1;    transform: scale(1); }
+  }
+}
+
+/* Runtime light state — re-tinted by the Kelvin control. */
+:root {
+  --glow-rgb: 255 217 168;  /* 2700K */
+  --glow-k: 2700;
+  --glow-hex: #ffd9a8;
+  color-scheme: dark;
+  --header-h: 4.5rem;
+}
+:root[data-kelvin="3000"] { --glow-rgb: 255 229 196; --glow-hex: #ffe5c4; --glow-k: 3000; }
+:root[data-kelvin="4000"] { --glow-rgb: 243 242 236; --glow-hex: #f3f2ec; --glow-k: 4000; }
+
+@layer base {
+  html {
+    background: var(--color-night);
+    color: var(--color-paper);
+    font-family: var(--font-ui);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: auto;
+  }
+  html { overflow-x: clip; }
+  body { min-height: 100dvh; background: var(--color-night); overflow-x: clip; }
+  /* Glows may spill past their section vertically, never widen the page. */
+  main, header, footer, section { overflow-x: clip; }
+  ::selection { background: rgb(var(--glow-rgb) / 0.35); color: var(--color-paper); }
+
+  /* Display type: Hebrew in David Libre, English in Cormorant — chosen by :lang() */
+  .font-display, h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing: -0.005em; }
+  :lang(en) .font-display, :lang(en) h1, :lang(en) h2, :lang(en) h3 { font-family: var(--font-display-en); font-weight: 400; letter-spacing: 0.005em; }
+  .font-mono, .num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+  /* Keyboard focus is light, too. */
+  :focus-visible {
+    outline: 2px solid rgb(var(--glow-rgb));
+    outline-offset: 3px;
+    box-shadow: 0 0 18px rgb(var(--glow-rgb) / 0.55);
+    border-radius: 2px;
+  }
+  button, [role="button"], a { touch-action: manipulation; }
+  img, video, canvas { display: block; max-width: 100%; }
+  input, textarea, select { font: inherit; color: inherit; }
+  [hidden] { display: none !important; }
+}
+
+@layer components {
+  /* ── Switch-on: elements start unlit; .is-on runs the 120 ms incandescent ramp. ── */
+  .switch-on {
+    opacity: var(--off-opacity, 0.18);
+    filter: brightness(0.35) saturate(0.6);
+    will-change: opacity, filter;
+  }
+  .switch-on.is-on { animation: var(--animate-incandescent); }
+  .switch-on.is-on-instant { opacity: 1; filter: none; animation: none; }
+  .lit-hover { transition: none; }
+  .lit-hover:is(:hover, :focus-visible, :focus-within) { animation: var(--animate-incandescent); }
+  /* "הכול דלוק": every element lit at once, no waiting for scroll. */
+  :root[data-all-lit="1"] .switch-on,
+  :root[data-all-lit="1"] .lit-hover { opacity: 1 !important; filter: none !important; animation: none !important; }
+
+  /* ── Glow: layered radial gradients, never a flat sprite. ── */
+  .glow {
+    position: absolute; pointer-events: none; mix-blend-mode: screen;
+    inset: auto; width: var(--glow-size, 240px); height: var(--glow-size, 240px);
+    transform: translate(-50%, -50%);
+    opacity: var(--glow-opacity, 1);
+  }
+  .glow::before, .glow::after { content: ""; position: absolute; inset: 0; border-radius: 50%; }
+  .glow::before {
+    background: radial-gradient(closest-side,
+      rgb(var(--glow-rgb) / 0.95) 0%,
+      rgb(var(--glow-rgb) / 0.55) 22%,
+      rgb(var(--glow-rgb) / 0.16) 52%,
+      transparent 72%);
+  }
+  .glow::after {
+    inset: -35%;
+    background: radial-gradient(closest-side, rgb(var(--glow-rgb) / 0.28), rgb(var(--glow-rgb) / 0.06) 55%, transparent 75%);
+    filter: blur(18px);
+  }
+  .glow--pool  { width: var(--glow-size, 320px); height: calc(var(--glow-size, 320px) * 0.42); }
+  .glow--pool::before, .glow--pool::after { border-radius: 50% / 50%; }
+  .glow--wash  { width: calc(var(--glow-size, 220px) * 0.55); height: var(--glow-size, 220px); }
+  .glow--spot  { width: calc(var(--glow-size, 120px)); height: calc(var(--glow-size, 120px) * 0.6); }
+  .glow--spot::before { background: radial-gradient(closest-side, rgb(var(--glow-rgb) / 1) 0%, rgb(var(--glow-rgb) / 0.4) 35%, transparent 70%); }
+  .glow--halo::before { background: radial-gradient(closest-side, rgb(var(--glow-rgb) / 0.7) 0%, rgb(var(--glow-rgb) / 0.3) 40%, transparent 72%); }
+  .glow--cone {
+    clip-path: polygon(44% 0, 56% 0, 100% 100%, 0 100%);
+    width: var(--glow-size, 260px); height: var(--glow-size, 260px);
+    transform: translate(-50%, 0);
+  }
+  .glow--cone::before { border-radius: 0; background: linear-gradient(to bottom, rgb(var(--glow-rgb) / 0.75), rgb(var(--glow-rgb) / 0.12) 60%, transparent 100%); }
+  .glow--cone::after { border-radius: 0; inset: 0; filter: blur(14px); background: linear-gradient(to bottom, rgb(var(--glow-rgb) / 0.3), transparent 80%); }
+
+  /* ── Surfaces ── */
+  .panel { background: var(--color-charcoal); border: 1px solid color-mix(in oklab, var(--color-ash) 70%, transparent); }
+  .hairline { border-color: color-mix(in oklab, var(--color-ash) 70%, transparent); }
+  .brass-line { background: linear-gradient(to bottom, transparent, var(--color-brass) 18%, var(--color-brass) 82%, transparent); }
+  .brass-rule { height: 1px; background: linear-gradient(to right, transparent, var(--color-brass) 20%, var(--color-brass) 80%, transparent); }
+  .lit-text { color: rgb(var(--glow-rgb)); text-shadow: 0 0 22px rgb(var(--glow-rgb) / 0.45); }
+  .eyebrow { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-brass-light); }
+
+  /* Buttons: a switch, not a pill. */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+    min-height: 2.9rem; padding: 0.7rem 1.35rem; border: 1px solid var(--color-ash);
+    color: var(--color-paper); background: transparent; font-weight: 500; font-size: 0.95rem;
+    position: relative; overflow: hidden; cursor: pointer;
+    transition: border-color 200ms var(--ease-out-slow), color 200ms, background 200ms;
+  }
+  .btn:hover, .btn:focus-visible { border-color: rgb(var(--glow-rgb)); color: rgb(var(--glow-rgb)); box-shadow: 0 0 24px rgb(var(--glow-rgb) / 0.25), inset 0 0 18px rgb(var(--glow-rgb) / 0.08); }
+  .btn-primary { border-color: rgb(var(--glow-rgb) / 0.8); color: var(--color-night); background: rgb(var(--glow-rgb)); font-weight: 600; }
+  .btn-primary:hover, .btn-primary:focus-visible { color: var(--color-night); background: color-mix(in oklab, rgb(var(--glow-rgb)) 85%, white); box-shadow: 0 0 36px rgb(var(--glow-rgb) / 0.55); }
+  .btn-brass { border-color: var(--color-brass); color: var(--color-brass-light); }
+  .btn-sm { min-height: 2.25rem; padding: 0.4rem 0.9rem; font-size: 0.85rem; }
+  .btn[disabled], .btn[aria-disabled="true"] { opacity: 0.45; cursor: not-allowed; box-shadow: none; }
+
+  .field {
+    width: 100%; background: var(--color-night); border: 1px solid var(--color-ash); color: var(--color-paper);
+    padding: 0.65rem 0.85rem; min-height: 2.75rem;
+  }
+  .field:focus { border-color: rgb(var(--glow-rgb)); outline: none; box-shadow: 0 0 0 1px rgb(var(--glow-rgb) / 0.4), 0 0 18px rgb(var(--glow-rgb) / 0.25); }
+  .chip { display: inline-flex; align-items: center; gap: 0.4rem; border: 1px solid var(--color-ash); padding: 0.3rem 0.7rem; font-size: 0.8rem; color: var(--color-muted); }
+  .chip[aria-pressed="true"], .chip.is-on { border-color: rgb(var(--glow-rgb)); color: rgb(var(--glow-rgb)); box-shadow: inset 0 0 14px rgb(var(--glow-rgb) / 0.12); }
+  .badge-beta { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.12em; border: 1px solid var(--color-brass); color: var(--color-brass-light); padding: 0.15rem 0.45rem; vertical-align: middle; }
+
+  /* Skeleton that looks designed: a slow warm sweep under glass. */
+  .skeleton { position: relative; overflow: hidden; background: var(--color-charcoal); }
+  .skeleton::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, transparent 20%, rgb(var(--glow-rgb) / 0.08) 50%, transparent 80%); transform: translateX(-100%); animation: skeleton-sweep 1.8s ease-in-out infinite; }
+  [dir="rtl"] .skeleton::after { animation-name: skeleton-sweep-rtl; }
+  @keyframes skeleton-sweep { to { transform: translateX(100%); } }
+  @keyframes skeleton-sweep-rtl { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
+
+  /* Warm flash when the other side acts (1.2 s). */
+  .flash-warm { animation: var(--animate-flash-warm); }
+
+  /* Page blackout (240 ms). */
+  .blackout { position: fixed; inset: 0; z-index: 90; background: var(--color-night); pointer-events: none; opacity: 1; transition: opacity 240ms linear; }
+  .blackout.is-clear { opacity: 0; }
+
+  .skip-link { position: fixed; inset-inline-start: 1rem; top: -4rem; z-index: 200; background: rgb(var(--glow-rgb)); color: var(--color-night); padding: 0.6rem 1rem; font-weight: 600; transition: top 150ms; }
+  .skip-link:focus { top: 1rem; }
+
+  .container-x { width: min(100% - 2rem, 88rem); margin-inline: auto; }
+  @media (min-width: 768px) { .container-x { width: min(100% - 4rem, 88rem); } }
+}
+
+@layer utilities {
+  .text-glow { color: rgb(var(--glow-rgb)); }
+  .bg-glow { background-color: rgb(var(--glow-rgb)); }
+  .border-glow { border-color: rgb(var(--glow-rgb)); }
+  .shadow-glow { box-shadow: 0 0 32px rgb(var(--glow-rgb) / 0.35); }
+  .mask-fade-b { mask-image: linear-gradient(to bottom, black 70%, transparent); }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { scrollbar-width: none; }
+}
+
+/* Reduced motion: no ramps, no sweeps, everything simply lit. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+  .switch-on { opacity: 1; filter: none; }
+  .blackout { transition: none; }
+}
+:root[data-reduced-motion="1"] .switch-on { opacity: 1 !important; filter: none !important; animation: none !important; }
+
+/* Custom dimmer cursor only on fine pointers. */
+@media (pointer: fine) {
+  :root[data-dimmer-cursor="1"] body, :root[data-dimmer-cursor="1"] a, :root[data-dimmer-cursor="1"] button { cursor: none; }
+}

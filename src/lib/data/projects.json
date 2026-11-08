@@ -1,0 +1,244 @@
+[
+  {
+    "id": "project-penthouse-rothschild",
+    "studioId": "studio-shahar-levi",
+    "name": "פנטהאוז רוטשילד",
+    "nameEn": "Rothschild Penthouse",
+    "client": "משפחת אברמוביץ'",
+    "address": "שדרות רוטשילד, תל אביב",
+    "status": "ordered",
+    "coverNote": "הלקוח ביקש שכל גופי הסלון יהיו בגימור ניקל. הקסקדה מותאמת לגובה תקרה 5.2 מ'.",
+    "rooms": [
+      {
+        "id": "room-living",
+        "name": "סלון",
+        "nameEn": "Living Room",
+        "areaM2": 48,
+        "targetLux": 150,
+        "items": [
+          { "id": "item-1", "fixtureId": "terzani-pioggia", "qty": 1, "note": "גימור ניקל, אורך מותאם 150 ס״מ", "orderStatus": "ordered_italy" },
+          { "id": "item-2", "fixtureId": "exenia-foro-trimless", "qty": 12, "orderStatus": "delivered" },
+          { "id": "item-3", "fixtureId": "artemide-ramo-terra", "qty": 2, "orderStatus": "in_warehouse" }
+        ]
+      },
+      {
+        "id": "room-dining",
+        "name": "פינת אוכל",
+        "nameEn": "Dining",
+        "areaM2": 18,
+        "targetLux": 200,
+        "items": [
+          { "id": "item-4", "fixtureId": "terzani-anello-oro", "qty": 1, "orderStatus": "in_transit" }
+        ]
+      },
+      {
+        "id": "room-kitchen",
+        "name": "מטבח",
+        "nameEn": "Kitchen",
+        "areaM2": 22,
+        "targetLux": 400,
+        "items": [
+          { "id": "item-5", "fixtureId": "bomma-kapka", "qty": 3, "note": "זכוכית ענברית, מעל האי", "orderStatus": "in_warehouse" },
+          { "id": "item-6", "fixtureId": "exenia-punto", "qty": 8, "orderStatus": "delivered" }
+        ]
+      },
+      {
+        "id": "room-master",
+        "name": "חדר שינה הורים",
+        "nameEn": "Master Bedroom",
+        "areaM2": 24,
+        "targetLux": 150,
+        "items": [
+          { "id": "item-7", "fixtureId": "terzani-filo-parete", "qty": 2, "orderStatus": "quoted" },
+          { "id": "item-8", "fixtureId": "dechem-kamen", "qty": 2, "orderStatus": "in_transit" }
+        ]
+      },
+      {
+        "id": "room-terrace",
+        "name": "מרפסת גג",
+        "nameEn": "Roof Terrace",
+        "areaM2": 60,
+        "targetLux": 60,
+        "items": [
+          { "id": "item-9", "fixtureId": "vibia-sendero", "qty": 6, "orderStatus": "ordered_italy" }
+        ]
+      }
+    ],
+    "createdAt": "2026-09-04T09:15:00.000Z",
+    "updatedAt": "2026-11-02T14:40:00.000Z"
+  },
+  {
+    "id": "project-villa-caesarea",
+    "studioId": "studio-yael-mizrahi",
+    "name": "וילה בקיסריה",
+    "nameEn": "Caesarea Villa",
+    "client": "משפחת שני",
+    "address": "רחוב הדקל, קיסריה",
+    "status": "planning",
+    "coverNote": "שלב תכנון ראשוני. גובה הסלון הכפול 6 מ' — לבדוק אורך תלייה לקוראלה.",
+    "rooms": [
+      {
+        "id": "room-living",
+        "name": "סלון כפול",
+        "nameEn": "Double-Height Living",
+        "areaM2": 55,
+        "targetLux": 150,
+        "items": [
+          { "id": "item-1", "fixtureId": "bomma-korale", "qty": 1 },
+          { "id": "item-2", "fixtureId": "icone-asta", "qty": 2 }
+        ]
+      },
+      {
+        "id": "room-kitchen",
+        "name": "מטבח",
+        "nameEn": "Kitchen",
+        "areaM2": 28,
+        "targetLux": 400,
+        "items": [
+          { "id": "item-3", "fixtureId": "dechem-trubka", "qty": 4, "note": "בשורה מעל האי, 3.2 מ'" },
+          { "id": "item-4", "fixtureId": "avolux-spot-incasso", "qty": 10 }
+        ]
+      },
+      {
+        "id": "room-garden",
+        "name": "גינה ושביל כניסה",
+        "nameEn": "Garden & Entry Path",
+        "areaM2": 120,
+        "targetLux": 50,
+        "items": [
+          { "id": "item-5", "fixtureId": "panzeri-sentiero", "qty": 8 },
+          { "id": "item-6", "fixtureId": "aldo-bernardi-lanterna", "qty": 4, "note": "משני צדי דלת הכניסה ובפרגולה" }
+        ]
+      },
+      {
+        "id": "room-pool-bath",
+        "name": "חדר רחצה בריכה",
+        "nameEn": "Pool Bathroom",
+        "areaM2": 8,
+        "targetLux": 200,
+        "items": [
+          { "id": "item-7", "fixtureId": "ole-marea", "qty": 2 },
+          { "id": "item-8", "fixtureId": "neko-micro", "qty": 4 }
+        ]
+      }
+    ],
+    "createdAt": "2026-10-20T07:30:00.000Z",
+    "updatedAt": "2026-11-05T16:05:00.000Z"
+  },
+  {
+    "id": "project-office-herzliya-pituach",
+    "studioId": "studio-eitan-roth",
+    "name": "משרד בוטיק בהרצליה פיתוח",
+    "nameEn": "Herzliya Pituach Boutique Office",
+    "client": "קדם קפיטל",
+    "address": "רחוב אבא אבן, הרצליה פיתוח",
+    "status": "quote_requested",
+    "coverNote": "נדרשת בקרת DALI מרכזית לכל הקומה. הלקוח מבקש הצעה עד סוף החודש.",
+    "rooms": [
+      {
+        "id": "room-open-space",
+        "name": "אופן ספייס",
+        "nameEn": "Open Space",
+        "areaM2": 90,
+        "targetLux": 500,
+        "items": [
+          { "id": "item-1", "fixtureId": "vibia-trazo", "qty": 8, "note": "4000K, שני קווים רציפים" },
+          { "id": "item-2", "fixtureId": "neko-rail", "qty": 12 }
+        ]
+      },
+      {
+        "id": "room-boardroom",
+        "name": "חדר ישיבות",
+        "nameEn": "Boardroom",
+        "areaM2": 24,
+        "targetLux": 500,
+        "items": [
+          { "id": "item-3", "fixtureId": "panzeri-tondo-sospeso", "qty": 2 },
+          { "id": "item-4", "fixtureId": "exenia-linea-incasso", "qty": 4 }
+        ]
+      },
+      {
+        "id": "room-reception",
+        "name": "קבלה",
+        "nameEn": "Reception",
+        "areaM2": 20,
+        "targetLux": 200,
+        "items": [
+          { "id": "item-5", "fixtureId": "vesoi-linea-sottile", "qty": 1, "note": "מעל דלפק הקבלה" },
+          { "id": "item-6", "fixtureId": "icone-binario-magnetico", "qty": 6 }
+        ]
+      },
+      {
+        "id": "room-ceo",
+        "name": "חדר מנכ\"ל",
+        "nameEn": "CEO Office",
+        "areaM2": 16,
+        "targetLux": 500,
+        "items": [
+          { "id": "item-7", "fixtureId": "artemide-ramo-tavolo", "qty": 1 },
+          { "id": "item-8", "fixtureId": "exenia-binario", "qty": 4 }
+        ]
+      }
+    ],
+    "createdAt": "2026-10-01T08:00:00.000Z",
+    "updatedAt": "2026-10-28T11:20:00.000Z"
+  },
+  {
+    "id": "project-hotel-lobby-jerusalem",
+    "studioId": "studio-maya-oren",
+    "name": "לובי מלון בוטיק בירושלים",
+    "nameEn": "Jerusalem Boutique Hotel Lobby",
+    "client": "מלון בית אלמוג",
+    "address": "רחוב עמק רפאים, ירושלים",
+    "status": "quoted",
+    "coverNote": "מבנה לשימור, תקרת אבן קמורה בלובי. אין אפשרות לשקועים — הכול צמוד או תלוי.",
+    "rooms": [
+      {
+        "id": "room-lobby",
+        "name": "לובי",
+        "nameEn": "Lobby",
+        "areaM2": 85,
+        "targetLux": 200,
+        "items": [
+          { "id": "item-1", "fixtureId": "swarovski-cristallo-cascata", "qty": 1, "note": "מרכז גרם המדרגות הכפול" },
+          { "id": "item-2", "fixtureId": "fabbian-colonna", "qty": 2 },
+          { "id": "item-3", "fixtureId": "exenia-binario", "qty": 10, "note": "על מסילה צמודה לאורך הקירות" }
+        ]
+      },
+      {
+        "id": "room-lounge",
+        "name": "לאונג' בר",
+        "nameEn": "Lounge Bar",
+        "areaM2": 40,
+        "targetLux": 150,
+        "items": [
+          { "id": "item-4", "fixtureId": "cangini-tucci-nuvola", "qty": 1 },
+          { "id": "item-5", "fixtureId": "terzani-stelo-terra", "qty": 2 }
+        ]
+      },
+      {
+        "id": "room-corridors",
+        "name": "מסדרונות קומות",
+        "nameEn": "Guest Corridors",
+        "areaM2": 60,
+        "targetLux": 100,
+        "items": [
+          { "id": "item-6", "fixtureId": "aldo-bernardi-piatto", "qty": 8 },
+          { "id": "item-7", "fixtureId": "neko-disco", "qty": 6 }
+        ]
+      },
+      {
+        "id": "room-guest-bath",
+        "name": "חדרי רחצה אורחים",
+        "nameEn": "Guest Bathrooms",
+        "areaM2": 12,
+        "targetLux": 200,
+        "items": [
+          { "id": "item-8", "fixtureId": "bomma-pramen", "qty": 4 }
+        ]
+      }
+    ],
+    "createdAt": "2026-09-15T10:45:00.000Z",
+    "updatedAt": "2026-10-30T13:10:00.000Z"
+  }
+]

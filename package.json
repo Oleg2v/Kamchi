@@ -1,0 +1,50 @@
+{
+  "name": "kamchi-light",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Kamchi Lighting — 'האור נדלק' concept site and designer portal (Kikkey pitch demo, not the official site)",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "validate:data": "tsx scripts/validate-data.ts",
+    "assets:depth": "python3 scripts/make-depth.py",
+    "assets:video": "tsx scripts/record-hero-video.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.6.0",
+    "@pdf-lib/fontkit": "^1.1.1",
+    "@react-three/drei": "^10.7.9",
+    "@react-three/fiber": "^9.8.2",
+    "bidi-js": "^1.1.0",
+    "framer-motion": "^12.23.24",
+    "gsap": "^3.15.1",
+    "lenis": "^1.3.27",
+    "next": "15.5.29",
+    "pdf-lib": "^1.17.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "three": "^0.187.0",
+    "zod": "^4.6.7",
+    "zustand": "^5.1.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.7",
+    "@tailwindcss/postcss": "^4.3.5",
+    "@types/node": "^22.19.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@types/three": "^0.187.0",
+    "eslint": "^9.39.0",
+    "eslint-config-next": "15.5.29",
+    "server-only": "^0.0.1",
+    "tailwindcss": "^4.3.5",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

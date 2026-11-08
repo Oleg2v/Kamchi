@@ -1,0 +1,16 @@
+IESNA:LM-63-2002
+[TEST] KD-2026-0001
+[TESTLAB] Demo — Kamchi concept (synthetic photometry)
+[ISSUEDATE] 2026-11-08
+[MANUFAC] Demo — Kamchi concept
+[LUMCAT] KD-DL60-1800
+[LUMINAIRE] Recessed LED downlight, 60 deg beam, white trim, demo file
+[LAMPCAT] LED module 2700K CRI90
+[LAMP] 1 x 18 W LED array
+[OTHER] Synthetic Gaussian distribution for a UI demo — not measured data. Not for design use.
+TILT=NONE
+1 1800 1 19 1 1 2 -0.095 0 0.11
+1.0 1.0 18
+0 5 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90
+0
+1548.5 1519.0 1433.8 1302.2 1138.0 956.9 774.3 602.8 451.6 325.5 225.8 150.7 96.8 59.8 35.6 20.3 11.2 5.9 3.0

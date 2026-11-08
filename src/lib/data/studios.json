@@ -1,0 +1,74 @@
+[
+  {
+    "id": "studio-shahar-levi",
+    "name": "סטודיו שחר לוי",
+    "nameEn": "Shahar Levi Studio",
+    "city": "תל אביב",
+    "cityEn": "Tel Aviv",
+    "tier": "A",
+    "discountPct": 35,
+    "contact": { "name": "שחר לוי", "nameEn": "Shahar Levi", "email": "shahar@example.com", "phone": "052-000-0101" },
+    "specialties": ["פנטהאוזים", "דירות יוקרה", "תכנון תאורה"],
+    "memberSince": 2016
+  },
+  {
+    "id": "studio-noa-barak",
+    "name": "נועה ברק אדריכלים",
+    "nameEn": "Noa Barak Architects",
+    "city": "הרצליה",
+    "cityEn": "Herzliya",
+    "tier": "A",
+    "discountPct": 35,
+    "contact": { "name": "נועה ברק", "nameEn": "Noa Barak", "email": "noa@example.com", "phone": "054-000-0102" },
+    "specialties": ["וילות", "אדריכלות פרטית", "בתי נופש"],
+    "memberSince": 2015
+  },
+  {
+    "id": "studio-tamir-golan",
+    "name": "תמיר גולן עיצוב פנים",
+    "nameEn": "Tamir Golan Interiors",
+    "city": "חיפה",
+    "cityEn": "Haifa",
+    "tier": "B",
+    "discountPct": 28,
+    "contact": { "name": "תמיר גולן", "nameEn": "Tamir Golan", "email": "tamir@example.com", "phone": "050-000-0103" },
+    "specialties": ["דירות מגורים", "שיפוצים", "מטבחים"],
+    "memberSince": 2019
+  },
+  {
+    "id": "studio-maya-oren",
+    "name": "מאיה אורן אדריכלות",
+    "nameEn": "Maya Oren Architecture",
+    "city": "ירושלים",
+    "cityEn": "Jerusalem",
+    "tier": "B",
+    "discountPct": 28,
+    "contact": { "name": "מאיה אורן", "nameEn": "Maya Oren", "email": "maya@example.com", "phone": "053-000-0104" },
+    "specialties": ["מלונות בוטיק", "שימור מבנים", "חללים ציבוריים"],
+    "memberSince": 2018
+  },
+  {
+    "id": "studio-eitan-roth",
+    "name": "סטודיו איתן רוט",
+    "nameEn": "Eitan Roth Studio",
+    "city": "רמת השרון",
+    "cityEn": "Ramat Hasharon",
+    "tier": "C",
+    "discountPct": 20,
+    "contact": { "name": "איתן רוט", "nameEn": "Eitan Roth", "email": "eitan@example.com", "phone": "058-000-0105" },
+    "specialties": ["משרדים", "חללי עבודה", "חללים מסחריים"],
+    "memberSince": 2023
+  },
+  {
+    "id": "studio-yael-mizrahi",
+    "name": "יעל מזרחי עיצוב",
+    "nameEn": "Yael Mizrahi Design",
+    "city": "קיסריה",
+    "cityEn": "Caesarea",
+    "tier": "C",
+    "discountPct": 20,
+    "contact": { "name": "יעל מזרחי", "nameEn": "Yael Mizrahi", "email": "yael@example.com", "phone": "052-000-0106" },
+    "specialties": ["וילות", "גינות ומרפסות", "תאורת חוץ"],
+    "memberSince": 2024
+  }
+]
