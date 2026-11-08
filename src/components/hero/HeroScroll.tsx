@@ -16,7 +16,7 @@ import { useTx } from "@/lib/i18n";
 import { BRAND_NAME, TAGLINE } from "@/lib/i18n/common";
 import { getGsap } from "@/lib/motion/gsap";
 import { CaptionList } from "./Captions";
-import { AUTO_TIMES, LIGHTS, TITLE_AT, type LightId } from "./light-controller";
+import { AUTO_OFF_AT, AUTO_TIMES, LIGHTS, TITLE_AT, type LightId } from "./light-controller";
 import { HeroProgressContext, RoomScene, useHeroRenderer, type ProgressSource } from "./RoomScene";
 
 const STAGE: CSSProperties = { top: "var(--header-h)", height: "calc(100dvh - var(--header-h))" };
@@ -191,7 +191,7 @@ function VideoHero() {
     const id = window.setInterval(() => {
       const time = ((performance.now() - t0) / 1000) % 6;
       const next = new Set<LightId>();
-      for (const l of LIGHTS) if (time >= AUTO_TIMES[l.id]) next.add(l.id);
+      for (const l of LIGHTS) if (time >= AUTO_TIMES[l.id] && time < AUTO_OFF_AT) next.add(l.id);
       setLit((prev) => (prev.size === next.size ? prev : next));
       if (time >= AUTO_TIMES.floor + 0.2) setTitle(true);
     }, 100);

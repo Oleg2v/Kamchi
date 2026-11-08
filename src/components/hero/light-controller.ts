@@ -29,6 +29,8 @@ export const AUTO_TIMES: Record<LightId, number> = {
   floor: 5.0,
 };
 export const AUTO_DURATION = 6;
+/** In the recorded loop everything drops again here, so the loop restarts from dark. */
+export const AUTO_OFF_AT = 5.75;
 
 export const RAMP_ON_MS = 120;
 export const RAMP_OFF_MS = 80;
@@ -193,8 +195,9 @@ export class HeroLightController {
     this.lights.forEach((l, i) => {
       this.killTween(i);
       const since = (t - AUTO_TIMES[l.id]) * 1000;
-      const on = since >= 0;
-      this.intensities[i] = on ? rampOn(since) : 0;
+      const sinceOff = (t - AUTO_OFF_AT) * 1000;
+      const on = since >= 0 && sinceOff < RAMP_OFF_MS;
+      this.intensities[i] = since < 0 ? 0 : sinceOff >= 0 ? rampOff(sinceOff, 1) : rampOn(since);
       if (on !== this.lit[i]) { this.lit[i] = on; this.emitSwitch(i, on); }
     });
     this.setFlags({ hint: false, title: t >= AUTO_TIMES.floor + 0.2, fullyLit: this.lit.every(Boolean) });

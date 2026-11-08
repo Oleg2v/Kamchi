@@ -23,7 +23,7 @@ import { useTx } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import { Captions } from "./Captions";
 import { FixtureOverlay } from "./FixtureOverlay";
-import { AUTO_TIMES, HeroLightController, LIGHTS, SCENE, type LightId } from "./light-controller";
+import { AUTO_OFF_AT, AUTO_TIMES, HeroLightController, LIGHTS, SCENE, type LightId } from "./light-controller";
 import type { RoomSceneMode, RoomSceneProps } from "./scene-types";
 import { useCoverBox } from "./use-cover-box";
 
@@ -185,7 +185,7 @@ export function RoomSceneInternal({
     const id = window.setInterval(() => {
       const time = v && !v.paused && !v.error ? v.currentTime : ((performance.now() / 1000) % 6);
       const next = new Set<LightId>();
-      for (const l of LIGHTS) if (time >= AUTO_TIMES[l.id]) next.add(l.id);
+      for (const l of LIGHTS) if (time >= AUTO_TIMES[l.id] && time < AUTO_OFF_AT) next.add(l.id);
       setLit((prev) => (prev.size === next.size && [...next].every((x) => prev.has(x)) ? prev : next));
       if (next.size === LIGHTS.length && !firedRef.current) { firedRef.current = true; fullyRef.current?.(); }
     }, 90);
