@@ -78,7 +78,7 @@ void main() {
   float inWindow = step(1352.0, px) * step(px, 1882.0) * step(winTop, py) * step(py, winSill);
   float doorTop = 396.0 + (px - 600.0) * 0.2;
   float doorFloor = 848.0 - (px - 960.0) * 0.283;
-  float inDoor = step(588.0, px) * step(px, 782.0) * step(doorTop, py) * step(py, doorFloor);
+  float inDoor = step(588.0, px) * step(px, 782.0) * step(doorTop, py) * step(py, doorFloor) * (1.0 - smoothstep(0.03, 0.09, d));
 
   // --- normal from the (pre-blurred) depth gradient; camera at -z so the facing normal has z < 0
   vec2 nxy = geo.rg * 2.0 - 1.0;

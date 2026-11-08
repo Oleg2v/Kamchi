@@ -18,7 +18,7 @@ import type { CoverBox } from "./use-cover-box";
 
 const TYPE_INDEX = { pool: 0, wash: 1, spot: 2, halo: 3 } as const;
 /** How far each kind of fixture throws, in scene units per unit of authored radius. */
-const TYPE_REACH = { pool: 1.25, wash: 1.55, spot: 2.3, halo: 1.6 } as const;
+const TYPE_REACH = { pool: 1.25, wash: 1.7, spot: 2.3, halo: 1.6 } as const;
 const TYPE_SIGMA = { pool: 0.25 * 0.4, wash: 0.25 * 0.28, spot: 0.25 * 0.3, halo: 0.25 * 0.34 } as const;
 
 export const AMBIENT = 0.03;

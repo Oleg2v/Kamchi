@@ -28,7 +28,7 @@ export function ProductStage({ fixture, on, onToggle }: Props) {
   return (
     <div className="lg:sticky lg:top-[calc(var(--header-h)+1.5rem)]">
       <div
-        className="relative aspect-[10/13] overflow-hidden border hairline bg-[#030303] sm:aspect-[4/5] lg:aspect-auto lg:h-[calc(100dvh-var(--header-h)-10.5rem)] lg:max-h-[52rem] lg:min-h-[30rem]"
+        className="relative aspect-[10/13] overflow-hidden border hairline bg-[#030303] sm:aspect-[4/5] lg:aspect-auto lg:h-[calc(100dvh-var(--header-h)-14rem)] lg:max-h-[52rem] lg:min-h-[30rem]"
         style={stageStyle}
         data-testid="stage"
         data-stage-kelvin={k}

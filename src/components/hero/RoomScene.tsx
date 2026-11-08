@@ -14,7 +14,7 @@
  * source, no React state per tick) or, for other callers, the `progress` prop.
  */
 import dynamic from "next/dynamic";
-import { createContext, useContext, useEffect, useMemo, useRef, useState, type CSSProperties, type MutableRefObject } from "react";
+import { createContext, useContext, useEffect, useRef, useState, type CSSProperties, type MutableRefObject } from "react";
 import { Glow } from "@/components/light/Glow";
 import { useHydrated } from "@/lib/hooks/useHydrated";
 import { useLowPower } from "@/lib/hooks/useMedia";
@@ -206,7 +206,7 @@ export function RoomSceneInternal({
   return (
     <div
       ref={stageRef}
-      role="img"
+      role="group"
       aria-label={label}
       className={cn("relative overflow-hidden bg-night", !compact && "h-full w-full", className)}
       style={compact ? { aspectRatio: "16 / 10" } : undefined}
@@ -270,6 +270,5 @@ export function RoomSceneInternal({
 
 /** The contract component. */
 export function RoomScene(props: RoomSceneProps) {
-  const internal = useMemo(() => props, [props]);
-  return <RoomSceneInternal {...internal} />;
+  return <RoomSceneInternal {...props} />;
 }

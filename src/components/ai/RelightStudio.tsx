@@ -167,6 +167,7 @@ export function RelightStudio() {
             {stageBusy && photo && <AiSkeleton image={photo.dataUrl} aspect={photo.aspect} captions={CAPTIONS} label={{ he: "מחשב הדמיה", en: "Computing the simulation" }} />}
 
             {phase === "done" && result && photo && (
+              <div data-relight-result data-source={result.envelope.source} data-ms={result.ms} data-pool={JSON.stringify(result.placement.pool)} data-anchor={JSON.stringify(result.placement.anchor)}>
               <SwitchOn on className="flex flex-col gap-4">
                 <BeforeAfter before={photo.dataUrl} after={result.after} aspect={photo.aspect} alt={{ he: `החדר עם ${fixture.nameHe}`, en: `The room with ${fixture.name}` }} />
                 <div className="grid gap-4 md:grid-cols-[1fr_auto] md:items-start">
@@ -187,6 +188,7 @@ export function RelightStudio() {
                   <button type="button" className="btn btn-sm ms-auto" onClick={() => { setPhase("idle"); setResult(null); }}>{t({ he: "גוף אחר על אותה תמונה", en: "Another fixture, same photo" })}</button>
                 </div>
               </SwitchOn>
+              </div>
             )}
 
             {(phase === "idle" || phase === "error") && (
