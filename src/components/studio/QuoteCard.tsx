@@ -2,7 +2,8 @@
 import { useState } from "react";
 import { getFixture, getStudio } from "@/lib/data";
 import { formatDate, formatIls, useLang, useTx } from "@/lib/i18n";
-import { bytesToObjectUrl, downloadBytes, generateQuotePdf } from "@/lib/pdf/quote-pdf";
+import { bytesToObjectUrl, downloadBytes } from "@/lib/pdf/download";
+import { generateQuotePdfLazy as generateQuotePdf } from "@/lib/pdf/lazy";
 import { useStore } from "@/lib/store";
 import type { Project, Quote } from "@/lib/types";
 import { leadTimeText } from "./labels";

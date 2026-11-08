@@ -5,7 +5,8 @@ import { getBrand, getFixture, getStudio } from "@/lib/data";
 import { formatIls, tx, useLang, useTx } from "@/lib/i18n";
 import { DEMO_PRICE, LEAD_TIME_LABEL } from "@/lib/i18n/common";
 import { DEFAULT_QUOTE_NOTE } from "@/lib/autopilot/script";
-import { bytesToObjectUrl, downloadBytes, generateQuotePdf } from "@/lib/pdf/quote-pdf";
+import { bytesToObjectUrl, downloadBytes } from "@/lib/pdf/download";
+import { generateQuotePdfLazy as generateQuotePdf } from "@/lib/pdf/lazy";
 import { useStore } from "@/lib/store";
 import type { LeadTime, Project, Quote, QuoteLine, QuoteRequest } from "@/lib/types";
 

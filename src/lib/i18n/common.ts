@@ -11,9 +11,9 @@ export const NAV: { href: string; label: Bi }[] = [
 ];
 
 export const PORTAL_NAV = {
-  studio: { href: "/studio", label: { he: "הסטודיו", en: "The studio" } },
-  desk: { href: "/desk", label: { he: "שולחן הפרויקטים", en: "Project desk" } },
-  live: { href: "/live", label: { he: "מצב חי", en: "Live mode" } },
+  studio: { href: "/studio", label: { he: "הסטודיו", en: "Studio" } },
+  desk: { href: "/desk", label: { he: "שולחן הפרויקטים", en: "Desk" } },
+  live: { href: "/live", label: { he: "מצב חי", en: "Live" } },
 };
 
 export const BRAND_NAME: Bi = { he: "קמחי תאורה", en: "Kamchi Lighting" };
@@ -67,7 +67,7 @@ export const LEAD_TIME_LABEL: Record<LeadTime, Bi> = {
 };
 
 export const ORDER_STATUS_LABEL: Record<OrderStatus, Bi> = {
-  quoted: { he: "הוצעה הצעה", en: "Quoted" },
+  quoted: { he: "ממתין לאישור", en: "Quoted" },
   ordered_italy: { he: "הוזמן באיטליה", en: "Ordered in Italy" },
   in_transit: { he: "בדרך", en: "In transit" },
   in_warehouse: { he: "במחסן", en: "In warehouse" },

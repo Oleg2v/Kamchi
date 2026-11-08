@@ -199,10 +199,6 @@
   :lang(en) .font-display, :lang(en) h1, :lang(en) h2, :lang(en) h3, .font-display:lang(en), h1:lang(en), h2:lang(en), h3:lang(en) { font-family: var(--font-display-en); font-weight: 400; letter-spacing: 0.005em; }
   /* Hebrew display type stays David Libre even inside an English block. */
   .font-display:lang(he), h1:lang(he), h2:lang(he), h3:lang(he) { font-family: var(--font-display); letter-spacing: -0.005em; }
-  .text-glow { color: rgb(var(--glow-rgb)); }
-  .bg-glow { background-color: rgb(var(--glow-rgb)); }
-  .border-glow { border-color: rgb(var(--glow-rgb)); }
-  .shadow-glow { box-shadow: 0 0 32px rgb(var(--glow-rgb) / 0.35); }
   .mask-fade-b { mask-image: linear-gradient(to bottom, black 70%, transparent); }
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { scrollbar-width: none; }
@@ -220,3 +216,10 @@
 @media (pointer: fine) {
   :root[data-dimmer-cursor="1"] body, :root[data-dimmer-cursor="1"] a, :root[data-dimmer-cursor="1"] button { cursor: none; }
 }
+
+/* Variant-capable light utilities (hover:text-glow, focus-visible:border-glow, group-hover:lit-text …). */
+@utility text-glow { color: rgb(var(--glow-rgb)); }
+@utility bg-glow { background-color: rgb(var(--glow-rgb)); }
+@utility border-glow { border-color: rgb(var(--glow-rgb)); }
+@utility shadow-glow { box-shadow: 0 0 32px rgb(var(--glow-rgb) / 0.35); }
+@utility lit-text { color: rgb(var(--glow-rgb)); text-shadow: 0 0 22px rgb(var(--glow-rgb) / 0.45); }

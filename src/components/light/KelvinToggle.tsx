@@ -22,7 +22,7 @@ export function KelvinToggle({ compact = false }: { compact?: boolean }) {
             aria-checked={on}
             title={kelvinLabel(k as Kelvin, lang)}
             onClick={() => setKelvin(k as Kelvin)}
-            className={`font-mono text-[0.72rem] tracking-wider px-2.5 ${compact ? "py-1" : "py-1.5"} transition-colors ${on ? "text-night bg-glow" : "text-muted hover:text-paper"}`}
+            className={`font-mono text-[0.72rem] tracking-wider ${compact ? "px-2 py-1" : "px-2.5 py-1.5"} transition-colors ${on ? "text-night bg-glow" : "text-muted hover:text-paper"}`}
           >
             {k}K
           </button>
