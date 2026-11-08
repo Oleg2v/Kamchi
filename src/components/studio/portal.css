@@ -1,0 +1,34 @@
+/* ─────────────────────────────────────────────────────────────
+   Portal (studio · desk · live) — hover and focus states that light.
+   `text-glow`, `border-glow` and `lit-text` are plain layer classes in globals.css,
+   so Tailwind variants on them (hover:text-glow, group-hover:lit-text) compile to
+   nothing. These module-local rules do that job, tinted by --glow-rgb like everything else.
+   ───────────────────────────────────────────────────────────── */
+
+/* A quiet link or icon button that switches on under the pointer or the keyboard. */
+.lit-link:is(:hover, :focus-visible) { color: rgb(var(--glow-rgb)); }
+
+/* A card (project board, fixture pick) whose hairline warms and whose title runs the 120 ms ramp. */
+.lit-card:is(:hover, :focus-visible, :focus-within) { border-color: rgb(var(--glow-rgb) / 0.6); }
+.lit-card:is(:hover, :focus-visible, :focus-within) .lit-card__title {
+  color: rgb(var(--glow-rgb));
+  text-shadow: 0 0 22px rgb(var(--glow-rgb) / 0.45);
+  animation: var(--animate-incandescent);
+}
+:root[data-all-lit="1"] .lit-card .lit-card__title { animation: none; }
+
+/* Table rows that become stacked cards under md: the <tr> is a grid, the cells its items. */
+.portal-table { display: block; }
+.portal-table > thead { display: none; }
+.portal-table > tbody { display: block; }
+.portal-table > tbody > tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 0.75rem; row-gap: 0.5rem; padding-block: 0.75rem; }
+.portal-table .cell-wide { grid-column: span 2; }
+.portal-table .cell-end { justify-self: end; text-align: end; }
+.portal-table .cell-label { display: inline; }
+@media (min-width: 768px) {
+  .portal-table { display: table; }
+  .portal-table > thead { display: table-header-group; }
+  .portal-table > tbody { display: table-row-group; }
+  .portal-table > tbody > tr { display: table-row; padding-block: 0; }
+  .portal-table .cell-label { display: none; }
+}

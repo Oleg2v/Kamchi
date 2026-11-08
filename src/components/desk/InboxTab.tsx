@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
 import { RoomBoard } from "@/components/studio/RoomBoard";
-import { relativeTime } from "@/components/studio/labels";
+import { backArrow, quoted, relativeTime } from "@/components/studio/labels";
 import { isDesignerEvent, useNewEvents } from "@/components/studio/useNewEvents";
 import { getStudio } from "@/lib/data";
 import { useIsDesktop } from "@/lib/hooks/useMedia";
@@ -36,10 +36,10 @@ function RequestRow({ req, active, fresh, onOpen, unseen }: { req: QuoteRequest;
           </span>
         </span>
         <span className="flex items-baseline justify-between gap-3 text-[0.72rem] text-muted">
-          <span className="truncate">{studio ? (lang === "he" ? studio.name : studio.nameEn) : req.studioId}{studio && <span className="num ms-1.5" dir="ltr">{studio.tier}</span>}</span>
+          <span className="truncate">{studio ? (lang === "he" ? studio.name : studio.nameEn) : req.studioId}{studio && <> · {t({ he: "דרגה", en: "Tier" })} <span className="num" dir="ltr">{studio.tier}</span></>}</span>
           <span className="num shrink-0">{relativeTime(req.createdAt, lang)}</span>
         </span>
-        {req.message && <span className="line-clamp-2 text-[0.78rem] leading-snug text-muted">„{req.message}”</span>}
+        {req.message && <span className="line-clamp-2 text-[0.78rem] leading-snug text-muted">{quoted(req.message, lang)}</span>}
       </button>
     </li>
   );
@@ -63,11 +63,11 @@ function RequestDetail({ req, embedded, onBack }: { req: QuoteRequest; embedded:
   const name = lang === "he" ? project.name : project.nameEn;
 
   return (
-    <div className="grid gap-5" data-autopilot={`request:${req.id}`}>
+    <div className="grid min-w-0 gap-5 [&>*]:min-w-0" data-autopilot={`request:${req.id}`}>
       <header className="grid gap-2">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <p className="eyebrow">{t({ he: "בקשה", en: "Request" })} · <span className="normal-case tracking-normal" dir="ltr">{req.id}</span> · {relativeTime(req.createdAt, lang)}</p>
-          {onBack && <button type="button" onClick={onBack} className="text-sm text-muted hover:text-glow"><span aria-hidden>→ </span>{t({ he: "כל הבקשות", en: "All requests" })}</button>}
+          {onBack && <button type="button" onClick={onBack} className="lit-link text-sm text-muted"><span aria-hidden>{backArrow(lang)} </span>{t({ he: "כל הבקשות", en: "All requests" })}</button>}
         </div>
         <Heading className="font-display text-2xl leading-tight text-paper md:text-3xl">{name}</Heading>
         {studio && (
@@ -76,7 +76,7 @@ function RequestDetail({ req, embedded, onBack }: { req: QuoteRequest; embedded:
           </p>
         )}
         <p className="text-sm text-muted">{project.client || "—"}{project.address && <span> · {project.address}</span>}</p>
-        {req.message && <blockquote className="border-s-2 border-brass/60 ps-3 text-[0.9rem] leading-relaxed text-paper">„{req.message}”</blockquote>}
+        {req.message && <blockquote className="border-s-2 border-brass/60 ps-3 text-[0.9rem] leading-relaxed text-paper">{quoted(req.message, lang)}</blockquote>}
       </header>
 
       <section className="grid gap-3" aria-label={t({ he: "הלוח של המעצב", en: "The designer's board" })}>
@@ -181,7 +181,7 @@ export function InboxTab({ embedded = false, flashDelay = 0 }: { embedded?: bool
   );
 
   return (
-    <div className={twoColumn ? "grid gap-8 lg:grid-cols-[22rem_minmax(0,1fr)]" : "grid gap-6"}>
+    <div className={`[&>*]:min-w-0 ${twoColumn ? "grid gap-8 lg:grid-cols-[22rem_minmax(0,1fr)]" : "grid gap-6"}`}>
       {showList && listEl}
       {showDetail && detailEl}
     </div>

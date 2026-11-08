@@ -1,7 +1,8 @@
 "use client";
 import { useMemo, useState } from "react";
+import { brandLine, fixtureName } from "@/components/studio/labels";
 import { getBrand, getFixture, getStudio } from "@/lib/data";
-import { formatIls, useLang, useTx } from "@/lib/i18n";
+import { formatIls, tx, useLang, useTx } from "@/lib/i18n";
 import { DEMO_PRICE, LEAD_TIME_LABEL } from "@/lib/i18n/common";
 import { DEFAULT_QUOTE_NOTE } from "@/lib/autopilot/script";
 import { bytesToObjectUrl, downloadBytes, generateQuotePdf } from "@/lib/pdf/quote-pdf";
@@ -35,14 +36,14 @@ export function QuoteEditor({ request, project, onSent, embedded = false }: { re
 
   const [discountText, setDiscountText] = useState(String(base));
   const [overrides, setOverrides] = useState<Record<string, Override>>({});
-  const [note, setNote] = useState(DEFAULT_QUOTE_NOTE);
+  const [note, setNote] = useState(() => tx(lang, DEFAULT_QUOTE_NOTE));
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const discount = Math.min(60, Math.max(0, Number(discountText) || 0));
 
   const lines = useMemo(() => {
-    const out: (QuoteLine & { key: string; roomName: string; brandId: string; nameHe: string; name: string; override: boolean })[] = [];
+    const out: (QuoteLine & { key: string; roomName: string; brandId: string; nameHe: string; name: string; label: string; brand: string; override: boolean })[] = [];
     for (const room of project.rooms) {
       for (const it of room.items) {
         const f = getFixture(it.fixtureId);
@@ -62,6 +63,8 @@ export function QuoteEditor({ request, project, onSent, embedded = false }: { re
           brandId: f.brand,
           nameHe: f.nameHe,
           name: f.name,
+          label: fixtureName(f, lang),
+          brand: brandLine(f, lang),
           override: lineDisc !== null,
         });
       }
@@ -104,7 +107,7 @@ export function QuoteEditor({ request, project, onSent, embedded = false }: { re
   const Heading = embedded ? "h5" : "h4";
 
   return (
-    <section className="panel" aria-labelledby={`qe-${request.id}`} data-autopilot="quote-editor">
+    <section className="panel min-w-0" aria-labelledby={`qe-${request.id}`} data-autopilot="quote-editor">
       <header className="flex flex-wrap items-center justify-between gap-3 border-b hairline px-4 py-3">
         <Heading id={`qe-${request.id}`} className="font-display text-xl text-paper md:text-2xl">{t({ he: "הצעת מחיר", en: "Quote" })}</Heading>
         <label className="flex items-center gap-2 text-sm text-muted">
@@ -131,7 +134,7 @@ export function QuoteEditor({ request, project, onSent, embedded = false }: { re
       </header>
 
       <div className="overflow-x-auto">
-        <table className="w-full text-sm">
+        <table className="portal-table w-full text-sm">
           <thead>
             <tr className="text-[0.7rem] text-muted">
               <th scope="col" className="px-4 py-2 text-start font-normal">{t({ he: "גוף תאורה", en: "Fixture" })}</th>
@@ -146,17 +149,17 @@ export function QuoteEditor({ request, project, onSent, embedded = false }: { re
             {lines.map((ln, i) => {
               const net = Math.round(ln.listPrice * ln.qty * (1 - ln.discountPct / 100));
               return (
-                <tr key={ln.key} className="align-top">
-                  <td className="px-4 py-2.5">
-                    <p className="text-paper">{lang === "he" ? ln.nameHe : ln.name}</p>
-                    <p className="font-mono text-[0.66rem] uppercase tracking-wider text-muted" dir="ltr">{getBrand(ln.brandId)?.name ?? ln.brandId} · {ln.name}</p>
+                <tr key={ln.key} className="px-4 md:align-top">
+                  <td className="cell-wide md:px-4 md:py-2.5">
+                    <p className="text-paper">{ln.label}</p>
+                    <p className="font-mono text-[0.66rem] uppercase tracking-wider text-muted"><span dir="ltr">{ln.brand}</span></p>
                     <p className="text-[0.72rem] text-muted">{ln.roomName}</p>
                   </td>
-                  <td className="num px-2 py-2.5 text-end" dir="ltr">{ln.qty}</td>
-                  <td className="num px-2 py-2.5 text-end text-muted" dir="ltr">{formatIls(ln.listPrice, lang)}</td>
-                  <td className="px-2 py-2.5">
+                  <td className="num md:px-2 md:py-2.5 md:text-end"><span className="cell-label me-1.5 text-[0.7rem] text-muted">{t({ he: "כמות", en: "Qty" })}</span><span dir="ltr">{ln.qty}</span></td>
+                  <td className="num cell-end text-muted md:px-2 md:py-2.5"><span className="cell-label me-1.5 text-[0.7rem]">{t({ he: "מחירון", en: "List" })}</span><span dir="ltr">{formatIls(ln.listPrice, lang)}</span></td>
+                  <td className="md:px-2 md:py-2.5">
                     <select
-                      className={`field min-h-8 w-full min-w-[9.5rem] py-1 text-[0.8rem] ${ln.leadTime === "stock" ? "text-brass-light" : ""}`}
+                      className={`field min-h-8 w-full py-1 text-[0.8rem] md:min-w-[9.5rem] ${ln.leadTime === "stock" ? "text-brass-light" : ""}`}
                       value={ln.leadTime}
                       onChange={(e) => setOverrides((o) => ({ ...o, [ln.key]: { ...o[ln.key], leadTime: e.target.value as LeadTime } }))}
                       aria-label={`${t({ he: "זמן אספקה", en: "Lead time" })} — ${lang === "he" ? ln.nameHe : ln.name}`}
@@ -167,7 +170,7 @@ export function QuoteEditor({ request, project, onSent, embedded = false }: { re
                       ))}
                     </select>
                   </td>
-                  <td className="px-2 py-2.5 text-end">
+                  <td className="cell-end md:px-2 md:py-2.5">
                     <span className="inline-flex items-stretch border hairline">
                       <input
                         type="number"
@@ -188,12 +191,12 @@ export function QuoteEditor({ request, project, onSent, embedded = false }: { re
                       <span className="num border-s hairline px-1 py-0.5 text-[0.75rem] text-muted">%</span>
                     </span>
                   </td>
-                  <td className="num px-4 py-2.5 text-end text-paper" dir="ltr">{formatIls(net, lang)}</td>
+                  <td className="num cell-wide cell-end text-paper md:px-4 md:py-2.5"><span className="cell-label me-1.5 text-[0.7rem] text-muted">{t({ he: "נטו", en: "Net" })}</span><span dir="ltr">{formatIls(net, lang)}</span></td>
                 </tr>
               );
             })}
             {lines.length === 0 && (
-              <tr><td colSpan={6} className="px-4 py-6 text-center text-muted">{t({ he: "הלוח ריק — אין מה לתמחר.", en: "The board is empty — nothing to price." })}</td></tr>
+              <tr><td colSpan={6} className="cell-wide px-4 py-6 text-center text-muted">{t({ he: "הלוח ריק — אין מה לתמחר.", en: "The board is empty — nothing to price." })}</td></tr>
             )}
           </tbody>
         </table>
@@ -258,8 +261,8 @@ export function SentQuotePanel({ quote, project, pdf, justSent = false, onBack, 
           <span className="num text-glow" dir="ltr">{formatIls(quote.total, lang)}</span>
           <span className="ms-3 text-base text-muted">{t({ he: "כולל מע״מ", en: "incl. VAT" })}</span>
         </Heading>
-        <p className="num text-xs text-muted" dir="ltr">
-          {quote.id} · {quote.lines.length} {lang === "he" ? "שורות" : "lines"} · {quote.discountPct}% · {new Intl.DateTimeFormat(lang === "he" ? "he-IL" : "en-GB", { day: "numeric", month: "short" }).format(new Date(quote.sentAt))} → {new Intl.DateTimeFormat(lang === "he" ? "he-IL" : "en-GB", { day: "numeric", month: "short" }).format(new Date(quote.validUntil))}
+        <p className="num text-xs text-muted" dir={lang === "he" ? "rtl" : "ltr"}>
+          <span dir="ltr">{quote.id}</span> · <span dir="ltr">{quote.lines.length}</span> {lang === "he" ? "שורות" : "lines"} · <span dir="ltr">{quote.discountPct}%</span> · {new Intl.DateTimeFormat(lang === "he" ? "he-IL" : "en-GB", { day: "numeric", month: "short" }).format(new Date(quote.sentAt))} {lang === "he" ? "←" : "→"} {new Intl.DateTimeFormat(lang === "he" ? "he-IL" : "en-GB", { day: "numeric", month: "short" }).format(new Date(quote.validUntil))}
         </p>
         {quote.note && <p className="text-[0.8rem] text-muted">{quote.note}</p>}
       </div>
@@ -270,7 +273,7 @@ export function SentQuotePanel({ quote, project, pdf, justSent = false, onBack, 
           </button>
           <button type="button" className="btn btn-sm" onClick={preview} disabled={busy !== null}>{t({ he: "תצוגה מקדימה", en: "Preview" })}</button>
         </div>
-        {onBack && <button type="button" className="text-sm text-muted hover:text-glow" onClick={onBack}>{t({ he: "חזרה לבקשות", en: "Back to requests" })}</button>}
+        {onBack && <button type="button" className="lit-link text-sm text-muted" onClick={onBack}>{t({ he: "חזרה לבקשות", en: "Back to requests" })}</button>}
       </footer>
     </section>
   );

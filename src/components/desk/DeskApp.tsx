@@ -1,4 +1,5 @@
 "use client";
+import "@/components/studio/portal.css";
 import { useCallback, useMemo, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { PageHeader } from "@/components/ui/PageHeader";
@@ -100,7 +101,7 @@ export function DeskApp({ embedded = false, flashDelay = 0, inboxFlash = false }
           <>
             {t({ he: "בקשות מהסטודיו, הצעות מחיר, הזמנות באיטליה, מלאי בבני ברק. כל שינוי כאן מופיע אצל המעצבים ברגע שהוא נעשה.", en: "Requests from the studios, quotes, orders in Italy, stock in Bnei Brak. Every change here reaches the designers as it is made." })}
             {unseen > 0 && (
-              <span className="num ms-2 text-glow" dir="ltr">· {unseen} {t({ he: "חדשים", en: "new" })}</span>
+              <span className="text-glow"> · <span className="num" dir="ltr">{unseen}</span> {t({ he: "חדשים", en: "new" })}</span>
             )}
           </>
         }

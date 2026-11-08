@@ -1,8 +1,9 @@
 "use client";
-import { useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import { Dialog } from "@/components/ui/Dialog";
 import { useTx } from "@/lib/i18n";
 import { useStore } from "@/lib/store";
+import { useTrapTab } from "./useTrapTab";
 
 /** Name, client, address → createProject + a default living room, so the board is usable at once. */
 export function NewProjectDialog({ open, onClose, onCreated }: { open: boolean; onClose: () => void; onCreated: (projectId: string) => void }) {
@@ -13,6 +14,8 @@ export function NewProjectDialog({ open, onClose, onCreated }: { open: boolean; 
   const [client, setClient] = useState("");
   const [address, setAddress] = useState("");
   const [withRoom, setWithRoom] = useState(true);
+  const formRef = useRef<HTMLFormElement>(null);
+  useTrapTab(formRef, open);
 
   const submit = (e: FormEvent) => {
     e.preventDefault();
@@ -28,7 +31,7 @@ export function NewProjectDialog({ open, onClose, onCreated }: { open: boolean; 
 
   return (
     <Dialog open={open} onClose={onClose} title={t({ he: "פרויקט חדש", en: "New project" })}>
-      <form onSubmit={submit} className="grid gap-4">
+      <form ref={formRef} onSubmit={submit} className="grid gap-4">
         <label className="grid gap-1.5 text-sm">
           <span className="text-muted">{t({ he: "שם הפרויקט", en: "Project name" })}</span>
           <input className="field" value={name} onChange={(e) => setName(e.target.value)} required autoFocus placeholder={t({ he: "למשל: דירת גן ברמת אביב", en: "e.g. Garden apartment, Ramat Aviv" })} data-autopilot="new-project-name" />

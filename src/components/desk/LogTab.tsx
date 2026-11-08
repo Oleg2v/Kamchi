@@ -33,6 +33,8 @@ export function LogTab({ limit = 120 }: { limit?: number }) {
       <ol className="divide-y hairline border-y hairline" aria-label={t({ he: "יומן האירועים", en: "Event log" })}>
         {list.map((e) => {
           const p = e.projectId ? projects.find((x) => x.id === e.projectId) : undefined;
+          const pname = p ? (lang === "he" ? p.name : p.nameEn) : undefined;
+          const showProject = pname && !t(e.title).includes(pname);
           return (
             <li key={e.id} className="grid grid-cols-[6.5rem_minmax(0,1fr)] gap-x-4 gap-y-1 py-2.5 md:grid-cols-[7.5rem_7rem_minmax(0,1fr)]">
               <p className="num text-[0.7rem] leading-snug text-muted" dir="ltr" title={relativeTime(e.ts, lang)}>
@@ -43,7 +45,7 @@ export function LogTab({ limit = 120 }: { limit?: number }) {
               <p className="col-start-2 md:col-start-auto"><ActorChip actor={e.actor} /></p>
               <p className="col-start-2 text-sm text-paper md:col-start-auto">
                 {t(e.title)}
-                {p && <span className="ms-2 text-xs text-muted">{lang === "he" ? p.name : p.nameEn}</span>}
+                {showProject && <span className="ms-2 text-xs text-muted">{pname}</span>}
               </p>
             </li>
           );

@@ -13,9 +13,16 @@ export function useAutopilot(host: EngineHost) {
   const engine = ref.current;
   engine.host = host;
   const state = useSyncExternalStore(engine.subscribe, engine.getState, serverState);
+  // Stop on a real unmount only: React's strict-mode remount (and a Fast Refresh) re-runs this
+  // effect synchronously, so a stop deferred by a tick sees the host mounted again and skips.
+  const mounted = useRef(false);
   useEffect(() => {
     const e = engine;
-    return () => e.stop();
+    mounted.current = true;
+    return () => {
+      mounted.current = false;
+      setTimeout(() => { if (!mounted.current) e.stop(); }, 0);
+    };
   }, [engine]);
   return { engine, state };
 }

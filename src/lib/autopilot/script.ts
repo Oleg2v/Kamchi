@@ -1,11 +1,13 @@
 "use client";
 import { getFixture } from "@/lib/data";
+import type { Bi } from "@/lib/i18n";
+import { tx } from "@/lib/i18n";
 import type { useStore } from "@/lib/store";
 import type { QuoteLine } from "@/lib/types";
 import { AUTOPILOT_FIXTURE_ID, AUTOPILOT_PROJECT_ID, AUTOPILOT_REQUEST_MESSAGE, AUTOPILOT_ROOM_ID } from "./constants";
 import type { AutopilotStep } from "./types";
 
-export const DEFAULT_QUOTE_NOTE = "המחירים כוללים מע״מ. הובלה והתקנה בנפרד.";
+export const DEFAULT_QUOTE_NOTE: Bi = { he: "המחירים כוללים מע״מ. הובלה והתקנה בנפרד.", en: "Prices include VAT. Delivery and installation are quoted separately." };
 
 type Store = typeof useStore;
 
@@ -42,7 +44,7 @@ function ensureQuote(store: Store) {
       leadTime: it.fixtureId === AUTOPILOT_FIXTURE_ID ? "stock" : (s.leadTimes[it.fixtureId] ?? getFixture(it.fixtureId)?.leadTime ?? "weeks-6-8"),
     })),
   );
-  s.sendQuote({ requestId: req.id, lines, discountPct: disc, note: DEFAULT_QUOTE_NOTE });
+  s.sendQuote({ requestId: req.id, lines, discountPct: disc, note: tx(s.lang, DEFAULT_QUOTE_NOTE) });
 }
 
 export const FINAL_CAPTION = { he: "כך נראית עבודה משותפת. 30 שניות.", en: "This is what working together looks like. 30 seconds." };

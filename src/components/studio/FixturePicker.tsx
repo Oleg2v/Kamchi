@@ -1,5 +1,5 @@
 "use client";
-import { useDeferredValue, useMemo, useState } from "react";
+import { useDeferredValue, useMemo, useRef, useState } from "react";
 import { Dialog } from "@/components/ui/Dialog";
 import { FIXTURES, getBrand } from "@/lib/data";
 import { formatIls, useLang, useTx } from "@/lib/i18n";
@@ -7,7 +7,8 @@ import { FIXTURE_TYPE_LABEL, SPACE_LABEL } from "@/lib/i18n/common";
 import { useStore } from "@/lib/store";
 import { SPACES, type Fixture, type Space } from "@/lib/types";
 import { FixtureThumb } from "./FixtureThumb";
-import { leadTimeText } from "./labels";
+import { brandLine, fixtureName, leadTimeText } from "./labels";
+import { useTrapTab } from "./useTrapTab";
 
 function PickCard({ fixture, onPick }: { fixture: Fixture; onPick: () => void }) {
   const t = useTx();
@@ -23,13 +24,13 @@ function PickCard({ fixture, onPick }: { fixture: Fixture; onPick: () => void })
       onPointerLeave={() => setLit(false)}
       onFocus={() => setLit(true)}
       onBlur={() => setLit(false)}
-      className="group grid gap-2 border hairline bg-night p-2 text-start transition-colors hover:border-glow/60 focus-visible:border-glow"
+      className="lit-card grid gap-2 border hairline bg-night p-2 text-start"
       aria-label={`${t({ he: "הוספת", en: "Add" })} ${lang === "he" ? fixture.nameHe : fixture.name} — ${brand?.name ?? fixture.brand}`}
     >
       <FixtureThumb fixture={fixture} lit={lit} className="aspect-[200/260] w-full" />
       <div className="px-1 pb-1">
-        <p className="font-mono text-[0.66rem] uppercase tracking-wider text-muted" dir="ltr">{brand?.name ?? fixture.brand}</p>
-        <p className="text-sm text-paper">{lang === "he" ? fixture.nameHe : fixture.name}</p>
+        <p className="font-mono text-[0.66rem] uppercase tracking-wider text-muted"><span dir="ltr">{brandLine(fixture, lang)}</span></p>
+        <p className="lit-card__title text-sm text-paper">{fixtureName(fixture, lang)}</p>
         <p className="mt-1 flex items-baseline justify-between gap-2 text-[0.72rem] text-muted">
           <span>{t(FIXTURE_TYPE_LABEL[fixture.type])}</span>
           <span className="num" dir="ltr">{formatIls(fixture.price, lang)}</span>
@@ -47,6 +48,8 @@ export function FixturePicker({ open, onClose, roomName, onPick }: { open: boole
   const [q, setQ] = useState("");
   const [space, setSpace] = useState<Space | null>(null);
   const dq = useDeferredValue(q.trim().toLowerCase());
+  const bodyRef = useRef<HTMLDivElement>(null);
+  useTrapTab(bodyRef, open);
 
   const list = useMemo(() => {
     return FIXTURES.filter((f) => {
@@ -60,7 +63,7 @@ export function FixturePicker({ open, onClose, roomName, onPick }: { open: boole
 
   return (
     <Dialog open={open} onClose={onClose} wide title={<>{t({ he: "הוספת גוף תאורה", en: "Add a fixture" })} <span className="text-muted">· {roomName}</span></>}>
-      <div className="grid gap-4">
+      <div ref={bodyRef} className="grid gap-4">
         <div className="flex flex-col gap-3 md:flex-row md:items-center">
           <label className="flex-1">
             <span className="sr-only">{t({ he: "חיפוש", en: "Search" })}</span>

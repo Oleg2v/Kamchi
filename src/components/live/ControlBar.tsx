@@ -22,8 +22,8 @@ export function ControlBar({ engine, state, progress, record = false, onReset }:
   const idx = Math.max(0, state.stepIndex);
   const caption = state.caption
     ? t(state.caption)
-    : t({ he: "הפעילו הדגמה — 30 שניות של עבודה משותפת, מהחדר שנדלק ועד ה־PDF.", en: "Play the demo — 30 seconds of working together, from the room lighting up to the PDF." });
-  const playLabel = status === "running" ? t({ he: "השהיה", en: "Pause" }) : status === "paused" ? t({ he: "המשך", en: "Resume" }) : done ? t({ he: "עוד פעם", en: "Play again" }) : t({ he: "הפעילו הדגמה", en: "Play the demo" });
+    : t({ he: "30 שניות של עבודה משותפת: מהחדר שנדלק ועד ה־PDF.", en: "30 seconds of working together: from the room lighting up to the PDF." });
+  const playLabel = status === "running" ? t({ he: "השהיה", en: "Pause" }) : status === "paused" ? t({ he: "המשך", en: "Resume" }) : done ? t({ he: "להפעיל שוב", en: "Play again" }) : t({ he: "הפעילו הדגמה", en: "Play the demo" });
   const secondsLeft = Math.max(0, Math.round((total * (1 - progress)) / 1000));
 
   let acc = 0;
@@ -76,8 +76,8 @@ export function ControlBar({ engine, state, progress, record = false, onReset }:
 
       {!record && (
         <div className="hidden items-center gap-4 text-[0.78rem] lg:flex">
-          <a href="/studio" target="_blank" rel="noopener" className="text-muted hover:text-glow">{t({ he: "הסטודיו בכרטיסייה נפרדת", en: "Studio in its own tab" })}</a>
-          <a href="/desk" target="_blank" rel="noopener" className="text-muted hover:text-glow">{t({ he: "השולחן בכרטיסייה נפרדת", en: "Desk in its own tab" })}</a>
+          <a href="/studio" target="_blank" rel="noopener" className="lit-link text-muted">{t({ he: "הסטודיו בכרטיסייה נפרדת", en: "Studio in its own tab" })}</a>
+          <a href="/desk" target="_blank" rel="noopener" className="lit-link text-muted">{t({ he: "השולחן בכרטיסייה נפרדת", en: "Desk in its own tab" })}</a>
           <button type="button" onClick={onReset} className="text-muted hover:text-brass-light" data-autopilot-control="reset">{t({ he: "איפוס דמו", en: "Reset demo" })}</button>
         </div>
       )}

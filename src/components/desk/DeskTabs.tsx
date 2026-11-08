@@ -34,7 +34,8 @@ export function DeskTabs({ tab, onChange, counts, hot, flash = false }: { tab: D
             onClick={() => onChange(x.id)}
             onKeyDown={(e) => {
               const idx = DESK_TABS.findIndex((y) => y.id === x.id);
-              const dir = e.key === "ArrowLeft" ? 1 : e.key === "ArrowRight" ? -1 : 0; // RTL: left moves forward
+              const forward = getComputedStyle(e.currentTarget).direction === "rtl" ? "ArrowLeft" : "ArrowRight";
+              const dir = e.key === forward ? 1 : e.key === "ArrowLeft" || e.key === "ArrowRight" ? -1 : 0;
               if (!dir) return;
               e.preventDefault();
               const next = DESK_TABS[(idx + dir + DESK_TABS.length) % DESK_TABS.length];

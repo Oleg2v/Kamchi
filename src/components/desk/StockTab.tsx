@@ -1,6 +1,7 @@
 "use client";
 import { useDeferredValue, useMemo, useState } from "react";
 import { FixtureThumb } from "@/components/studio/FixtureThumb";
+import { brandLine, fixtureName } from "@/components/studio/labels";
 import { FIXTURES, getBrand } from "@/lib/data";
 import { formatIls, useLang, useTx } from "@/lib/i18n";
 import { FIXTURE_TYPE_LABEL, LEAD_TIME_LABEL } from "@/lib/i18n/common";
@@ -17,38 +18,37 @@ function StockRow({ fixture }: { fixture: Fixture }) {
   const setStock = useStore((s) => s.setStock);
   const setLeadTime = useStore((s) => s.setLeadTime);
   const [lit, setLit] = useState(false);
-  const brand = getBrand(fixture.brand);
-  const name = lang === "he" ? fixture.nameHe : fixture.name;
+  const name = fixtureName(fixture, lang);
   return (
     <tr
-      className="align-middle"
+      className="md:align-middle"
       onPointerEnter={() => setLit(true)}
       onPointerLeave={() => setLit(false)}
       onFocusCapture={() => setLit(true)}
       onBlurCapture={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setLit(false); }}
       data-autopilot={`stock:${fixture.id}`}
     >
-      <td className="py-2 pe-3 ps-0">
+      <td className="cell-wide md:py-2 md:pe-3 md:ps-0">
         <div className="flex items-center gap-3">
           <FixtureThumb fixture={fixture} lit={lit} className="w-9 shrink-0" />
           <div className="min-w-0">
             <p className="truncate text-sm text-paper">{name}</p>
-            <p className="truncate font-mono text-[0.64rem] uppercase tracking-wider text-muted" dir="ltr">{brand?.name ?? fixture.brand} · {fixture.name}</p>
+            <p className="truncate font-mono text-[0.64rem] uppercase tracking-wider text-muted"><span dir="ltr">{brandLine(fixture, lang)}</span></p>
           </div>
         </div>
       </td>
       <td className="hidden px-3 py-2 text-xs text-muted md:table-cell">{t(FIXTURE_TYPE_LABEL[fixture.type])}</td>
       <td className="num hidden px-3 py-2 text-end text-xs text-muted md:table-cell" dir="ltr">{formatIls(fixture.price, lang)}</td>
-      <td className="px-3 py-2">
+      <td className="md:px-3 md:py-2">
         <div className="inline-flex items-stretch border hairline" role="group" aria-label={`${t({ he: "מלאי", en: "Stock" })} — ${name}`}>
-          <button type="button" className="px-2 text-muted hover:text-glow" aria-label={t({ he: "פחות יחידה במלאי", en: "One less in stock" })} onClick={() => setStock(fixture.id, stock - 1)}>−</button>
+          <button type="button" className="lit-link px-2 text-muted" aria-label={t({ he: "פחות יחידה במלאי", en: "One less in stock" })} onClick={() => setStock(fixture.id, stock - 1)}>−</button>
           <span className={`num min-w-9 border-x hairline px-2 py-1 text-center text-sm ${stock > 0 ? "text-paper" : "text-muted"}`} dir="ltr" aria-live="polite">{stock}</span>
-          <button type="button" className="px-2 text-muted hover:text-glow" aria-label={t({ he: "עוד יחידה במלאי", en: "One more in stock" })} onClick={() => setStock(fixture.id, stock + 1)}>+</button>
+          <button type="button" className="lit-link px-2 text-muted" aria-label={t({ he: "עוד יחידה במלאי", en: "One more in stock" })} onClick={() => setStock(fixture.id, stock + 1)}>+</button>
         </div>
       </td>
-      <td className="px-0 py-2 ps-3">
+      <td className="cell-end md:px-0 md:py-2 md:ps-3">
         <select
-          className={`field min-h-8 w-full min-w-[8.5rem] py-1 text-[0.8rem] ${leadTime === "stock" ? "text-brass-light" : ""}`}
+          className={`field min-h-8 w-full py-1 text-[0.8rem] md:min-w-[8.5rem] ${leadTime === "stock" ? "text-brass-light" : ""}`}
           value={leadTime}
           onChange={(e) => setLeadTime(fixture.id, e.target.value as LeadTime)}
           aria-label={`${t({ he: "זמן אספקה", en: "Lead time" })} — ${name}`}
@@ -88,7 +88,7 @@ export function StockTab() {
         </p>
       </div>
       <div className="overflow-x-auto">
-        <table className="w-full text-sm">
+        <table className="portal-table w-full text-sm">
           <thead>
             <tr className="border-b hairline text-[0.7rem] text-muted">
               <th scope="col" className="py-2 pe-3 ps-0 text-start font-normal">{t({ he: "גוף תאורה", en: "Fixture" })}</th>
@@ -100,7 +100,7 @@ export function StockTab() {
           </thead>
           <tbody className="divide-y hairline">
             {list.map((f) => <StockRow key={f.id} fixture={f} />)}
-            {list.length === 0 && <tr><td colSpan={5} className="py-8 text-center text-muted">{t({ he: "לא נמצא גוף תאורה מתאים.", en: "No fixture matches." })}</td></tr>}
+            {list.length === 0 && <tr><td colSpan={5} className="cell-wide py-8 text-center text-muted">{t({ he: "לא נמצא גוף תאורה מתאים.", en: "No fixture matches." })}</td></tr>}
           </tbody>
         </table>
       </div>

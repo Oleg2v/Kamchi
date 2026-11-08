@@ -1,5 +1,6 @@
 "use client";
 import "./live.css";
+import "@/components/studio/portal.css";
 import { useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { DeskApp } from "@/components/desk/DeskApp";
@@ -18,6 +19,9 @@ import { FlyingDots, type Flight } from "./FlyingDots";
 import { RelightStage, RoomStage } from "./StageCards";
 
 const SIDES: Side[] = ["designer", "desk"];
+
+/** ?autopilot=1 starts one run per visit. Module scope, so a remount (strict mode, Fast Refresh) never starts a second. */
+let autoStarted = false;
 
 function centerOf(el: Element | null, fx = 0.5, fy = 0.5) {
   const r = el?.getBoundingClientRect();
@@ -75,9 +79,11 @@ export function LiveScreen() {
 
   // ?autopilot=1 — start once the persisted store is in.
   useEffect(() => {
-    if (!auto || !hydrated) return;
+    if (!auto || !hydrated || autoStarted) return;
+    autoStarted = true;
     if (engine.getState().status === "idle") engine.play();
   }, [auto, hydrated, engine]);
+  useEffect(() => () => { autoStarted = false; }, []);
 
   /* ── designer → desk: a dot flies into the inbox ── */
   const [flights, setFlights] = useState<Flight[]>([]);
@@ -100,7 +106,8 @@ export function LiveScreen() {
 
   const stage = state.stage;
   const studioProjectId = stage === "board" ? AUTOPILOT_PROJECT_ID : undefined;
-  const slot = stage === "room" ? <RoomStage /> : stage === "relight" ? <RelightStage /> : null;
+  // Recording runs headless without a GPU: the room card plays the pre-rendered loop instead of software WebGL.
+  const slot = stage === "room" ? <RoomStage renderer={record ? "video" : undefined} /> : stage === "relight" ? <RelightStage /> : null;
 
   const onReset = () => {
     if (!window.confirm(t({ he: "לאפס את הדמו לנתוני ההתחלה? כל הפרויקטים, הבקשות וההצעות שנוספו יימחקו.", en: "Reset the demo to its seed data? Every project, request and quote added so far will be removed." }))) return;

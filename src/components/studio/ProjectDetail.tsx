@@ -11,7 +11,7 @@ import { QuoteCard } from "./QuoteCard";
 import { QuoteRequestDialog } from "./QuoteRequestDialog";
 import { RoomBoard } from "./RoomBoard";
 import { StatusChip } from "./StatusChip";
-import { countFixtures, countItems, listValue, relativeTime } from "./labels";
+import { backArrow, countFixtures, countItems, listValue, relativeTime } from "./labels";
 
 type Props = {
   project: Project;
@@ -55,13 +55,13 @@ export function ProjectDetail({ project, embedded = false, onBack, fresh = [], f
       <header className={`grid gap-4 ${flashProject ? "flash-warm" : ""}`} key={`h-${flashProject ? flashTick : 0}`}>
         <div className="flex flex-wrap items-center justify-between gap-3">
           {onBack ? (
-            <button type="button" onClick={onBack} className="text-sm text-muted hover:text-glow" data-autopilot="project-back">
-              <span aria-hidden>→ </span>
+            <button type="button" onClick={onBack} className="lit-link text-sm text-muted" data-autopilot="project-back">
+              <span aria-hidden>{backArrow(lang)} </span>
               {t({ he: "כל הפרויקטים", en: "All projects" })}
             </button>
           ) : (
-            <TransitionLink href="/studio" className="text-sm text-muted hover:text-glow">
-              <span aria-hidden>→ </span>
+            <TransitionLink href="/studio" className="lit-link text-sm text-muted">
+              <span aria-hidden>{backArrow(lang)} </span>
               {t({ he: "כל הפרויקטים", en: "All projects" })}
             </TransitionLink>
           )}

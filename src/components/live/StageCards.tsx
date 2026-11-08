@@ -10,7 +10,7 @@ import { BETA, SIMULATION } from "@/lib/i18n/common";
 import { useStore } from "@/lib/store";
 
 /** Step 1 — the room from the home page, lighting up by itself inside a card. */
-export function RoomStage() {
+export function RoomStage({ renderer }: { renderer?: "webgl" | "video" | "css" }) {
   const t = useTx();
   const [lit, setLit] = useState(false);
   return (
@@ -19,7 +19,7 @@ export function RoomStage() {
         <p className="eyebrow">{t({ he: "האור נדלק", en: "Lights on" })}</p>
         <span className={`num text-[0.68rem] ${lit ? "text-glow" : "text-muted"}`} dir="ltr">{lit ? "7 / 7" : "… / 7"}</span>
       </header>
-      <RoomScene mode="auto" compact onFullyLit={() => setLit(true)} />
+      <RoomScene mode="auto" compact renderer={renderer} onFullyLit={() => setLit(true)} />
       <p className="px-4 py-2.5 text-[0.78rem] text-muted">{t({ he: "סלון בפרויקט של קמחי תאורה — שבעה גופים נדלקים בזה אחר זה.", en: "A living room from a Kamchi project — seven fixtures switching on one after another." })}</p>
     </section>
   );

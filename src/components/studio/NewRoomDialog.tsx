@@ -1,8 +1,9 @@
 "use client";
-import { useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import { Dialog } from "@/components/ui/Dialog";
 import { useTx } from "@/lib/i18n";
 import { useStore } from "@/lib/store";
+import { useTrapTab } from "./useTrapTab";
 
 export function NewRoomDialog({ open, onClose, projectId }: { open: boolean; onClose: () => void; projectId: string }) {
   const t = useTx();
@@ -11,6 +12,8 @@ export function NewRoomDialog({ open, onClose, projectId }: { open: boolean; onC
   const [nameEn, setNameEn] = useState("");
   const [area, setArea] = useState("20");
   const [lux, setLux] = useState("150");
+  const formRef = useRef<HTMLFormElement>(null);
+  useTrapTab(formRef, open);
 
   const submit = (e: FormEvent) => {
     e.preventDefault();
@@ -25,7 +28,7 @@ export function NewRoomDialog({ open, onClose, projectId }: { open: boolean; onC
 
   return (
     <Dialog open={open} onClose={onClose} title={t({ he: "חדר חדש", en: "New room" })}>
-      <form onSubmit={submit} className="grid gap-4">
+      <form ref={formRef} onSubmit={submit} className="grid gap-4">
         <div className="grid gap-4 sm:grid-cols-2">
           <label className="grid gap-1.5 text-sm">
             <span className="text-muted">{t({ he: "שם החדר", en: "Room name (Hebrew)" })}</span>

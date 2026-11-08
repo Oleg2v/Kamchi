@@ -290,8 +290,22 @@ export class AutopilotEngine {
       const r = el.getBoundingClientRect();
       const delta = r.top + r.height / 2 - (pr.top + pr.height / 2);
       if (Math.abs(delta) < 28) return;
-      pane.scrollTo({ top: pane.scrollTop + delta, behavior: this.reduced ? "auto" : "smooth" });
-      await sleep(this.reduced ? 40 : 480);
+      const top = Math.max(0, Math.min(pane.scrollHeight - pane.clientHeight, pane.scrollTop + delta));
+      pane.scrollTo({ top, behavior: this.reduced ? "auto" : "smooth" });
+      if (this.reduced) { await frame(); return; }
+      // Wait until the pane stops moving (smooth scroll), at most ~900 ms.
+      let lastTop = -1;
+      let still = 0;
+      let waited = 0;
+      let lastT = performance.now();
+      while (waited < 900 && still < 3) {
+        await frame();
+        const now = performance.now();
+        if (this.st.status !== "paused") waited += now - lastT;
+        lastT = now;
+        if (Math.abs(pane.scrollTop - lastTop) < 0.5) still++; else still = 0;
+        lastTop = pane.scrollTop;
+      }
     };
     const moveTo = async (target: string, opts: MoveOptions = {}) => {
       const el = await waitFor(target, opts.timeout ?? 3000);
@@ -299,18 +313,23 @@ export class AutopilotEngine {
       // Give the host a frame to reveal the pane (mobile) before measuring.
       await frame();
       await scrollIntoPane(el);
-      const r = el.getBoundingClientRect();
-      const tx = r.left + r.width * (opts.ax ?? 0.5);
-      const ty = r.top + r.height * (opts.ay ?? 0.5);
+      // The target is re-measured every frame: a pane may still be settling its smooth scroll,
+      // a dialog may open, a card may grow — the cursor always lands on the element as it is now.
+      const aim = () => {
+        const r = el.getBoundingClientRect();
+        return { x: r.left + r.width * (opts.ax ?? 0.5), y: r.top + r.height * (opts.ay ?? 0.5) };
+      };
       if (!this.st.cursorVisible) this.set({ cursorVisible: true });
       if (this.reduced) {
-        this.place(tx, ty);
+        const p = aim();
+        this.place(p.x, p.y);
         this.retop();
         return el;
       }
       const sx = this.pos.x;
       const sy = this.pos.y;
-      const dist = Math.hypot(tx - sx, ty - sy);
+      const first = aim();
+      const dist = Math.hypot(first.x - sx, first.y - sy);
       const dur = opts.duration ?? Math.min(1100, Math.max(420, dist * 1.15));
       let t = 0;
       let last = performance.now();
@@ -320,7 +339,15 @@ export class AutopilotEngine {
         if (this.st.status !== "paused") t = Math.min(1, t + (now - last) / dur);
         last = now;
         const k = easeInOutCubic(t);
-        this.place(sx + (tx - sx) * k, sy + (ty - sy) * k);
+        const p = aim();
+        this.place(sx + (p.x - sx) * k, sy + (p.y - sy) * k);
+      }
+      // Settle: if the page is still moving under the cursor, follow it for a few frames.
+      for (let i = 0; i < 6; i++) {
+        const p = aim();
+        if (Math.hypot(p.x - this.pos.x, p.y - this.pos.y) < 1) break;
+        this.place(p.x, p.y);
+        await frame();
       }
       this.retop();
       return el;

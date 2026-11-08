@@ -27,13 +27,15 @@ export function NotificationsPanel({ flashIds, visible = true, limit = 12, embed
     return () => clearTimeout(id);
   }, [visible, unseen, markSeen]);
 
+  // The project, unless the title already names it (store titles do).
   const projectName = (e: DemoEvent) => {
     const p = e.projectId ? projects.find((x) => x.id === e.projectId) : undefined;
-    return p ? (lang === "he" ? p.name : p.nameEn) : undefined;
+    const name = p ? (lang === "he" ? p.name : p.nameEn) : undefined;
+    return name && !t(e.title).includes(name) ? name : undefined;
   };
 
   if (list.length === 0) {
-    return <p className={`text-sm text-muted ${embedded ? "px-4 py-4" : ""}`}>{t({ he: "אין עדכונים חדשים. כשצוות קמחי יפעל — תראו את זה כאן.", en: "Nothing new. When the Kamchi team acts, it shows up here." })}</p>;
+    return <p className={`text-sm text-muted ${embedded ? "px-4 py-4" : ""}`}>{t({ he: "אין עדכונים חדשים. כל פעולה של צוות קמחי תופיע כאן ברגע שהיא נעשית.", en: "Nothing new. Whatever the Kamchi team does shows up here as it happens." })}</p>;
   }
   return (
     <ol className="divide-y hairline" aria-live="polite" aria-label={t({ he: "עדכונים משולחן הפרויקטים", en: "Updates from the project desk" })}>

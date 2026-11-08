@@ -14,6 +14,7 @@ export function QuoteCard({ quote, project, flash = false, embedded = false }: {
   const acceptQuote = useStore((s) => s.acceptQuote);
   const [bytes, setBytes] = useState<Uint8Array | null>(null);
   const [busy, setBusy] = useState<"pdf" | "preview" | null>(null);
+  const [pdfError, setPdfError] = useState(false);
   const studio = getStudio(quote.studioId);
   const Heading = embedded ? "h4" : "h3";
 
@@ -26,15 +27,17 @@ export function QuoteCard({ quote, project, flash = false, embedded = false }: {
   };
   const download = async () => {
     setBusy("pdf");
-    try { downloadBytes(await ensurePdf(), `kamchi-quote-${quote.id}.pdf`); } finally { setBusy(null); }
+    setPdfError(false);
+    try { downloadBytes(await ensurePdf(), `kamchi-quote-${quote.id}.pdf`); } catch (e) { console.error(e); setPdfError(true); } finally { setBusy(null); }
   };
   const preview = async () => {
     const w = window.open("about:blank", "_blank");
     setBusy("preview");
+    setPdfError(false);
     try {
       const url = bytesToObjectUrl(await ensurePdf());
       if (w) w.location.href = url; else window.open(url, "_blank");
-    } finally { setBusy(null); }
+    } catch (e) { console.error(e); w?.close(); setPdfError(true); } finally { setBusy(null); }
   };
   const saving = quote.subtotal - quote.total;
 
@@ -44,8 +47,8 @@ export function QuoteCard({ quote, project, flash = false, embedded = false }: {
         <Heading id={`quote-${quote.id}`} className="font-display text-xl text-paper md:text-2xl">
           {t({ he: "הצעת מחיר", en: "Quote" })} <span className="num text-sm text-muted" dir="ltr">{quote.id}</span>
         </Heading>
-        <p className="num text-xs text-muted" dir="ltr">
-          {formatDate(quote.sentAt, lang)} → {formatDate(quote.validUntil, lang)}
+        <p className="num text-xs text-muted" dir={lang === "he" ? "rtl" : "ltr"}>
+          {formatDate(quote.sentAt, lang)} {lang === "he" ? "←" : "→"} {formatDate(quote.validUntil, lang)}
         </p>
       </header>
 
@@ -103,6 +106,7 @@ export function QuoteCard({ quote, project, flash = false, embedded = false }: {
             {t({ he: "תצוגה מקדימה", en: "Preview" })}
           </button>
         </div>
+        {pdfError && <p role="alert" className="basis-full text-xs text-brass-light">{t({ he: "ה־PDF לא הוכן. ההצעה עצמה שמורה — נסו שוב בעוד רגע.", en: "The PDF could not be prepared. The quote itself is saved — try again in a moment." })}</p>}
         {quote.acceptedAt ? (
           <p className="text-sm text-brass-light">
             {t({ he: "ההצעה אושרה", en: "Accepted" })} · <span className="num" dir="ltr">{formatDate(quote.acceptedAt, lang)}</span>

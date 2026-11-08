@@ -1,4 +1,5 @@
 "use client";
+import "./portal.css";
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { TransitionLink } from "@/components/brand/TransitionLink";
 import { PageHeader } from "@/components/ui/PageHeader";
@@ -165,7 +166,7 @@ export function StudioApp({ embedded = false, projectId, slot }: StudioAppProps)
         <aside className="grid gap-5 content-start" aria-labelledby="studio-updates">
           <div className="flex items-baseline justify-between gap-3 border-b hairline pb-3">
             <h2 id="studio-updates" className="eyebrow">{t({ he: "עדכונים משולחן הפרויקטים", en: "Updates from the project desk" })}</h2>
-            <TransitionLink href="/live" className="text-xs text-muted hover:text-glow">{t({ he: "מצב חי", en: "Live" })}</TransitionLink>
+            <TransitionLink href="/live" className="lit-link text-xs text-muted">{t({ he: "מצב חי", en: "Live" })}</TransitionLink>
           </div>
           {updates}
         </aside>

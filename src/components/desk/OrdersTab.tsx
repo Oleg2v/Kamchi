@@ -3,7 +3,8 @@ import { useMemo, useState } from "react";
 import { FixtureThumb } from "@/components/studio/FixtureThumb";
 import { OrderPipeline, nextOrderStatus } from "@/components/studio/OrderPipeline";
 import { StatusChip } from "@/components/studio/StatusChip";
-import { getBrand, getFixture, getStudio, STUDIOS } from "@/lib/data";
+import { brandLine, fixtureName } from "@/components/studio/labels";
+import { getFixture, getStudio, STUDIOS } from "@/lib/data";
 import { useLang, useTx } from "@/lib/i18n";
 import { useStore } from "@/lib/store";
 import type { Project, Room, RoomItem } from "@/lib/types";
@@ -25,13 +26,13 @@ function OrderRow({ project, room, item }: { project: Project; room: Room; item:
       onBlurCapture={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setLit(false); }}
       data-autopilot={`order-item:${item.id}`}
     >
-      <FixtureThumb fixture={f} lit={lit || item.orderStatus !== "delivered" && false} className="w-[2.75rem]" />
+      <FixtureThumb fixture={f} lit={lit} className="w-[2.75rem]" />
       <div className="min-w-0">
         <p className="truncate text-sm text-paper">
-          {lang === "he" ? f.nameHe : f.name}
-          <span className="num ms-2 text-xs text-muted" dir="ltr">×{item.qty}</span>
+          {fixtureName(f, lang)}
+          <span className="num mx-2 text-xs text-muted"><span dir="ltr">× {item.qty}</span></span>
         </p>
-        <p className="font-mono text-[0.66rem] uppercase tracking-wider text-muted" dir="ltr">{getBrand(f.brand)?.name ?? f.brand} · {f.name}</p>
+        <p className="font-mono text-[0.66rem] uppercase tracking-wider text-muted"><span dir="ltr">{brandLine(f, lang)}</span></p>
         <p className="text-[0.72rem] text-muted">{lang === "he" ? room.name : room.nameEn}{item.note && <span> — {item.note}</span>}</p>
       </div>
       <div className="col-start-2 md:col-start-3">
@@ -65,18 +66,18 @@ export function OrdersTab({ embedded = false }: { embedded?: boolean }) {
     <div className="grid gap-5">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <p className="num text-xs text-muted">
-          <span dir="ltr">{openCount}</span> {t({ he: "שורות בדרך", en: "lines in progress" })} · <span dir="ltr">{groups.length}</span> {t({ he: "פרויקטים", en: "projects" })}
+          <span dir="ltr">{openCount}</span> {t({ he: "שורות פתוחות", en: "open lines" })} · <span dir="ltr">{groups.length}</span> {t({ he: "פרויקטים", en: "projects" })}
         </p>
         <label className="flex items-center gap-2 text-sm text-muted">
           <span>{t({ he: "סטודיו", en: "Studio" })}</span>
           <select className="field min-h-8 w-auto py-1 text-sm" value={studioId} onChange={(e) => setStudioId(e.target.value)} aria-label={t({ he: "סינון לפי סטודיו", en: "Filter by studio" })}>
-            <option value="">{t({ he: "כל הסטודיו", en: "All studios" })}</option>
+            <option value="">{t({ he: "כל הסטודיואים", en: "All studios" })}</option>
             {STUDIOS.map((s) => <option key={s.id} value={s.id}>{lang === "he" ? s.name : s.nameEn}</option>)}
           </select>
         </label>
       </div>
       {groups.length === 0 ? (
-        <p className="border hairline px-4 py-10 text-center text-sm text-muted">{t({ he: "אין הזמנות פתוחות לסטודיו הזה.", en: "No orders for this studio." })}</p>
+        <p className="border hairline px-4 py-10 text-center text-sm text-muted">{t({ he: "אין הזמנות פתוחות לסטודיו הזה.", en: "No open orders for this studio." })}</p>
       ) : (
         groups.map(({ project, rows }) => {
           const studio = getStudio(project.studioId);

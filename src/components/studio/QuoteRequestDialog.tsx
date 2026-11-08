@@ -1,11 +1,12 @@
 "use client";
-import { useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import { Dialog } from "@/components/ui/Dialog";
 import { formatIls, useLang, useTx } from "@/lib/i18n";
 import { DEMO_PRICE } from "@/lib/i18n/common";
 import { useStore } from "@/lib/store";
 import type { Project } from "@/lib/types";
 import { countFixtures, countItems, listValue } from "./labels";
+import { useTrapTab } from "./useTrapTab";
 
 /** Optional message → requestQuote. The summary says exactly what leaves the studio. */
 export function QuoteRequestDialog({ open, onClose, project }: { open: boolean; onClose: () => void; project: Project }) {
@@ -14,6 +15,8 @@ export function QuoteRequestDialog({ open, onClose, project }: { open: boolean; 
   const requestQuote = useStore((s) => s.requestQuote);
   const [message, setMessage] = useState("");
   const items = countItems(project);
+  const formRef = useRef<HTMLFormElement>(null);
+  useTrapTab(formRef, open);
 
   const submit = (e: FormEvent) => {
     e.preventDefault();
@@ -24,7 +27,7 @@ export function QuoteRequestDialog({ open, onClose, project }: { open: boolean; 
 
   return (
     <Dialog open={open} onClose={onClose} title={t({ he: "בקשת הצעת מחיר", en: "Request a quote" })}>
-      <form onSubmit={submit} className="grid gap-5">
+      <form ref={formRef} onSubmit={submit} className="grid gap-5">
         <dl className="grid grid-cols-3 gap-3 border-y hairline py-4 text-sm">
           <div>
             <dt className="text-muted">{t({ he: "חדרים", en: "Rooms" })}</dt>
