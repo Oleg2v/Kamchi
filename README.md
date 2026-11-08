@@ -41,9 +41,16 @@ Without `ANTHROPIC_API_KEY` the three AI routes answer with a deterministic, cle
 
 Asset scripts: `pnpm assets:depth` rebuilds the depth map; `pnpm assets:video` re-records the hero video loop and the lit frame; `scripts/record-autopilot.ts` records the autopilot as a WebM for the email video.
 
-## Deploying to Vercel
+## Live demo
 
-See [docs/DEPLOY.md](docs/DEPLOY.md). Short version: import the repo, framework Next.js, add `ANTHROPIC_API_KEY` (optional) and keep the deployment unlisted (`vercel.json` and the app already send `X-Robots-Tag: noindex`; `robots.txt` disallows everything).
+**https://kamchi.kikkey.com** — unlisted, `noindex`, deployed as a Cloudflare Worker (OpenNext) with a custom domain. Preview worker: https://kamchi-preview.velikotrav2307.workers.dev.
+
+## Deploying
+
+See [docs/DEPLOY.md](docs/DEPLOY.md) for both targets.
+
+- **Cloudflare Workers (current):** `pnpm deploy` builds with OpenNext and runs `wrangler deploy` (config in `wrangler.jsonc`, custom domain `kamchi.kikkey.com`). `pnpm deploy:preview` publishes to the preview worker. Add the key with `npx wrangler secret put ANTHROPIC_API_KEY` to enable the real vision model.
+- **Vercel:** import the repo, framework Next.js, add `ANTHROPIC_API_KEY` (optional); `vercel.json` and the app already send `X-Robots-Tag: noindex` and `robots.txt` disallows everything.
 
 ## Accessibility
 

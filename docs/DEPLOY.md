@@ -1,4 +1,19 @@
-# Deploying the Kamchi concept to Vercel
+# Deploying the Kamchi concept
+
+## Cloudflare Workers (current production: kamchi.kikkey.com)
+
+The site runs as a Cloudflare Worker built with `@opennextjs/cloudflare`; static assets are served by Workers Assets. Configuration lives in `wrangler.jsonc` (worker `kamchi`, account of kikkey.com, `nodejs_compat`, custom domain route `kamchi.kikkey.com`, preview env `kamchi-preview` on workers.dev).
+
+```bash
+export CLOUDFLARE_API_TOKEN=…        # token with Workers Scripts/Routes edit on the account
+pnpm deploy                           # opennextjs-cloudflare build && opennextjs-cloudflare deploy
+pnpm deploy:preview                   # same build, published to kamchi-preview.<subdomain>.workers.dev
+npx wrangler secret put ANTHROPIC_API_KEY   # optional: enables the real vision model
+```
+
+Notes: the custom domain and its DNS record are created by the first deploy; expect up to a minute of 522s while it propagates. `next/font` fetches Google Fonts at build time, so the build machine needs outbound HTTPS. The worker is ~1.3 MB gzipped, well under the plan limits.
+
+## Vercel (alternative)
 
 The repository is a standard Next.js 15 app. No database, no cron, no storage: the only server code is the three AI routes under `src/app/api/ai/*`.
 
