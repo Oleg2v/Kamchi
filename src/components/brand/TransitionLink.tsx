@@ -3,6 +3,7 @@ import Link, { type LinkProps } from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, type AnchorHTMLAttributes, type MouseEvent, type ReactNode } from "react";
 import { BLACKOUT_MS } from "@/lib/motion/gsap";
+import { pageEnabled } from "@/lib/site";
 
 type Props = LinkProps & AnchorHTMLAttributes<HTMLAnchorElement> & { children: ReactNode };
 
@@ -29,6 +30,11 @@ export function TransitionLink({ href, onClick, children, ...rest }: Props) {
     },
     [href, onClick, router],
   );
+  const target = typeof href === "string" ? href : String((href as { pathname?: string }).pathname ?? "");
+  if (!pageEnabled(target)) {
+    // Hidden in the demo build: keep the look, drop the navigation.
+    return <span className={rest.className} style={rest.style}>{children}</span>;
+  }
   return (
     <Link href={href} onClick={handle} {...rest}>
       {children}

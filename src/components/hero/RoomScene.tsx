@@ -25,7 +25,7 @@ import { Captions } from "./Captions";
 import { FixtureOverlay } from "./FixtureOverlay";
 import { AUTO_OFF_AT, AUTO_TIMES, HeroLightController, LIGHTS, SCENE, type LightId } from "./light-controller";
 import type { RoomSceneMode, RoomSceneProps } from "./scene-types";
-import { useCoverBox } from "./use-cover-box";
+import { useCoverBox, type HeroFrame } from "./use-cover-box";
 
 const RelightCanvas = dynamic(() => import("./RelightCanvas"), { ssr: false });
 
@@ -97,6 +97,12 @@ export interface RoomSceneInternalProps extends RoomSceneProps {
   /** Re-render the overlays (capture reads live intensities). */
   tick?: number;
   controllerRef?: MutableRefObject<HeroLightController | null>;
+  /** Where the photograph sits on the stage (hero: beside the title on wide screens). */
+  frame?: HeroFrame | null;
+  /** Fade the pinned captions out (the title has taken the stage). */
+  captionsDimmed?: boolean;
+  /** Horizontal crop anchor of the photograph (0 = left edge kept, 0.5 = centred). */
+  anchorX?: number;
 }
 
 export function RoomSceneInternal({
@@ -110,10 +116,15 @@ export function RoomSceneInternal({
   capture,
   onRendered,
   controllerRef,
+  frame = null,
+  captionsDimmed = false,
+  anchorX = 0.5,
 }: RoomSceneInternalProps) {
   const t = useTx();
-  const stageRef = useRef<HTMLDivElement>(null);
-  const box = useCoverBox(stageRef, SCENE.aspect);
+  const frameRef = useRef<HTMLDivElement>(null);
+  const split = !!frame?.split && !compact;
+  const box = useCoverBox(frameRef, SCENE.aspect, anchorX);
+  const objectPosition = `${Math.round(anchorX * 100)}% 0`;
   const capturing = !!capture;
   const detected = useHeroRenderer(rendererProp);
   const [forced, setForced] = useState<HeroRenderer | null>(null);
@@ -201,11 +212,15 @@ export function RoomSceneInternal({
   const showCaptions = captions ?? !compact;
   const label = t({ he: "סלון בפרויקט של קמחי תאורה, נדלק גוף אחרי גוף", en: "A living room from a Kamchi project, switching on one fixture at a time" });
 
-  const placeholderStyle: CSSProperties = { objectPosition: "50% 0", filter: "brightness(0.07) saturate(0.6)" };
+  const placeholderStyle: CSSProperties = { objectPosition, filter: "brightness(0.07) saturate(0.6)" };
+
+  const frameStyle: CSSProperties = split && frame
+    ? { position: "absolute", top: 0, bottom: 0, left: frame.x, width: frame.w }
+    : { position: "absolute", inset: 0 };
+  const fadeW = split && frame ? Math.min(220, Math.round(frame.w * 0.14)) : 0;
 
   return (
     <div
-      ref={stageRef}
       role="group"
       aria-label={label}
       className={cn("relative overflow-hidden bg-night", !compact && "h-full w-full", className)}
@@ -214,6 +229,7 @@ export function RoomSceneInternal({
       data-lit={litEff.size}
       data-mode={effectiveMode}
     >
+      <div ref={frameRef} style={frameStyle} className="overflow-hidden" data-frame={split ? "split" : "cover"}>
       {/* The room is dark before anything loads. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={SCENE.image} alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover" style={placeholderStyle} />
@@ -233,7 +249,7 @@ export function RoomSceneInternal({
           poster={HERO_ASSETS.poster}
           aria-hidden
           className="absolute inset-0 h-full w-full object-cover"
-          style={{ objectPosition: "50% 0" }}
+          style={{ objectPosition }}
         >
           <source src={HERO_ASSETS.webm} type="video/webm" />
           <source src={HERO_ASSETS.mp4} type="video/mp4" onError={() => setForced("css")} />
@@ -247,7 +263,7 @@ export function RoomSceneInternal({
           alt=""
           aria-hidden
           className="absolute inset-0 h-full w-full object-cover"
-          style={{ objectPosition: "50% 0" }}
+          style={{ objectPosition }}
           onError={() => setForced(supportsWebGL() ? "webgl" : "css")}
         />
       )}
@@ -263,11 +279,28 @@ export function RoomSceneInternal({
       )}
 
       {renderer !== "video" && <FixtureOverlay box={box} lit={litEff} instant={instant} />}
+      {split && frame && (
+        // The room falls off into the night on the title's side.
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-y-0"
+          style={{
+            width: fadeW,
+            [frame.titleSide === "right" ? "right" : "left"]: 0,
+            background: `linear-gradient(to ${frame.titleSide}, rgb(5 5 5 / 0), var(--color-night))`,
+          }}
+        />
+      )}
       {showCaptions && renderer !== null && (
-        <div className="hidden md:contents">
+        <div
+          className="pointer-events-none absolute inset-0 hidden md:block"
+          style={{ opacity: captionsDimmed ? 0 : 1, transition: `opacity ${captionsDimmed ? 160 : 120}ms linear` }}
+          aria-hidden={captionsDimmed || undefined}
+        >
           <Captions box={box} lit={litEff} instant={instant} />
         </div>
       )}
+      </div>
     </div>
   );
 }

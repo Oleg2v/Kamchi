@@ -3,6 +3,7 @@
 import { TransitionLink } from "@/components/brand/TransitionLink";
 import { SwitchOn } from "@/components/light/SwitchOn";
 import { useTx } from "@/lib/i18n";
+import { pageEnabled } from "@/lib/site";
 import { Arrow } from "./Arrow";
 
 const REFERENCES = [
@@ -18,13 +19,15 @@ const REFERENCES = [
 export function References() {
   const t = useTx();
   return (
-    <section className="container-x py-20 md:py-24" aria-labelledby="refs-h">
+    <section className="container-x py-12 md:py-24" aria-labelledby="refs-h">
       <SwitchOn offOpacity={0.12} className="border-y hairline py-10 md:py-12">
         <div className="flex flex-col gap-6 md:flex-row md:items-baseline md:justify-between">
           <h2 id="refs-h" className="eyebrow">{t({ he: "פרויקטים נבחרים", en: "Selected projects" })}</h2>
-          <TransitionLink href="/projects" className="font-mono text-[0.72rem] tracking-[0.14em] text-brass-light hover:text-glow">
-            {t({ he: "לכל הפרויקטים", en: "All projects" })} <Arrow />
-          </TransitionLink>
+          {pageEnabled("/projects") && (
+            <TransitionLink href="/projects" className="font-mono text-[0.72rem] tracking-[0.14em] text-brass-light hover:text-glow">
+              {t({ he: "לכל הפרויקטים", en: "All projects" })} <Arrow />
+            </TransitionLink>
+          )}
         </div>
         <ul className="mt-6 flex flex-wrap items-baseline gap-x-5 gap-y-3 font-display [&:lang(en)]:font-display-en text-2xl leading-tight text-paper md:text-[2rem]">
           {REFERENCES.map((r, i) => (

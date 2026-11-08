@@ -10,6 +10,7 @@ import { useHydrated } from "@/lib/hooks/useHydrated";
 import { useTx } from "@/lib/i18n";
 import { PORTAL_NAV } from "@/lib/i18n/common";
 import { selectOpenRequests, useStore } from "@/lib/store";
+import { pageEnabled } from "@/lib/site";
 import { SectionHeading } from "./SectionHeading";
 
 function Side({ eyebrow, title, lines, stat, statLabel }: { eyebrow: string; title: string; lines: string[]; stat?: number; statLabel: string }) {
@@ -40,7 +41,7 @@ export function StudioPromise() {
   const open = useStore((s) => selectOpenRequests(s).length);
   const projects = useStore((s) => s.projects.length);
   return (
-    <section className="container-x py-24 md:py-32" aria-labelledby="portal-h">
+    <section id="portal" className="container-x scroll-mt-24 py-16 md:py-32" aria-labelledby="portal-h">
       <SectionHeading
         id="portal-h"
         eyebrow={t({ he: "למעצבים ולצוות", en: "For designers and the team" })}
@@ -50,7 +51,7 @@ export function StudioPromise() {
           en: "Two sides of the same project. The designer builds rooms and asks for a quote; the request lands on Kamchi's desk live, and every update — lead time, quote, order status — returns to the studio the same moment.",
         })}
       />
-      <SwitchOn className="mt-12" offOpacity={0.14} glow="wash" glowSize={560} glowOffset={{ x: "50%", y: "50%" }}>
+      <SwitchOn className="mt-12" offOpacity={0.14}>
         <div className="panel relative grid md:grid-cols-[1fr_auto_1fr]">
           <Side
             eyebrow={t(PORTAL_NAV.studio.label)}
@@ -82,14 +83,14 @@ export function StudioPromise() {
             statLabel={t(open === 1 ? { he: "בקשה פתוחה עכשיו", en: "request open right now" } : { he: "בקשות פתוחות עכשיו", en: "requests open right now" })}
           />
         </div>
-        <div className="mt-6 flex flex-wrap items-center gap-3">
+        {pageEnabled("/live") && <div className="mt-6 flex flex-wrap items-center gap-3">
           <TransitionLink href="/live" className="btn btn-primary">
             <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-night animate-pulse-dot" />
             {t(PORTAL_NAV.live.label)}
           </TransitionLink>
           <TransitionLink href="/live?autopilot=1" className="btn">{t({ he: "הפעילו הדגמה", en: "Run the demo" })}</TransitionLink>
           <p className="font-mono text-[0.7rem] text-muted">{t({ he: "שני הצדדים זה לצד זה, או בשני חלונות — מסונכרנים.", en: "Both sides side by side, or in two windows — in sync." })}</p>
-        </div>
+        </div>}
       </SwitchOn>
     </section>
   );

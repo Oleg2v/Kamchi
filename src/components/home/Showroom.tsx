@@ -7,6 +7,7 @@ import { Dialog } from "@/components/ui/Dialog";
 import { useTx } from "@/lib/i18n";
 import { ADDRESS } from "@/lib/i18n/common";
 import { useStore } from "@/lib/store";
+import { pageEnabled } from "@/lib/site";
 import { Arrow } from "./Arrow";
 
 /** Opening hours; the time ranges are isolated (U+2066…U+2069) so bidi never flips "9:00–19:00". */
@@ -61,9 +62,9 @@ export function Showroom() {
   const t = useTx();
   const [open, setOpen] = useState(false);
   return (
-    <section className="container-x py-24 md:py-32" aria-labelledby="showroom-h">
+    <section className="container-x py-16 md:py-32" aria-labelledby="showroom-h">
       <div className="grid gap-12 md:grid-cols-[1.2fr_1fr] md:items-end">
-        <SwitchOn offOpacity={0.12} glow="pool" glowSize={720} glowOffset={{ x: "40%", y: "92%" }}>
+        <SwitchOn offOpacity={0.12}>
           <p className="eyebrow mb-3">{t({ he: "אולם התצוגה", en: "The showroom" })}</p>
           <h2 id="showroom-h" className="text-4xl leading-[1.05] md:text-5xl lg:text-6xl">
             <span className="num">5,000</span> {t({ he: "מ״ר של אור בבני ברק", en: "m² of light in Bnei Brak" })}
@@ -78,7 +79,7 @@ export function Showroom() {
           <p className="mt-1 font-mono text-xs text-muted">{t(HOURS)}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <button type="button" className="btn btn-primary" onClick={() => setOpen(true)}>{t({ he: "קבעו ביקור", en: "Book a visit" })}</button>
-            <TransitionLink href="/about" className="btn">{t({ he: "הסיפור של קמחי", en: "The Kamchi story" })}</TransitionLink>
+            {pageEnabled("/about") && <TransitionLink href="/about" className="btn">{t({ he: "הסיפור של קמחי", en: "The Kamchi story" })}</TransitionLink>}
           </div>
         </SwitchOn>
         <SwitchOn delay={200} offOpacity={0.12} className="panel p-6 md:p-8">
@@ -89,9 +90,11 @@ export function Showroom() {
           <p className="mt-3 text-sm leading-relaxed text-muted">
             {t({ he: "תנאי סטודיו, הצעות מחיר דרך הפורטל, ועדכוני אספקה בזמן אמת. היום זו רשימת שמות; כאן היא הופכת לשולחן עבודה.", en: "Studio terms, quotes through the portal and live delivery updates. Today it is a list of names; here it becomes a desk." })}
           </p>
-          <TransitionLink href="/club" className="mt-6 inline-block font-mono text-[0.72rem] tracking-[0.14em] text-brass-light hover:text-glow">
-            {t({ he: "למועדון", en: "To the club" })} <Arrow />
-          </TransitionLink>
+          {pageEnabled("/club") && (
+            <TransitionLink href="/club" className="mt-6 inline-block font-mono text-[0.72rem] tracking-[0.14em] text-brass-light hover:text-glow">
+              {t({ he: "למועדון", en: "To the club" })} <Arrow />
+            </TransitionLink>
+          )}
         </SwitchOn>
       </div>
       <VisitDialog open={open} onClose={() => setOpen(false)} />

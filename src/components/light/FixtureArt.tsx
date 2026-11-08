@@ -33,10 +33,11 @@ export function FixtureArt({ fixture, lit = false, className = "", style, cast =
   const drop = clamp(art.drop, 0, 1) * 90;
   const body = art.body;
   const glow = "rgb(var(--glow-rgb))";
-  const emissive = lit ? glow : "#1b1b1b";
-  const emissiveFaint = lit ? `rgb(var(--glow-rgb) / 0.35)` : "#161616";
+  const emissive = lit ? glow : "#2e2b27";
+  const emissiveFaint = lit ? `rgb(var(--glow-rgb) / 0.35)` : "#24221f";
   const castOpacity = lit ? 1 : 0;
-  const bodyStroke = lit ? "rgb(var(--glow-rgb) / 0.35)" : "#2a2a2a";
+  const bodyStroke = lit ? "rgb(var(--glow-rgb) / 0.35)" : "#77706a";
+  const glassOff = `url(#${uid}-glass-off)`;
   const filterGlow = lit ? `url(#${uid}-bloom)` : undefined;
 
   const top = 10; // suspension start
@@ -55,7 +56,7 @@ export function FixtureArt({ fixture, lit = false, className = "", style, cast =
   const cone = (x0: number, y0: number, halfTop: number, halfBottom: number, y1: number, o = 1) => (
     <polygon points={`${x0 - halfTop},${y0} ${x0 + halfTop},${y0} ${x0 + halfBottom},${y1} ${x0 - halfBottom},${y1}`} fill={`url(#${uid}-cone)`} opacity={castOpacity * o} />
   );
-  const cord = (x: number, y0: number, y1: number) => <line x1={x} y1={y0} x2={x} y2={y1} stroke={lit ? "#5a5248" : "#2a2a2a"} strokeWidth={1.2} />;
+  const cord = (x: number, y0: number, y1: number) => <line x1={x} y1={y0} x2={x} y2={y1} stroke={lit ? "#5a5248" : "#57524b"} strokeWidth={1.2} />;
 
   switch (art.kind) {
     case "dome": {
@@ -96,8 +97,8 @@ export function FixtureArt({ fixture, lit = false, className = "", style, cast =
       bodyEl = (
         <g>
           {suspension && cord(cx, top, headY)}
-          <circle cx={cx} cy={cy} r={r} fill={lit ? `url(#${uid}-globe)` : "#121212"} stroke={bodyStroke} filter={filterGlow} />
-          <circle cx={cx - r * 0.35} cy={cy - r * 0.35} r={r * 0.18} fill={lit ? "rgb(255 255 255 / 0.35)" : "rgb(255 255 255 / 0.04)"} />
+          <circle cx={cx} cy={cy} r={r} fill={lit ? `url(#${uid}-globe)` : glassOff} stroke={bodyStroke} filter={filterGlow} />
+          <circle cx={cx - r * 0.35} cy={cy - r * 0.35} r={r * 0.18} fill={lit ? "rgb(255 255 255 / 0.35)" : "rgb(255 255 255 / 0.1)"} />
           <circle cx={cx} cy={headY + 2} r={3} fill={body} />
         </g>
       );
@@ -165,7 +166,7 @@ export function FixtureArt({ fixture, lit = false, className = "", style, cast =
           {items.map((it, i) => (<g key={`c${i}`}>{cord(it.x, top, it.y - it.r)}</g>))}
           <rect x={cx - w * 0.4} y={top - 4} width={w * 0.8} height={4} fill={body} />
           {items.map((it, i) => (
-            <circle key={i} cx={it.x} cy={it.y} r={it.r} fill={lit ? `url(#${uid}-globe)` : "#121212"} stroke={bodyStroke} filter={filterGlow} />
+            <circle key={i} cx={it.x} cy={it.y} r={it.r} fill={lit ? `url(#${uid}-globe)` : glassOff} stroke={bodyStroke} filter={filterGlow} />
           ))}
         </g>
       );
@@ -184,9 +185,9 @@ export function FixtureArt({ fixture, lit = false, className = "", style, cast =
           <ellipse cx={cx} cy={top + 2} rx={w / 2 + 4} ry={4} fill={body} />
           {strands.map((s, i) => (
             <g key={i}>
-              <line x1={s.x} y1={top + 4} x2={s.x} y2={top + 4 + s.len} stroke={lit ? "rgb(var(--glow-rgb) / 0.75)" : "#2c2c2c"} strokeWidth={1.4} filter={filterGlow} />
+              <line x1={s.x} y1={top + 4} x2={s.x} y2={top + 4 + s.len} stroke={lit ? "rgb(var(--glow-rgb) / 0.75)" : "#5f5952"} strokeWidth={1.4} filter={filterGlow} />
               {Array.from({ length: 4 }, (_, k) => (
-                <circle key={k} cx={s.x} cy={top + 10 + (s.len * (k + 1)) / 5} r={2.2} fill={lit ? glow : "#333"} />
+                <circle key={k} cx={s.x} cy={top + 10 + (s.len * (k + 1)) / 5} r={2.2} fill={lit ? glow : "#77706a"} />
               ))}
             </g>
           ))}
@@ -266,13 +267,13 @@ export function FixtureArt({ fixture, lit = false, className = "", style, cast =
       const cy = 30;
       bodyEl = (
         <g>
-          <rect x={0} y={0} width={W} height={cy - 2} fill="#0b0b0b" />
-          <circle cx={cx} cy={cy} r={r} fill={body} stroke={bodyStroke} />
-          <circle cx={cx} cy={cy} r={r * 0.6} fill={emissive} filter={filterGlow} />
+          <line x1={14} y1={cy} x2={W - 14} y2={cy} stroke={lit ? "rgb(var(--glow-rgb) / 0.3)" : "#4a4640"} strokeWidth={1} />
+          <ellipse cx={cx} cy={cy} rx={r * 1.25} ry={r * 0.42} fill={body} stroke={bodyStroke} />
+          <ellipse cx={cx} cy={cy + 0.5} rx={r * 0.78} ry={r * 0.24} fill={emissive} filter={filterGlow} />
         </g>
       );
       const half = Math.tan(((art.beam || 36) * Math.PI) / 360) * (poolY - cy) * 0.5;
-      castEl = <g>{cone(cx, cy + r * 0.6, r * 0.6, clamp(half, 20, 85), poolY, 0.95)}{pool(cx, poolY, clamp(half, 20, 85), 8)}</g>;
+      castEl = <g>{cone(cx, cy + r * 0.25, r * 0.78, clamp(half, 20, 85), poolY, 0.95)}{pool(cx, poolY, clamp(half, 20, 85), 8)}</g>;
       break;
     }
     case "trackhead": {
@@ -324,7 +325,7 @@ export function FixtureArt({ fixture, lit = false, className = "", style, cast =
       bodyEl = (
         <g>
           {suspension && cord(cx, top, y0)}
-          <rect x={cx - lw / 2} y={y0} width={lw} height={lh} fill={lit ? `url(#${uid}-globe)` : "#121212"} stroke={body} strokeWidth={2} filter={filterGlow} />
+          <rect x={cx - lw / 2} y={y0} width={lw} height={lh} fill={lit ? `url(#${uid}-globe)` : glassOff} stroke={lit ? body : "#77706a"} strokeWidth={2} filter={filterGlow} />
           <line x1={cx} y1={y0} x2={cx} y2={y0 + lh} stroke={body} strokeWidth={1.5} />
           <line x1={cx - lw / 2} y1={y0 + lh / 2} x2={cx + lw / 2} y2={y0 + lh / 2} stroke={body} strokeWidth={1.5} />
           <rect x={cx - lw / 2 - 3} y={y0 - 5} width={lw + 6} height={5} fill={body} />
@@ -368,6 +369,11 @@ export function FixtureArt({ fixture, lit = false, className = "", style, cast =
           <stop offset="0%" stopColor="#fff6e8" stopOpacity="1" />
           <stop offset="45%" stopColor={glow} stopOpacity="0.95" />
           <stop offset="100%" stopColor={glow} stopOpacity="0.55" />
+        </radialGradient>
+        <radialGradient id={`${uid}-glass-off`} cx="38%" cy="32%" r="72%">
+          <stop offset="0%" stopColor="#3a3632" />
+          <stop offset="55%" stopColor="#1c1a18" />
+          <stop offset="100%" stopColor="#0f0e0d" />
         </radialGradient>
         <filter id={`${uid}-bloom`} x="-60%" y="-60%" width="220%" height="220%">
           <feGaussianBlur stdDeviation="3" result="b1" />

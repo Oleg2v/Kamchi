@@ -4,13 +4,14 @@ import { Filament } from "./Logo";
 import { useTx } from "@/lib/i18n";
 import { ADDRESS, DEMO_BADGE, NAV, PORTAL_NAV } from "@/lib/i18n/common";
 import { useStore } from "@/lib/store";
+import { FULL_SITE } from "@/lib/site";
 
 export function Footer() {
   const t = useTx();
   const reset = useStore((s) => s.resetDemo);
   return (
     <footer className="relative mt-24 border-t hairline bg-night">
-      <div className="container-x grid gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+      <div className={`container-x grid gap-10 py-14 ${FULL_SITE ? "md:grid-cols-[1.4fr_1fr_1fr_1fr]" : "md:grid-cols-[1.4fr_1fr]"}`}>
         <div>
           <div className="flex items-center gap-3">
             <Filament size={30} />
@@ -25,6 +26,7 @@ export function Footer() {
           <p className="mt-4 text-sm text-paper">{t(ADDRESS)}</p>
           <p className="mt-1 font-mono text-xs text-muted">{t({ he: "א׳–ה׳ \u20669:00–19:00\u2069 · ו׳ \u20669:00–13:00\u2069 (הדגמה)", en: "Sun–Thu 9:00–19:00 · Fri 9:00–13:00 (demo)" })}</p>
         </div>
+        {FULL_SITE && <>
         <div>
           <h2 className="eyebrow mb-4">{t({ he: "האתר", en: "Site" })}</h2>
           <ul className="space-y-2 text-sm">
@@ -42,16 +44,22 @@ export function Footer() {
             <li><TransitionLink href="/club" className="text-muted hover:text-glow">{t({ he: "מועדון האדריכלים והמעצבים", en: "Architects & designers club" })}</TransitionLink></li>
           </ul>
         </div>
+        </>}
         <div>
           <h2 className="eyebrow mb-4">{t({ he: "נגישות ודמו", en: "Accessibility & demo" })}</h2>
-          <ul className="space-y-2 text-sm">
+          {FULL_SITE && <ul className="space-y-2 text-sm">
             <li><TransitionLink href="/accessibility" className="text-muted hover:text-glow">{t({ he: "הצהרת נגישות", en: "Accessibility statement" })}</TransitionLink></li>
             <li>
               <button type="button" onClick={() => { if (confirm(t({ he: "לאפס את כל נתוני הדמו?", en: "Reset all demo data?" }))) reset(); }} className="text-muted hover:text-glow">
                 {t({ he: "איפוס דמו", en: "Reset demo" })}
               </button>
             </li>
-          </ul>
+          </ul>}
+          {!FULL_SITE && (
+            <p className="text-sm leading-relaxed text-muted">
+              {t({ he: "ניגודיות של 7:1 לפחות, ניווט מלא במקלדת, תמיכה בהפחתת תנועה, ו״הכול דלוק״ שמדליק את כל הדף בלי לחכות לאנימציות.", en: "Contrast of at least 7:1, full keyboard navigation, reduced-motion support, and “All lit”, which switches the whole page on without waiting for animations." })}
+            </p>
+          )}
           <p className="mt-6 font-mono text-[0.66rem] leading-relaxed text-brass-light">{t(DEMO_BADGE)}</p>
           <p className="mt-2 font-mono text-[0.66rem] text-muted">{t({ he: "כל המחירים הם מחירי הדגמה. שמות המותגים מופיעים כטקסט בלבד.", en: "All prices are demo prices. Brand names appear as text only." })}</p>
         </div>

@@ -8,6 +8,7 @@ import { useStore, useModeStore, selectCartCount, selectUnseenForDesk, selectUns
 import { useTx } from "@/lib/i18n";
 import { NAV, PORTAL_NAV } from "@/lib/i18n/common";
 import { useHydrated } from "@/lib/hooks/useHydrated";
+import { FULL_SITE } from "@/lib/site";
 
 function ModeSwitch() {
   const t = useTx();
@@ -102,7 +103,7 @@ export function Header() {
       <div className="container-x flex items-center justify-between gap-3" style={{ height: "var(--header-h)" }}>
         <Logo />
 
-        <nav aria-label={t({ he: "ניווט ראשי", en: "Main navigation" })} className="hidden xl:flex items-center gap-3 2xl:gap-5 text-[0.84rem] 2xl:text-[0.9rem] whitespace-nowrap">
+        {FULL_SITE && <nav aria-label={t({ he: "ניווט ראשי", en: "Main navigation" })} className="hidden xl:flex items-center gap-3 2xl:gap-5 text-[0.84rem] 2xl:text-[0.9rem] whitespace-nowrap">
           {NAV.map((n) => {
             const active = pathname === n.href || pathname.startsWith(n.href + "/");
             return (
@@ -112,12 +113,13 @@ export function Header() {
               </TransitionLink>
             );
           })}
-        </nav>
+        </nav>}
 
-        <div className="hidden xl:flex items-center gap-1.5 2xl:gap-2.5 whitespace-nowrap">
+        <div className={`${FULL_SITE ? "hidden xl:flex" : "hidden md:flex"} items-center gap-1.5 2xl:gap-2.5 whitespace-nowrap`}>
           <KelvinToggle compact />
-          <AllLitToggle compact />
+          <AllLitToggle compact={FULL_SITE} />
           <LangToggle />
+          {FULL_SITE && <>
           <ModeSwitch />
           <TransitionLink href={portal.href} className={`relative border px-2 py-1.5 text-[0.78rem] ${pathname.startsWith(portal.href) ? "border-glow text-glow" : "hairline text-paper hover:border-glow"}`}>
             {t(portal.label)}
@@ -133,9 +135,10 @@ export function Header() {
             {t({ he: "סל", en: "Cart" })}
             {hydrated && cartCount > 0 && <span className="ms-1.5 font-mono text-glow">{cartCount}</span>}
           </TransitionLink>
+          </>}
         </div>
 
-        <div className="flex xl:hidden items-center gap-2">
+        <div className={`flex ${FULL_SITE ? "xl:hidden" : "md:hidden"} items-center gap-2`}>
           <AllLitToggle compact />
           <button
             type="button"
@@ -144,26 +147,27 @@ export function Header() {
             onClick={() => setOpen((v) => !v)}
             className="border hairline px-3 py-1.5 text-[0.8rem]"
           >
-            {open ? t({ he: "סגירה", en: "Close" }) : t({ he: "תפריט", en: "Menu" })}
+            {open ? t({ he: "סגירה", en: "Close" }) : FULL_SITE ? t({ he: "תפריט", en: "Menu" }) : t({ he: "אור", en: "Light" })}
           </button>
         </div>
       </div>
 
       {open && (
-        <div id="mobile-menu" className="xl:hidden fixed inset-x-0 bottom-0 top-[var(--header-h)] z-[60] overflow-y-auto bg-night/95 backdrop-blur">
+        <div id="mobile-menu" className={`${FULL_SITE ? "xl:hidden" : "md:hidden"} fixed inset-x-0 bottom-0 top-[var(--header-h)] z-[60] overflow-y-auto bg-night/95 backdrop-blur`}>
           <div className="container-x py-6 flex flex-col gap-6">
-            <nav aria-label={t({ he: "ניווט", en: "Navigation" })} className="flex flex-col divide-y hairline border-y hairline">
+            {FULL_SITE && <nav aria-label={t({ he: "ניווט", en: "Navigation" })} className="flex flex-col divide-y hairline border-y hairline">
               {NAV.map((n) => (
                 <TransitionLink key={n.href} href={n.href} className="py-4 font-display text-2xl text-paper">{t(n.label)}</TransitionLink>
               ))}
               <TransitionLink href={portal.href} className="py-4 font-display text-2xl text-glow">{t(portal.label)}</TransitionLink>
               <TransitionLink href="/live" className="py-4 font-display text-2xl text-brass-light">{t(PORTAL_NAV.live.label)}</TransitionLink>
               <TransitionLink href="/cart" className="py-4 font-display text-2xl text-paper">{t({ he: "סל", en: "Cart" })} {hydrated && cartCount > 0 && <span className="font-mono text-base text-glow">{cartCount}</span>}</TransitionLink>
-            </nav>
+            </nav>}
+            {!FULL_SITE && <p className="eyebrow">{t({ he: "טמפרטורת האור", en: "Light temperature" })}</p>}
             <div className="flex flex-wrap items-center gap-3">
               <KelvinToggle />
               <LangToggle />
-              <ModeSwitch />
+              {FULL_SITE && <ModeSwitch />}
             </div>
           </div>
         </div>

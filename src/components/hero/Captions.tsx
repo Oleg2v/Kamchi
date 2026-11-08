@@ -22,31 +22,37 @@ export interface CaptionGroup {
 }
 
 const CAPTION_W = 212;
+const CAPTION_H = 128;
 
 const groupOf = (ids: LightId[]) => LIGHTS.filter((l) => ids.includes(l.id));
 
 export const CAPTION_GROUPS: CaptionGroup[] = [
   { id: "pendant", members: ["pendant"], at: { x: 0.155, y: 0.47 }, corner: "tl", caption: groupOf(["pendant"])[0].caption },
-  { id: "sconces", members: ["sconce-l", "sconce-r"], at: { x: 0.312, y: 0.4 }, corner: "tl", caption: groupOf(["sconce-l"])[0].caption },
+  { id: "sconces", members: ["sconce-l", "sconce-r"], at: { x: 0.336, y: 0.405 }, corner: "tl", caption: groupOf(["sconce-l"])[0].caption },
   { id: "spots", members: ["spot-1", "spot-2", "spot-3"], at: { x: 0.525, y: 0.185 }, corner: "tr", caption: groupOf(["spot-1"])[0].caption },
   { id: "floor", members: ["floor"], at: { x: 0.71, y: 0.3 }, corner: "bl", caption: groupOf(["floor"])[0].caption },
 ];
 
 function CaptionBody({ g, lang }: { g: CaptionGroup; lang: "he" | "en" }) {
   const c = g.caption;
+  // One alignment for every line (inline-start); Latin and numbers are isolated runs, never re-aligned blocks.
   return (
     <>
-      <p className="eyebrow flex items-baseline gap-2" dir="ltr">
-        <span>{c.brand}</span>
-        {g.members.length > 1 && <span className="text-muted">×{g.members.length}</span>}
+      <p className="eyebrow leading-none">
+        <bdi>{c.brand}</bdi>
+        {g.members.length > 1 && <span className="text-muted"> <bdi dir="ltr">×{g.members.length}</bdi></span>}
       </p>
-      <p className="font-display [&:lang(en)]:font-display-en mt-1 text-[1.25rem] leading-tight text-paper" lang="en">{c.model}</p>
-      <p className="mt-1 text-[0.78rem] text-muted">{tx(lang, SHOWROOM)}</p>
-      <p className="mt-1.5 font-mono text-[0.78rem]">
-        <span className="num text-paper">{formatIls(c.price, lang)}</span>
+      <p className="mt-1.5 text-[1.2rem] leading-tight text-paper" style={{ fontFamily: "var(--font-display-en)" }}>
+        <bdi lang="en">{c.model}</bdi>
+      </p>
+      <p className="mt-1 text-[0.76rem] leading-snug text-muted">{tx(lang, SHOWROOM)}</p>
+      <p className="mt-1.5 font-mono text-[0.74rem] leading-snug">
+        <bdi className="num text-paper">{formatIls(c.price, lang)}</bdi>
         <span className="text-muted"> · {tx(lang, DEMO_PRICE)}</span>
       </p>
-      <p className="font-mono text-[0.72rem] text-muted" dir="ltr">{c.lumens} lm · {c.kelvin}K</p>
+      <p className="font-mono text-[0.7rem] leading-snug text-muted">
+        <bdi dir="ltr">{c.lumens} lm · {c.kelvin}K</bdi>
+      </p>
     </>
   );
 }
@@ -67,7 +73,7 @@ export function Captions({ box, lit, instant = false }: Props) {
           const bx = g.at.x * W;
           const by = g.at.y * H;
           const bw = CAPTION_W / scale;
-          const bh = 118 / scale;
+          const bh = CAPTION_H / scale;
           const cx = g.corner.endsWith("l") ? bx : bx + bw;
           const cy = g.corner.startsWith("t") ? by : by + bh;
           return (
@@ -96,17 +102,19 @@ export function Captions({ box, lit, instant = false }: Props) {
             key={g.id}
             data-caption={g.id}
             data-on={on ? "1" : "0"}
-            className="absolute border-s border-brass/70 ps-3 py-1"
+            className="absolute overflow-hidden border-s-2 border-brass py-2.5 ps-3 pe-3"
             style={{
               left: g.at.x * box.w,
               top: g.at.y * box.h,
               width: CAPTION_W,
+              height: CAPTION_H,
               opacity: on ? 1 : 0,
               animation: on && !instant ? "incandescent 120ms var(--ease-incandescent) forwards" : "none",
               transition: on ? "none" : "opacity 80ms linear",
-              textShadow: "0 1px 2px rgb(0 0 0 / 0.9), 0 0 14px rgb(0 0 0 / 0.85)",
-              // darkest behind the spine (inline-start), fading toward the leader side
-              background: `linear-gradient(to ${lang === "he" ? "left" : "right"}, rgb(5 5 5 / 0.55), rgb(5 5 5 / 0))`,
+              // A small dark plate, like a tag on a lighting drawing: legible over the brightest wall.
+              background: "rgb(5 5 5 / 0.72)",
+              backdropFilter: "blur(6px)",
+              WebkitBackdropFilter: "blur(6px)",
             }}
             aria-hidden={!on}
           >
@@ -138,5 +146,37 @@ export function CaptionList({ lit, instant = false }: { lit: ReadonlySet<LightId
         );
       })}
     </ol>
+  );
+}
+
+/** One quiet mono line naming every fixture in the room — shown with the title when the tags step back. */
+export function CaptionLegend({ className = "" }: { className?: string }) {
+  const lang = useLang();
+  return (
+    <p className={`font-mono text-[0.72rem] leading-relaxed tracking-[0.04em] text-muted ${className}`}>
+      <span className="text-brass-light">{lang === "he" ? "בחדר:" : "In the room:"}</span>{" "}
+      {CAPTION_GROUPS.map((g, i) => (
+        <span key={g.id} className="whitespace-nowrap">
+          <bdi lang="en" dir="ltr">{g.caption.brand} {g.caption.model}{g.members.length > 1 ? ` ×${g.members.length}` : ""}</bdi>
+          {i < CAPTION_GROUPS.length - 1 && <span aria-hidden> · </span>}
+        </span>
+      ))}
+    </p>
+  );
+}
+
+/** Phones: one line under the photograph naming the fixture that just switched on. */
+export function NowLit({ lit }: { lit: ReadonlySet<LightId> }) {
+  const lang = useLang();
+  const order = ["floor", "spots", "sconces", "pendant"];
+  const g = order.map((id) => CAPTION_GROUPS.find((x) => x.id === id)!).find((x) => x.members.some((m) => lit.has(m)));
+  if (!g) return null;
+  const c = g.caption;
+  return (
+    <p key={g.id} className="font-mono text-[0.72rem] leading-snug" style={{ animation: "incandescent 120ms var(--ease-incandescent) forwards" }} aria-live="off">
+      <span className="text-brass-light"><bdi dir="ltr">{c.brand.toUpperCase()}{g.members.length > 1 ? ` ×${g.members.length}` : ""}</bdi></span>
+      <span className="text-paper"> · <bdi lang="en" dir="ltr">{c.model}</bdi></span>
+      <span className="text-muted"> · <bdi className="num">{formatIls(c.price, lang)}</bdi></span>
+    </p>
   );
 }
