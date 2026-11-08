@@ -86,7 +86,7 @@ export function ResultsHeader({ count, params, chips, onRemove, onClear, onSort,
                 aria-label={t({ he: `הסרת הסינון ${group}: ${label}`, en: `Remove ${group} filter: ${label}` })}
               >
                 <span>{label}</span>
-                <span aria-hidden className="text-[0.7rem] opacity-80">✕</span>
+                <span aria-hidden className="text-[0.7rem]">✕</span>
               </button>
             );
           })}

@@ -47,23 +47,24 @@ export async function drawDemoPlan(): Promise<File> {
   door(0.36 * W, 0.78 * H, false);
   door(0.2 * W, 0.92 * H, true, 90);
 
-  // labels + areas
-  ctx.fillStyle = "#111";
+  // labels + areas (light grey, so the site's own overlay reads on top of them)
+  ctx.fillStyle = "#8a8a8a";
   ctx.textAlign = "center";
   ctx.direction = "rtl";
   for (const r of det.rooms) {
     const xs = r.polygon.map((p) => p.x), ys = r.polygon.map((p) => p.y);
     let cx = ((Math.min(...xs) + Math.max(...xs)) / 2) * W, cy = ((Math.min(...ys) + Math.max(...ys)) / 2) * H;
     if (r.id === "living") { cx = 0.31 * W; cy = 0.36 * H; }
-    ctx.font = "500 34px Heebo, Arial, sans-serif";
-    ctx.fillText(r.label.he, cx, cy);
-    ctx.font = "26px 'IBM Plex Mono', monospace";
+    ctx.font = "400 26px Heebo, Arial, sans-serif";
+    ctx.fillText(r.label.he, cx, cy - 56);
+    ctx.font = "20px 'IBM Plex Mono', monospace";
     ctx.direction = "ltr";
-    ctx.fillText(`${r.areaM2} m²`, cx, cy + 40);
+    ctx.fillText(`${r.areaM2} m²`, cx, cy + 78);
     ctx.direction = "rtl";
   }
 
   // dimension line along the top
+  ctx.fillStyle = "#111";
   ctx.strokeStyle = "#111"; ctx.lineWidth = 2;
   const y = 0.05 * H;
   ctx.beginPath(); ctx.moveTo(0.06 * W, y); ctx.lineTo(0.94 * W, y); ctx.stroke();

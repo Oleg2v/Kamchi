@@ -162,7 +162,7 @@ export function FixtureArt({ fixture, lit = false, className = "", style, cast =
       });
       bodyEl = (
         <g>
-          {items.map((it) => cord(it.x, top, it.y - it.r))}
+          {items.map((it, i) => (<g key={`c${i}`}>{cord(it.x, top, it.y - it.r)}</g>))}
           <rect x={cx - w * 0.4} y={top - 4} width={w * 0.8} height={4} fill={body} />
           {items.map((it, i) => (
             <circle key={i} cx={it.x} cy={it.y} r={it.r} fill={lit ? `url(#${uid}-globe)` : "#121212"} stroke={bodyStroke} filter={filterGlow} />

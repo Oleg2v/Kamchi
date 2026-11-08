@@ -53,7 +53,7 @@ export function BeforeAfter({ before, after, aspect, alt }: { before: string; af
           ‹ ›
         </span>
       </div>
-      <span aria-hidden className="absolute left-3 top-3 border border-glow/50 bg-night/70 px-2 py-0.5 font-mono text-[0.62rem] tracking-widest text-glow">{t({ he: "אחרי", en: "AFTER" })}</span>
+      <span aria-hidden className="absolute left-3 top-3 border border-glow bg-night/70 px-2 py-0.5 font-mono text-[0.62rem] tracking-widest text-glow">{t({ he: "אחרי", en: "AFTER" })}</span>
       <span aria-hidden className="absolute right-3 top-3 border hairline bg-night/70 px-2 py-0.5 font-mono text-[0.62rem] tracking-widest text-muted">{t({ he: "לפני", en: "BEFORE" })}</span>
     </div>
   );

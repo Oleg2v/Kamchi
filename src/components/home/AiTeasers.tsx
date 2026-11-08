@@ -13,16 +13,18 @@ import { useTx } from "@/lib/i18n";
 import { BETA } from "@/lib/i18n/common";
 import { useStore } from "@/lib/store";
 import type { Fixture, FixtureType } from "@/lib/types";
+import { Arrow } from "./Arrow";
 import { SectionHeading } from "./SectionHeading";
 
-const pick = (type: FixtureType): Fixture => featuredFixtures(FIXTURES.length).find((f) => f.type === type) ?? FIXTURES[0];
+const RANKED = featuredFixtures(FIXTURES.length);
+const pick = (type: FixtureType): Fixture => RANKED.find((f) => f.type === type) ?? FIXTURES[0];
 
 const TEASERS = [
   {
     href: "/relight",
     type: "pendant" as FixtureType,
     title: { he: "תאירו לי את הסלון", en: "Light my living room" },
-    text: { he: "מעלים תמונה של החדר, בוחרים גוף תאורה מהקטלוג, ורואים אותו דולק בתוך התמונה — עם שלולית האור במקום הנכון.", en: "Upload a photo of the room, choose a fixture from the catalogue and see it switched on inside the picture, with the pool of light where it belongs." },
+    text: { he: "מעלים תמונה של החדר, בוחרים גוף תאורה מהקטלוג, ורואים אותו דולק בתוך התמונה — עם כתם האור במקום הנכון.", en: "Upload a photo of the room, choose a fixture from the catalogue and see it switched on inside the picture, with the pool of light where it belongs." },
     cta: { he: "להעלות תמונה", en: "Upload a photo" },
   },
   {
@@ -65,9 +67,9 @@ function Teaser({ item, index, allLit }: { item: (typeof TEASERS)[number]; index
             <span>AI</span>
             <span className="badge-beta">{t(BETA)}</span>
           </p>
-          <h3 className={`font-display text-2xl leading-tight md:text-[1.75rem] ${lit ? "text-paper" : "text-paper/80"}`}>{t(item.title)}</h3>
+          <h3 className={`text-2xl leading-tight md:text-[1.75rem] ${lit ? "text-paper" : "text-paper/80"}`}>{t(item.title)}</h3>
           <p className="mt-3 text-sm leading-relaxed text-muted">{t(item.text)}</p>
-          <p className={`mt-5 font-mono text-[0.72rem] tracking-[0.14em] ${lit ? "text-glow" : "text-brass-light"}`}>{t(item.cta)} ←</p>
+          <p className={`mt-5 font-mono text-[0.72rem] tracking-[0.14em] ${lit ? "text-glow" : "text-brass-light"}`}>{t(item.cta)} <Arrow /></p>
         </div>
       </TransitionLink>
     </SwitchOn>

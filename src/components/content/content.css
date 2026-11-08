@@ -1,0 +1,61 @@
+/* ─────────────────────────────────────────────────────────────
+   Content pages — about / projects / club / accessibility.
+   Light is the only decoration: names, nodes and plan dots start
+   unlit and switch on (120 ms ramp) under scroll, pointer or focus.
+   "הכול דלוק" lights everything instantly.
+   ───────────────────────────────────────────────────────────── */
+
+/* A row whose name switches on under pointer / focus. */
+.c-switch { position: relative; }
+.c-switch::before {
+  content: ""; position: absolute; top: 50%; inset-inline-start: -2.5rem;
+  width: 22rem; height: 7rem; transform: translateY(-50%);
+  background: radial-gradient(closest-side, rgb(var(--glow-rgb) / 0.2), rgb(var(--glow-rgb) / 0.05) 55%, transparent 75%);
+  mix-blend-mode: screen; opacity: 0; pointer-events: none;
+}
+.c-name { color: var(--color-muted); }
+.c-switch:is(:hover, :focus-visible, :focus-within) .c-name {
+  color: rgb(var(--glow-rgb)); text-shadow: 0 0 22px rgb(var(--glow-rgb) / 0.45);
+  animation: incandescent 120ms var(--ease-incandescent) forwards;
+}
+.c-switch:is(:hover, :focus-visible, :focus-within)::before { opacity: 1; animation: incandescent 120ms var(--ease-incandescent) forwards; }
+:root[data-all-lit="1"] .c-name { color: rgb(var(--glow-rgb)); text-shadow: 0 0 22px rgb(var(--glow-rgb) / 0.45); animation: none; }
+
+/* ── Timeline: a rail, a glowing segment per lit era, a node at every heading. ── */
+.c-timeline { --rail-x: 5px; position: relative; }
+@media (min-width: 768px) { .c-timeline { --rail-x: calc((100% - 4rem) * 5 / 12 + 2rem); } }
+.c-rail { position: absolute; top: 0; bottom: 0; width: 1px; inset-inline-start: var(--rail-x); background: color-mix(in oklab, var(--color-ash) 70%, transparent); }
+.c-seg { position: absolute; top: 0; bottom: 0; width: 1px; inset-inline-start: var(--rail-x); background: rgb(var(--glow-rgb) / 0.55); box-shadow: 0 0 14px rgb(var(--glow-rgb) / 0.35); opacity: 0; pointer-events: none; }
+.c-seg[data-lit="1"] { opacity: 1; animation: incandescent 120ms var(--ease-incandescent) forwards; }
+.c-node {
+  position: absolute; top: calc(0.54em - 5px); inset-inline-start: -1.75rem;
+  width: 10px; height: 10px; border-radius: 50%; background: var(--color-ash);
+}
+@media (min-width: 768px) { .c-node { inset-inline-start: calc(-2rem - 5px); } }
+.c-node[data-lit="1"] {
+  background: rgb(var(--glow-rgb));
+  box-shadow: 0 0 0 1px rgb(var(--glow-rgb) / 0.6), 0 0 18px 5px rgb(var(--glow-rgb) / 0.45);
+  animation: incandescent 120ms var(--ease-incandescent) forwards;
+}
+:root[data-all-lit="1"] .c-seg, :root[data-all-lit="1"] .c-node { animation: none; }
+
+/* ── Showroom plan: dots and bars switch on one after the other. ── */
+.c-plan-dot { opacity: 0.22; }
+.c-plan-dot[data-lit="1"] { opacity: 1; animation: incandescent 120ms var(--ease-incandescent) both; }
+:root[data-all-lit="1"] .c-plan-dot { opacity: 1; animation: none; }
+
+/* ── Club wall: reserved places are unlit names that light under the pointer. ── */
+.c-ghost { color: var(--color-muted); opacity: 0.42; }
+.c-ghost:hover { opacity: 1; color: rgb(var(--glow-rgb)); text-shadow: 0 0 18px rgb(var(--glow-rgb) / 0.4); animation: incandescent 120ms var(--ease-incandescent) forwards; }
+:root[data-all-lit="1"] .c-ghost { opacity: 1; color: var(--color-paper); animation: none; }
+
+/* ── Project cards: the title turns to light with the fixture. ── */
+.c-card { transition: border-color 200ms var(--ease-out-slow); }
+.c-card[data-lit="1"] { border-color: rgb(var(--glow-rgb) / 0.45); }
+.c-card[data-lit="1"] .c-card-title { color: rgb(var(--glow-rgb)); text-shadow: 0 0 22px rgb(var(--glow-rgb) / 0.4); animation: incandescent 120ms var(--ease-incandescent) forwards; }
+:root[data-all-lit="1"] .c-card-title { animation: none; }
+
+/* Document pages: lists with brass markers. */
+.c-doc ul { list-style: disc; padding-inline-start: 1.25rem; }
+.c-doc li { padding-inline-start: 0.25rem; }
+.c-doc li::marker { color: var(--color-brass); }

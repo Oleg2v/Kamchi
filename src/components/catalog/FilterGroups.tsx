@@ -32,7 +32,7 @@ function Chip({ on, count, onClick, children, mono = false }: { on: boolean; cou
   return (
     <button type="button" className={`chip ${mono ? "num" : ""}`} aria-pressed={on} data-empty={!on && count === 0 ? "1" : undefined} onClick={onClick}>
       <span>{children}</span>
-      <span className="num text-[0.62rem] opacity-70" aria-label={`(${count})`}>{count}</span>
+      <span className="num text-[0.62rem] text-muted">{count}</span>
     </button>
   );
 }

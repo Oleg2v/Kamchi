@@ -1,6 +1,7 @@
 "use client";
 import { useCallback, useRef, useState } from "react";
 import { TransitionLink } from "@/components/brand/TransitionLink";
+import { useTx } from "@/lib/i18n";
 
 export interface ToastItem {
   id: number;
@@ -26,16 +27,17 @@ export function useToasts(ttl = 3800) {
 }
 
 export function Toasts({ toasts, onDismiss }: { toasts: ToastItem[]; onDismiss: (id: number) => void }) {
+  const t = useTx();
   return (
     <div aria-live="polite" aria-atomic="false" className="pointer-events-none fixed bottom-14 end-3 z-[85] flex w-[min(100vw-1.5rem,22rem)] flex-col gap-2 md:bottom-6 md:end-6">
-      {toasts.map((t) => (
-        <div key={t.id} className="toast pointer-events-auto flex items-center justify-between gap-3 border border-glow/50 bg-night/95 px-4 py-3 text-sm shadow-glow backdrop-blur">
-          <span>{t.text}</span>
+      {toasts.map((item) => (
+        <div key={item.id} className="toast pointer-events-auto flex items-center justify-between gap-3 border border-glow/50 bg-night/95 px-4 py-3 text-sm shadow-glow backdrop-blur">
+          <span>{item.text}</span>
           <span className="flex shrink-0 items-center gap-3">
-            {t.href && t.linkLabel && (
-              <TransitionLink href={t.href} className="text-glow underline-offset-4 hover:underline">{t.linkLabel}</TransitionLink>
+            {item.href && item.linkLabel && (
+              <TransitionLink href={item.href} className="text-glow underline-offset-4 hover:underline">{item.linkLabel}</TransitionLink>
             )}
-            <button type="button" onClick={() => onDismiss(t.id)} className="text-muted hover:text-paper" aria-label="סגירה">✕</button>
+            <button type="button" onClick={() => onDismiss(item.id)} className="text-muted hover:text-paper" aria-label={t({ he: "סגירה", en: "Dismiss" })}>✕</button>
           </span>
         </div>
       ))}

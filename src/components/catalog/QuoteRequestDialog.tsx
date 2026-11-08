@@ -1,6 +1,7 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Dialog } from "@/components/ui/Dialog";
+import { useTrapTab } from "./useTrapTab";
 import { formatIls, useLang, useTx } from "@/lib/i18n";
 import { useStore } from "@/lib/store";
 import type { CartItem } from "@/lib/types";
@@ -21,6 +22,8 @@ export function QuoteRequestDialog({ open, onClose, cart, total }: Props) {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const count = cart.reduce((n, c) => n + c.qty, 0);
+  const bodyRef = useRef<HTMLDivElement>(null);
+  useTrapTab(bodyRef, open);
 
   useEffect(() => { if (open) { setSent(false); setError(null); } }, [open]);
 
@@ -51,6 +54,7 @@ export function QuoteRequestDialog({ open, onClose, cart, total }: Props) {
 
   return (
     <Dialog open={open} onClose={onClose} title={t({ he: "בקשת הצעת מחיר", en: "Request a quote" })}>
+      <div ref={bodyRef}>
       {sent ? (
         <div className="flex flex-col gap-4" data-testid="quote-success" aria-live="polite">
           <p className="font-display text-2xl lit-text">{t({ he: "הבקשה התקבלה", en: "Request received" })}</p>
@@ -86,6 +90,7 @@ export function QuoteRequestDialog({ open, onClose, cart, total }: Props) {
           </div>
         </form>
       )}
+      </div>
     </Dialog>
   );
 }

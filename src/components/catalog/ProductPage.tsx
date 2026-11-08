@@ -1,6 +1,6 @@
 "use client";
 import "./catalog.css";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { TransitionLink } from "@/components/brand/TransitionLink";
 import { SwitchOn } from "@/components/light/SwitchOn";
 import { AddToBoardDialog } from "./AddToBoardDialog";
@@ -12,8 +12,9 @@ import { FinishSwatch, SpecTable } from "./SpecTable";
 import { Toasts, useToasts } from "./Toast";
 import { fixturesByBrand, getBrand, getFixtureBySlug } from "@/lib/data";
 import { formatIls, useLang, useTx } from "@/lib/i18n";
-import { DEMO_PRICE, FINISH_LABEL, LEAD_TIME_LABEL, PORTAL_NAV, SPACE_LABEL } from "@/lib/i18n/common";
+import { DEMO_PRICE, FINISH_LABEL, FIXTURE_TYPE_LABEL, LEAD_TIME_LABEL, PORTAL_NAV, SPACE_LABEL } from "@/lib/i18n/common";
 import { useHydrated } from "@/lib/hooks/useHydrated";
+import { usePrefersReducedMotionOnly } from "@/lib/hooks/useReducedMotion";
 import { useLiveFixture, useStore } from "@/lib/store";
 import { specLine } from "@/lib/catalog/filter";
 import type { FinishId } from "@/lib/types";
@@ -29,6 +30,9 @@ export function ProductPage({ slug }: { slug: string }) {
   const { toasts, push, dismiss } = useToasts();
 
   const [on, setOn] = useState(false);
+  // prefers-reduced-motion: the stage starts lit (still switchable).
+  const prefersReduced = usePrefersReducedMotionOnly();
+  useEffect(() => { if (prefersReduced) setOn(true); }, [prefersReduced]);
   const [qty, setQty] = useState(1);
   const [finish, setFinish] = useState<FinishId | undefined>(fixture?.finishes[0]);
   const [boardOpen, setBoardOpen] = useState(false);
@@ -52,7 +56,7 @@ export function ProductPage({ slug }: { slug: string }) {
   };
 
   const downloads = [
-    { href: fixture.files.spec, label: t({ he: "גיליון מפרט (PDF)", en: "Spec sheet (PDF)" }), name: `${fixture.slug}-spec.pdf` },
+    { href: fixture.files.spec, label: t({ he: "דף מפרט (PDF)", en: "Spec sheet (PDF)" }), name: `${fixture.slug}-spec.pdf` },
     { href: fixture.files.ies, label: t({ he: "קובץ IES", en: "IES file" }), name: `${fixture.slug}.ies` },
     { href: fixture.files.dwg, label: t({ he: "DWG/DXF (הדגמה)", en: "DWG/DXF (demo)" }), name: `${fixture.slug}.dxf` },
   ];
@@ -71,25 +75,31 @@ export function ProductPage({ slug }: { slug: string }) {
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:items-start lg:gap-16">
           <ProductStage fixture={fixture} on={on} onToggle={() => setOn((v) => !v)} />
 
-          <SwitchOn offOpacity={0.3} delay={140} className="flex flex-col gap-8">
-            <header>
+          <div className="flex flex-col gap-8">
+            <SwitchOn as="header" offOpacity={0.3} delay={140}>
               <p className="eyebrow">
-                <TransitionLink href={`/catalog?brand=${fixture.brand}`} className="hover:text-glow" lang="en">{brandName}</TransitionLink>
-                {brand && <span className="ms-2 normal-case tracking-normal text-muted">· {brand.country}</span>}
+                <span dir="ltr">
+                  <TransitionLink href={`/catalog?brand=${fixture.brand}`} className="hover:text-glow" lang="en">{brandName}</TransitionLink>
+                  {brand && <span className="normal-case tracking-normal text-muted"> · {brand.country}</span>}
+                </span>
               </p>
               <h1 className="mt-3 font-display text-4xl leading-[1.02] md:text-6xl" lang="en">{fixture.name}</h1>
-              <p className="mt-2 text-lg text-muted">{fixture.nameHe}</p>
+              <p className="mt-2 text-lg text-muted">{lang === "he" ? fixture.nameHe : t(FIXTURE_TYPE_LABEL[fixture.type])}</p>
               {(fixture.designer || fixture.year) && (
-                <p className="mt-3 font-mono text-[0.72rem] tracking-wider text-muted" dir="ltr">
-                  {fixture.designer && <span lang="en">{fixture.designer}</span>}
-                  {fixture.designer && fixture.year && " · "}
-                  {fixture.year}
+                <p className="mt-3 font-mono text-[0.72rem] tracking-wider text-muted">
+                  <span dir="ltr" lang="en">
+                    {fixture.designer}
+                    {fixture.designer && fixture.year && " · "}
+                    {fixture.year}
+                  </span>
                 </p>
               )}
               <p className="mt-6 max-w-prose text-base leading-relaxed text-paper/90">{t(fixture.description)}</p>
-              <p className="mt-4 font-mono text-[0.72rem] tracking-wide text-muted" dir="ltr">{specLine(fixture)}</p>
-            </header>
+              <p className="mt-4 font-mono text-[0.72rem] tracking-wide text-muted"><span dir="ltr">{specLine(fixture)}</span></p>
+            </SwitchOn>
 
+            {/* Price, finish and the cart controls are the page's purpose: lit on arrival, after the header. */}
+            <SwitchOn on offOpacity={0.3} delay={260} className="flex flex-col gap-8">
             <section aria-labelledby="price-h" className="border-t hairline pt-6">
               <h2 id="price-h" className="sr-only">{t({ he: "מחיר והזמנה", en: "Price and order" })}</h2>
               <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-3">
@@ -144,7 +154,8 @@ export function ProductPage({ slug }: { slug: string }) {
                 ))}
               </div>
             </section>
-          </SwitchOn>
+            </SwitchOn>
+          </div>
         </div>
       </article>
 
@@ -153,7 +164,7 @@ export function ProductPage({ slug }: { slug: string }) {
           <SwitchOn offOpacity={0.3}>
             <div className="flex items-baseline justify-between gap-4 border-b hairline pb-4">
               <h2 id="more-h" className="font-display text-2xl md:text-3xl">
-                {t({ he: "עוד מ-", en: "More from " })}<span lang="en">{brandName}</span>
+                {t({ he: "עוד מ־", en: "More from " })}<span lang="en">{brandName}</span>
               </h2>
               <TransitionLink href={`/catalog?brand=${fixture.brand}`} className="text-sm text-muted hover:text-glow">
                 {t({ he: `כל הגופים של ${brandName}`, en: `All ${brandName}` })}

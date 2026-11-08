@@ -27,15 +27,16 @@ function HeroTitle({ on, instant = false, overlay = true, onNeedLight }: { on: b
   return (
     <div className={overlay ? "pointer-events-none absolute inset-x-0 bottom-0 pb-[7vh]" : "pt-8"}>
       <div className="container-x">
+        {/* Over the photo the block keeps to the sofa corner in both languages (ltr:ms-auto), clear of the fixture tags. */}
         <div
-          className={`switch-on ${on ? (instant ? "is-on-instant" : "is-on") : ""} w-fit max-w-full`}
+          className={`switch-on ${on ? (instant ? "is-on-instant" : "is-on") : ""} w-fit max-w-full ${overlay ? "ltr:ms-auto" : ""}`}
           style={{ "--off-opacity": 0 } as CSSProperties}
           data-on={on ? "1" : "0"}
         >
-          <p className="eyebrow mb-3">{t(BRAND_NAME)} · {t({ he: "כ-80 שנה של אור", en: "About 80 years of light" })}</p>
+          <p className="eyebrow mb-3" style={{ textShadow: "0 1px 2px rgb(0 0 0 / 0.9), 0 0 16px rgb(0 0 0 / 0.8)" }}>{t(BRAND_NAME)} · {t({ he: "כ-80 שנה של אור", en: "About 80 years of light" })}</p>
           <h1
-            className="font-display text-paper leading-[0.98] md:whitespace-nowrap"
-            style={{ fontSize: "clamp(3rem, 7.4vw, 9.2rem)", letterSpacing: "-0.01em", textShadow: "0 2px 24px rgb(0 0 0 / 0.55)" }}
+            className="text-paper leading-[0.98] md:whitespace-nowrap"
+            style={{ fontSize: "clamp(3rem, 7.4vw, 9.2rem)", letterSpacing: "-0.01em", textShadow: "0 2px 4px rgb(0 0 0 / 0.5), 0 6px 40px rgb(0 0 0 / 0.65)" }}
           >
             {t(TAGLINE)}
           </h1>
@@ -78,7 +79,10 @@ function SkipHero() {
 
 /* ───────────── scroll-driven (WebGL) ───────────── */
 
+const INTRO = { he: "פתיח", en: "Intro" };
+
 function ScrollHero() {
+  const t = useTx();
   const sectionRef = useRef<HTMLElement>(null);
   const listeners = useRef(new Set<(p: number) => void>());
   const pRef = useRef(0);
@@ -126,7 +130,7 @@ function ScrollHero() {
   };
 
   return (
-    <section ref={sectionRef} aria-label="פתיח" className="relative" style={{ height: "450vh" }} data-hero="scroll">
+    <section ref={sectionRef} aria-label={t(INTRO)} className="relative" style={{ height: "450vh" }} data-hero="scroll">
       <SkipHero />
       <div className="sticky overflow-hidden" style={STAGE}>
         <HeroProgressContext.Provider value={source}>
@@ -141,18 +145,24 @@ function ScrollHero() {
 
 /* ───────────── static (reduced motion / הכול דלוק) ───────────── */
 
-function StaticHero() {
-  const [wide, setWide] = useState(true);
+/** These heroes mount on the client only (after renderer detection), so the first value is already right. */
+function useWide(): boolean {
+  const [wide, setWide] = useState(() => (typeof window === "undefined" ? true : window.matchMedia("(min-width: 768px)").matches));
   useEffect(() => {
     const m = window.matchMedia("(min-width: 768px)");
     const on = () => setWide(m.matches);
-    on();
     m.addEventListener("change", on);
     return () => m.removeEventListener("change", on);
   }, []);
+  return wide;
+}
+
+function StaticHero() {
+  const t = useTx();
+  const wide = useWide();
   const all = useMemo(() => new Set<LightId>(LIGHTS.map((l) => l.id)), []);
   return (
-    <section aria-label="פתיח" className="relative" data-hero="static">
+    <section aria-label={t(INTRO)} className="relative" data-hero="static">
       <SkipHero />
       {wide ? (
         <div className="relative overflow-hidden" style={{ height: "calc(100dvh - var(--header-h))" }}>
@@ -175,16 +185,10 @@ function StaticHero() {
 /* ───────────── video (low power / narrow / no WebGL) ───────────── */
 
 function VideoHero() {
-  const [wide, setWide] = useState(false);
+  const t = useTx();
+  const wide = useWide();
   const [lit, setLit] = useState<ReadonlySet<LightId>>(new Set());
   const [title, setTitle] = useState(false);
-  useEffect(() => {
-    const m = window.matchMedia("(min-width: 768px)");
-    const on = () => setWide(m.matches);
-    on();
-    m.addEventListener("change", on);
-    return () => m.removeEventListener("change", on);
-  }, []);
   // The 6 s clock for the stacked list (the pinned captions inside RoomScene follow the video itself).
   useEffect(() => {
     const t0 = performance.now();
@@ -198,7 +202,7 @@ function VideoHero() {
     return () => window.clearInterval(id);
   }, []);
   return (
-    <section aria-label="פתיח" className="relative" data-hero="video">
+    <section aria-label={t(INTRO)} className="relative" data-hero="video">
       <SkipHero />
       {wide ? (
         <div className="relative overflow-hidden" style={{ height: "calc(100dvh - var(--header-h))" }}>
@@ -219,6 +223,7 @@ function VideoHero() {
 }
 
 export function HeroScroll() {
+  const t = useTx();
   const reduced = useReducedMotion();
   const renderer = useHeroRenderer();
   if (reduced || renderer === "image") return <StaticHero />;
@@ -226,7 +231,7 @@ export function HeroScroll() {
   if (renderer === "webgl") return <ScrollHero />;
   // Undecided (first paint): a dark stage, no layout jump at scroll 0.
   return (
-    <section aria-label="פתיח" className="relative" data-hero="pending">
+    <section aria-label={t(INTRO)} className="relative" data-hero="pending">
       <div className="relative bg-night" style={{ height: "calc(100dvh - var(--header-h))" }} />
     </section>
   );

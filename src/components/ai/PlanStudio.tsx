@@ -212,7 +212,7 @@ export function PlanStudio() {
             <input ref={fileRef} type="file" accept="image/*,application/pdf" className="sr-only" tabIndex={-1} onChange={onPick} aria-label={t({ he: "העלאת תוכנית", en: "Upload a plan" })} />
           </div>
 
-          <aside className="min-w-0 lg:border-s lg:hairline lg:ps-10" aria-label={t({ he: "שלבי התוכנית", en: "Plan steps" })}>
+          <aside className="min-w-0 lg:border-s lg:border-ash/70 lg:ps-10" aria-label={t({ he: "שלבי התוכנית", en: "Plan steps" })}>
             <ol className="flex flex-col gap-8">
               <li>
                 <div className="flex items-baseline justify-between gap-3">
@@ -240,7 +240,7 @@ export function PlanStudio() {
               <li>
                 <h2 className="eyebrow">03 · {t({ he: "חישוב", en: "Compute" })}</h2>
                 <button type="button" className="btn btn-primary mt-3 w-full" onClick={() => void run()} disabled={!source || busy || loading} aria-busy={busy}>
-                  {busy ? t({ he: "מחשב…", en: "Computing…" }) : t({ he: "חשבו תוכנית תאורה", en: "Compute the lighting plan" })}
+                  {busy ? t({ he: "מחשב…", en: "Computing…" }) : t({ he: "חישוב תוכנית התאורה", en: "Compute the lighting plan" })}
                 </button>
               </li>
             </ol>
@@ -253,11 +253,11 @@ export function PlanStudio() {
               <h2 className="eyebrow mb-5">{t({ he: "רשימת רכש", en: "Bill of materials" })}</h2>
               <ShoppingList plan={result.plan} />
             </div>
-            <aside className="min-w-0 lg:border-s lg:hairline lg:ps-10">
-              <h2 className="eyebrow mb-4">{t({ he: "מה עושים עם זה", en: "Next steps" })}</h2>
+            <aside className="min-w-0 lg:border-s lg:border-ash/70 lg:ps-10">
+              <h2 className="eyebrow mb-4">{t({ he: "השלב הבא", en: "Next steps" })}</h2>
               <div className="flex flex-col gap-2">
                 <button type="button" className="btn btn-brass" onClick={() => setStudioOpen(true)}>{t({ he: "שלחו ליועץ תאורה", en: "Send to a lighting consultant" })}</button>
-                <button type="button" className="btn" onClick={() => setProjectOpen(true)}>{t({ he: "צרפו לפרויקט", en: "Attach to a project" })}</button>
+                <button type="button" className="btn" onClick={() => setProjectOpen(true)}>{t({ he: "צירוף לפרויקט", en: "Attach to a project" })}</button>
                 <button type="button" className="btn" onClick={() => downloadText(planCsv(result.plan, lang), `kamchi-plan-${result.plan.id}.csv`, "text/csv;charset=utf-8")}>{t({ he: "הורדת רשימה (CSV)", en: "Download list (CSV)" })}</button>
                 <button type="button" className="btn btn-sm mt-2" onClick={() => { setPhase("idle"); setResult(null); }}>{t({ he: "תוכנית אחרת", en: "Another plan" })}</button>
               </div>
@@ -268,7 +268,7 @@ export function PlanStudio() {
       </section>
 
       <StudioDialog open={studioOpen} onClose={() => setStudioOpen(false)} title={t({ he: "שלחו ליועץ תאורה", en: "Send to a lighting consultant" })} cta={t({ he: "שליחה", en: "Send" })} onPick={sendToConsultant} />
-      <ProjectRoomDialog open={projectOpen} onClose={() => setProjectOpen(false)} title={t({ he: "צרפו לפרויקט", en: "Attach to a project" })} cta={t({ he: "צירוף", en: "Attach" })} needRoom={false} onPick={attachToProject} />
+      <ProjectRoomDialog open={projectOpen} onClose={() => setProjectOpen(false)} title={t({ he: "צירוף לפרויקט", en: "Attach to a project" })} cta={t({ he: "צירוף", en: "Attach" })} needRoom={false} onPick={attachToProject} />
       <ToastStack toasts={toasts} />
     </>
   );

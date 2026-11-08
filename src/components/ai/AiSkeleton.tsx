@@ -34,16 +34,16 @@ export function AiSkeleton({ image, aspect = 3 / 2, captions, stageMs = 800, lab
         <motion.div
           aria-hidden
           className="absolute inset-y-0 w-1/2"
-          style={{ background: "linear-gradient(90deg, transparent, rgb(var(--glow-rgb) / 0.14), transparent)", mixBlendMode: "screen" }}
-          initial={{ x: "-120%" }}
-          animate={{ x: "320%" }}
+          style={{ left: 0, background: "linear-gradient(90deg, transparent, rgb(var(--glow-rgb) / 0.14), transparent)", mixBlendMode: "screen" }}
+          initial={{ x: lang === "he" ? "320%" : "-120%" }}
+          animate={{ x: lang === "he" ? "-120%" : "320%" }}
           transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut" }}
         />
       )}
       <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-night/90 to-transparent p-4 md:p-6">
         <ol className="space-y-1.5 font-mono text-[0.72rem] tracking-wider" aria-live="polite">
           {captions.map((c, i) => (
-            <li key={i} className={i < stage ? "text-muted" : i === stage ? "text-glow" : "text-muted/45"} aria-hidden={i > stage}>
+            <li key={i} className={i < stage ? "text-paper" : i === stage ? "text-glow" : "text-muted"} aria-hidden={i > stage}>
               <span className="me-2 text-brass-light">{String(i + 1).padStart(2, "0")}</span>
               {t(c)}
             </li>

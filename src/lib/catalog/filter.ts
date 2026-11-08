@@ -275,7 +275,9 @@ export function efficacy(f: Pick<Fixture, "lumens" | "watts">): number {
   return f.watts > 0 ? Math.round(f.lumens / f.watts) : 0;
 }
 
-/** "2600 lm · 2700/3000K · IP20" — always LTR. */
+/** "2600 lm · 2700/3000K · IP20" — always LTR. Three temperatures read as a range ("2700–4000K") so the line fits a card. */
 export function specLine(f: Pick<Fixture, "lumens" | "kelvin" | "ip">): string {
-  return `${f.lumens} lm · ${f.kelvin.join("/")}K · IP${f.ip}`;
+  const ks = [...f.kelvin].sort((a, b) => a - b);
+  const k = ks.length >= 3 ? `${ks[0]}–${ks[ks.length - 1]}` : ks.join("/");
+  return `${f.lumens} lm · ${k}K · IP${f.ip}`;
 }

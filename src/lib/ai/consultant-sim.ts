@@ -155,8 +155,11 @@ function parseIntent(text: string, prev?: Intent): Intent {
 
   const intent: Intent = { spaces, types, kelvin, dimming, wantsDimming, ceilingM, lowCeiling, highCeiling, tableM, areaM2, budget, minIp, brand, topic, mentioned, isHebrew };
 
-  // Follow-up turns ("ומה עם DALI?") inherit the space / type / kelvin of the previous question.
-  if (prev && !spaces.length && !types.length && !mentioned.length && !topic) {
+  // Follow-up turns ("ומה עם DALI?") inherit the space / type / kelvin of the previous question —
+  // but only when the turn carries some lighting signal, so an unrelated question is not answered twice.
+  const followUp = /^\s*(ומה|מה עם|מה לגבי|ואם|אם |וגם|גם |what about|and what|how about|also|what if)/i.test(raw);
+  const signal = !!(kelvin || dimming.length || wantsDimming || ceilingM !== undefined || lowCeiling || highCeiling || tableM !== undefined || areaM2 || budget || brand || ipAsk || /אור|תאורה|גוף|לומן|מנור|עמעום|light|lamp|lux|lumen|fixture|dimm/.test(q));
+  if (prev && !spaces.length && !types.length && !mentioned.length && !topic && (signal || followUp)) {
     intent.spaces = prev.spaces;
     intent.types = prev.types;
     intent.kelvin = intent.kelvin ?? prev.kelvin;

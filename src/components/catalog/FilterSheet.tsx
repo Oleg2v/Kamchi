@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, type ReactNode } from "react";
 import { useTx } from "@/lib/i18n";
+import { useTrapTab } from "./useTrapTab";
 
 type Props = { open: boolean; onClose: () => void; onClear: () => void; count: number; activeCount: number; children: ReactNode };
 
@@ -14,6 +15,7 @@ export function FilterSheet({ open, onClose, onClear, count, activeCount, childr
     if (open && !d.open) d.showModal();
     if (!open && d.open) d.close();
   }, [open]);
+  useTrapTab(ref, open);
   const results = count === 1 ? t({ he: "הצגת גוף תאורה אחד", en: "Show 1 fixture" }) : t({ he: `הצגת ${count} גופי תאורה`, en: `Show ${count} fixtures` });
   return (
     <dialog

@@ -23,7 +23,7 @@ export function Footer() {
             })}
           </p>
           <p className="mt-4 text-sm text-paper">{t(ADDRESS)}</p>
-          <p className="mt-1 font-mono text-xs text-muted">{t({ he: "א׳–ה׳ 9:00–19:00 · ו׳ 9:00–13:00 (הדגמה)", en: "Sun–Thu 9:00–19:00 · Fri 9:00–13:00 (demo)" })}</p>
+          <p className="mt-1 font-mono text-xs text-muted">{t({ he: "א׳–ה׳ \u20669:00–19:00\u2069 · ו׳ \u20669:00–13:00\u2069 (הדגמה)", en: "Sun–Thu 9:00–19:00 · Fri 9:00–13:00 (demo)" })}</p>
         </div>
         <div>
           <h2 className="eyebrow mb-4">{t({ he: "האתר", en: "Site" })}</h2>

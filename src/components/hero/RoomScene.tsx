@@ -263,7 +263,11 @@ export function RoomSceneInternal({
       )}
 
       {renderer !== "video" && <FixtureOverlay box={box} lit={litEff} instant={instant} />}
-      {showCaptions && renderer !== null && <Captions box={box} lit={litEff} instant={instant} />}
+      {showCaptions && renderer !== null && (
+        <div className="hidden md:contents">
+          <Captions box={box} lit={litEff} instant={instant} />
+        </div>
+      )}
     </div>
   );
 }

@@ -1,17 +1,16 @@
 "use client";
 import { useEffect, useState } from "react";
-import { usePrefersReducedMotionOnly } from "@/lib/hooks/useReducedMotion";
 
 /**
  * Under one second: a single filament warms up and becomes the logo.
  * Shown once per session; skipped entirely under prefers-reduced-motion.
+ * The veil always comes down — a hard 1.4 s safety timer guarantees it.
  */
 export function Preloader() {
-  const reduced = usePrefersReducedMotionOnly();
   const [phase, setPhase] = useState<"idle" | "filament" | "logo" | "done">("idle");
 
   useEffect(() => {
-    if (reduced) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     try {
       if (sessionStorage.getItem("kamchi-preloaded") === "1") return;
       sessionStorage.setItem("kamchi-preloaded", "1");
@@ -19,12 +18,13 @@ export function Preloader() {
     setPhase("filament");
     const t1 = setTimeout(() => setPhase("logo"), 520);
     const t2 = setTimeout(() => setPhase("done"), 940);
-    return () => { clearTimeout(t1); clearTimeout(t2); };
-  }, [reduced]);
+    const safety = setTimeout(() => setPhase("done"), 1400);
+    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(safety); };
+  }, []);
 
   if (phase === "idle" || phase === "done") return null;
   return (
-    <div aria-hidden className="fixed inset-0 z-[100] grid place-items-center bg-night" style={{ opacity: phase === "logo" ? 1 : 1, transition: "opacity 200ms linear" }}>
+    <div aria-hidden className="fixed inset-0 z-[100] grid place-items-center bg-night">
       <div className="relative flex flex-col items-center gap-4">
         <svg width="160" height="90" viewBox="0 0 160 90" className="overflow-visible">
           <path

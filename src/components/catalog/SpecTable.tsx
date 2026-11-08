@@ -7,11 +7,12 @@ import type { Fixture, LeadTime } from "@/lib/types";
 
 type Props = { fixture: Fixture; leadTime: LeadTime; stock: number };
 
+/** Mono values stay LTR inside, but the cell itself keeps the page direction so the value sits next to its label. */
 function Row({ label, children, ltr = false }: { label: string; children: ReactNode; ltr?: boolean }) {
   return (
     <div className="spec-row">
       <dt className="text-sm text-muted">{label}</dt>
-      <dd className={`text-sm text-paper ${ltr ? "num text-start" : ""}`} dir={ltr ? "ltr" : undefined}>{children}</dd>
+      <dd className="text-sm text-paper">{ltr ? <span className="num" dir="ltr">{children}</span> : children}</dd>
     </div>
   );
 }
@@ -53,7 +54,9 @@ export function SpecTable({ fixture: f, leadTime, stock }: Props) {
         {stock > 0 && <span className="ms-3 num text-muted" data-testid="stock">{t({ he: "במלאי:", en: "In stock:" })} {stock}</span>}
       </Row>
       {f.designer && (
-        <Row label={t({ he: "עיצוב", en: "Design" })}><span lang="en">{f.designer}</span>{f.year ? <span className="num ms-2 text-muted" dir="ltr">{f.year}</span> : null}</Row>
+        <Row label={t({ he: "עיצוב", en: "Design" })}>
+          <span dir="ltr" lang="en">{f.designer}{f.year ? <span className="num text-muted"> · {f.year}</span> : null}</span>
+        </Row>
       )}
     </dl>
   );

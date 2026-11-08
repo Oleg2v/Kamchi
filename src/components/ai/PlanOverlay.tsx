@@ -53,7 +53,7 @@ export function PlanOverlay({ plan, image, aspect, night = true, title }: { plan
                 <text x={X(c.x)} y={Y(c.y) - r * 1.6} textAnchor="middle" fill="#f2eee6" fontFamily="var(--font-display)" fontSize={Math.max(18, VW * 0.028)} direction={lang === "he" ? "rtl" : "ltr"}>
                   {lang === "he" ? room.label.he : room.label.en}
                 </text>
-                <text x={X(c.x)} y={Y(c.y) + r * 2.4} textAnchor="middle" fill="#c9a86b" fontFamily="var(--font-mono)" fontSize={Math.max(11, VW * 0.013)} letterSpacing={1}>
+                <text x={X(c.x)} y={Y(c.y) + r * 2.4} textAnchor="middle" fill="#c9a86b" fontFamily="var(--font-mono)" fontSize={Math.max(11, VW * 0.013)} letterSpacing={1} direction="ltr" style={{ unicodeBidi: "isolate" }}>
                   {room.areaM2} m² · {room.targetLux} lx
                 </text>
                 {room.zones.map((z, zi) => z.points.map((p, pi) => mark(z.zone, p.x, p.y, `${room.id}-${zi}-${pi}`)))}

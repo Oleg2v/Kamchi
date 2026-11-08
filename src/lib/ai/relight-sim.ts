@@ -179,16 +179,22 @@ export function placementFromAnalysis(a: PhotoAnalysis, f: Fixture): RelightPlac
       };
     }
     case "table": {
-      const ax = clamp(box.x + box.w * 0.72, 0.1, 0.9);
-      const ay = box.y + box.h * 0.12;
+      // On a table-height surface the lamp sits on it; by a sofa, bed or floor area it sits low, on a side table.
+      const onTop = a.surface === "table" || a.surface === "desk" || a.surface === "counter";
+      const ax = clamp(onTop ? box.x + box.w * 0.72 : box.x + box.w * 0.18, 0.1, 0.9);
+      const ay = onTop ? box.y + box.h * 0.12 : clamp(box.y + box.h * 0.5, 0.3, 0.82);
       return {
         ...base,
         anchor: { x: ax, y: ay },
         scale: clamp(0.08 + f.art.width * 0.06, 0.08, 0.14),
         pool: { cx: ax, cy: ay + 0.02, rx: 0.09, ry: 0.035 },
         rationale: {
-          he: `${f.nameHe} על ${sHe}: אור נמוך ואישי בגובה העיניים, נקודת אור חמה שמחזיקה את הפינה גם כשהשאר כבוי.`,
-          en: `${f.name} on ${sEn}: low, personal light at eye level — a warm point that holds the corner when everything else is off.`,
+          he: onTop
+            ? `${f.nameHe} על ${sHe}: אור נמוך ואישי בגובה העיניים, נקודת אור חמה שמחזיקה את הפינה גם כשהשאר כבוי.`
+            : `${f.nameHe} על שולחן צד ליד ${sHe}: אור נמוך ואישי בגובה הישיבה, נקודת אור חמה שמחזיקה את הפינה גם כשהשאר כבוי.`,
+          en: onTop
+            ? `${f.name} on ${sEn}: low, personal light at eye level — a warm point that holds the corner when everything else is off.`
+            : `${f.name} on a side table by ${sEn}: low, personal light at seating height — a warm point that holds the corner when everything else is off.`,
         },
       };
     }

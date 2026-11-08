@@ -17,7 +17,7 @@ function Side({ eyebrow, title, lines, stat, statLabel }: { eyebrow: string; tit
   return (
     <div className="flex flex-col gap-5 p-6 md:p-9">
       <p className="eyebrow">{eyebrow}</p>
-      <h3 className="font-display text-2xl md:text-3xl">{title}</h3>
+      <h3 className="text-2xl md:text-3xl">{title}</h3>
       <ul className="space-y-2 text-sm leading-relaxed text-muted">
         {lines.map((l) => (
           <li key={l} className="flex gap-3">
@@ -61,7 +61,7 @@ export function StudioPromise() {
               t({ he: "סטטוס הזמנה: הוזמן באיטליה, בדרך, במחסן, סופק", en: "Order status: ordered in Italy, in transit, in warehouse, delivered" }),
             ]}
             stat={hydrated ? projects : undefined}
-            statLabel={t({ he: "פרויקטים פעילים בדמו", en: "active projects in the demo" })}
+            statLabel={t(projects === 1 ? { he: "פרויקט פעיל בדמו", en: "active project in the demo" } : { he: "פרויקטים פעילים בדמו", en: "active projects in the demo" })}
           />
           <div className="relative hidden w-px md:block" aria-hidden>
             <div className="brass-line absolute inset-y-6 w-px" />
@@ -79,7 +79,7 @@ export function StudioPromise() {
               t({ he: "הנחת סטודיו וסטטוס הזמנה מתעדכנים אצל המעצב מיד", en: "Studio discount and order status update at the designer's end instantly" }),
             ]}
             stat={hydrated ? open : undefined}
-            statLabel={t({ he: "בקשות פתוחות עכשיו", en: "requests open right now" })}
+            statLabel={t(open === 1 ? { he: "בקשה פתוחה עכשיו", en: "request open right now" } : { he: "בקשות פתוחות עכשיו", en: "requests open right now" })}
           />
         </div>
         <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -87,7 +87,7 @@ export function StudioPromise() {
             <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-night animate-pulse-dot" />
             {t(PORTAL_NAV.live.label)}
           </TransitionLink>
-          <TransitionLink href="/live?autopilot=1" className="btn">{t({ he: "הפעל הדגמה", en: "Run the demo" })}</TransitionLink>
+          <TransitionLink href="/live?autopilot=1" className="btn">{t({ he: "הפעילו הדגמה", en: "Run the demo" })}</TransitionLink>
           <p className="font-mono text-[0.7rem] text-muted">{t({ he: "שני הצדדים זה לצד זה, או בשני חלונות — מסונכרנים.", en: "Both sides side by side, or in two windows — in sync." })}</p>
         </div>
       </SwitchOn>

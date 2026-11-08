@@ -35,7 +35,7 @@ function Card({ f, index, allLit }: { f: Fixture; index: number; allLit: boolean
           <span dir="ltr">{brand?.name.toUpperCase()}</span>
           <span className="text-muted">{t(FIXTURE_TYPE_LABEL[f.type])}</span>
         </p>
-        <p lang="en" className={`font-display mt-1 text-xl leading-tight ${lit ? "text-paper" : "text-paper/85"}`}>{f.name}</p>
+        <p lang="en" className={`font-display [&:lang(en)]:font-display-en mt-1 text-xl leading-tight ${lit ? "text-paper" : "text-paper/85"}`}>{f.name}</p>
         <p className="text-sm text-muted">{lang === "he" ? f.nameHe : f.designer ?? ""}</p>
         <p className="mt-3 font-mono text-[0.78rem]">
           <span className="num text-paper">{formatIls(f.price, lang)}</span>
@@ -65,7 +65,7 @@ export function FeaturedStrip() {
         />
       </div>
       <div className="container-x mt-12">
-        <ul className="no-scrollbar -mx-4 flex snap-x gap-4 overflow-x-auto px-4 pb-4 md:-mx-8 md:px-8" aria-label={t({ he: "גופים נבחרים", en: "Featured fixtures" })}>
+        <ul className="no-scrollbar -mx-4 flex snap-x gap-4 overflow-x-auto px-4 pb-4 scroll-px-4 md:-mx-8 md:px-8 md:scroll-px-8" aria-label={t({ he: "גופים נבחרים", en: "Featured fixtures" })}>
           {items.map((f, i) => (
             <Card key={f.id} f={f} index={i} allLit={allLit} />
           ))}

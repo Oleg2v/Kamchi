@@ -100,7 +100,7 @@ export function Header() {
       <div className="container-x flex items-center justify-between gap-4" style={{ height: "var(--header-h)" }}>
         <Logo />
 
-        <nav aria-label={t({ he: "ניווט ראשי", en: "Main navigation" })} className="hidden lg:flex items-center gap-6 text-[0.92rem]">
+        <nav aria-label={t({ he: "ניווט ראשי", en: "Main navigation" })} className="hidden lg:flex items-center gap-5 text-[0.9rem] whitespace-nowrap">
           {NAV.map((n) => {
             const active = pathname === n.href || pathname.startsWith(n.href + "/");
             return (
@@ -112,7 +112,7 @@ export function Header() {
           })}
         </nav>
 
-        <div className="hidden lg:flex items-center gap-2.5">
+        <div className="hidden lg:flex items-center gap-2.5 whitespace-nowrap">
           <KelvinToggle compact />
           <AllLitToggle compact />
           <LangToggle />

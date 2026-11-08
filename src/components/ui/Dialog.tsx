@@ -1,9 +1,11 @@
 "use client";
 import { useEffect, useRef, type ReactNode } from "react";
+import { useTx } from "@/lib/i18n";
 
 /** Native <dialog>, dark, with a warm hairline. Esc closes; focus is trapped by the browser. */
 export function Dialog({ open, onClose, title, children, wide = false }: { open: boolean; onClose: () => void; title?: ReactNode; children: ReactNode; wide?: boolean }) {
   const ref = useRef<HTMLDialogElement>(null);
+  const t = useTx();
   useEffect(() => {
     const d = ref.current;
     if (!d) return;
@@ -20,7 +22,7 @@ export function Dialog({ open, onClose, title, children, wide = false }: { open:
     >
       <div className="flex items-center justify-between gap-4 border-b hairline px-5 py-4">
         <h2 className="font-display text-2xl">{title}</h2>
-        <button type="button" onClick={onClose} className="btn btn-sm" aria-label="close">✕</button>
+        <button type="button" onClick={onClose} className="btn btn-sm" aria-label={t({ he: "סגירה", en: "Close" })}><span aria-hidden>✕</span></button>
       </div>
       <div className="p-5">{children}</div>
     </dialog>

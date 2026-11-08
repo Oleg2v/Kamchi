@@ -18,7 +18,8 @@ export function ShoppingList({ plan }: { plan: LightingPlan }) {
       {plan.rooms.map((room, ri) => {
         const subtotal = room.zones.reduce((s, z) => s + z.qty * (getFixture(z.fixtureId)?.price ?? 0), 0);
         return (
-          <SwitchOn key={room.id} delay={ri * 90} as="section" aria-labelledby={`room-${room.id}`}>
+          <section key={room.id} aria-labelledby={`room-${room.id}`}>
+          <SwitchOn delay={ri * 90}>
             <div className="flex flex-wrap items-baseline justify-between gap-3 border-b hairline pb-2">
               <h3 id={`room-${room.id}`} className="font-display text-2xl">{lang === "he" ? room.label.he : room.label.en}</h3>
               <span className="font-mono text-[0.7rem] tracking-wider text-muted" dir="ltr">{room.areaM2} m² · {room.targetLux} lx</span>
@@ -50,6 +51,7 @@ export function ShoppingList({ plan }: { plan: LightingPlan }) {
               <span dir="ltr">{formatIls(subtotal, lang)}</span>
             </p>
           </SwitchOn>
+          </section>
         );
       })}
       <div className="brass-rule" />

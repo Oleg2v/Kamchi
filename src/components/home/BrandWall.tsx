@@ -40,14 +40,14 @@ function BrandMark({ brand, allLit }: { brand: Brand; allLit: boolean }) {
         <div className="relative">
           <p
             lang="en"
-            className={`font-display text-[1.65rem] leading-none tracking-wide md:text-[2rem] ${lit ? "text-paper" : "text-muted/45"}`}
+            className={`font-display [&:lang(en)]:font-display-en text-[1.65rem] leading-none tracking-wide md:text-[2rem] ${lit ? "text-paper" : "text-muted"}`}
             style={lit ? { animation: "incandescent 120ms var(--ease-incandescent) forwards", textShadow: "0 0 24px rgb(var(--glow-rgb) / 0.25)" } : undefined}
           >
             {brand.name}
           </p>
-          <p className={`mt-2 flex items-baseline justify-between font-mono text-[0.68rem] tracking-[0.12em] ${lit ? "text-brass-light" : "text-muted/55"}`}>
-            <span dir="ltr">{brand.country} · {brand.founded}</span>
-            <span><span className="num">{String(count).padStart(2, "0")}</span> {countLabel}</span>
+          <p className={`mt-2 flex items-baseline justify-between gap-3 font-mono text-[0.68rem] tracking-[0.12em] ${lit ? "text-brass-light" : "text-muted"}`}>
+            <span dir="ltr" className="hidden truncate sm:inline">{brand.country} · {brand.founded}</span>
+            <span className="whitespace-nowrap"><span className="num">{String(count).padStart(2, "0")}</span> {countLabel}</span>
           </p>
         </div>
       </TransitionLink>

@@ -57,8 +57,9 @@
 @starting-style { .catalog-sheet[open] { transform: translateX(var(--sheet-from)); } }
 .catalog-sheet::backdrop { background: rgb(5 5 5 / 0.78); backdrop-filter: blur(4px); }
 
-/* Chips that would yield nothing stay honest but quiet. */
-.chip[data-empty="1"] { opacity: 0.45; }
+/* Chips that would yield nothing stay honest but quiet: the hairline recedes, the text keeps its 8.3:1. */
+.chip[data-empty="1"] { border-color: color-mix(in oklab, var(--color-ash, #3a3a3a) 45%, transparent); }
+.chip[data-empty="1"] .num { color: color-mix(in oklab, var(--color-muted, #a9a59d) 85%, var(--color-night, #050505)); }
 
 /* Spec table rows. */
 .spec-row { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 1rem; padding-block: 0.7rem; border-bottom: 1px solid color-mix(in oklab, var(--color-ash, #3a3a3a) 70%, transparent); }

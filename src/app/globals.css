@@ -75,9 +75,8 @@
   main, header, footer, section { overflow-x: clip; }
   ::selection { background: rgb(var(--glow-rgb) / 0.35); color: var(--color-paper); }
 
-  /* Display type: Hebrew in David Libre, English in Cormorant — chosen by :lang() */
-  .font-display, h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing: -0.005em; }
-  :lang(en) .font-display, :lang(en) h1, :lang(en) h2, :lang(en) h3 { font-family: var(--font-display-en); font-weight: 400; letter-spacing: 0.005em; }
+  /* Display type: Hebrew in David Libre; the English (Cormorant) rule lives in the utilities layer below so it beats the .font-display utility. */
+  h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing: -0.005em; }
   .font-mono, .num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
 
   /* Keyboard focus is light, too. */
@@ -196,6 +195,10 @@
 }
 
 @layer utilities {
+  /* English display type: Cormorant Garamond whenever the element (or page) is :lang(en). */
+  :lang(en) .font-display, :lang(en) h1, :lang(en) h2, :lang(en) h3, .font-display:lang(en), h1:lang(en), h2:lang(en), h3:lang(en) { font-family: var(--font-display-en); font-weight: 400; letter-spacing: 0.005em; }
+  /* Hebrew display type stays David Libre even inside an English block. */
+  .font-display:lang(he), h1:lang(he), h2:lang(he), h3:lang(he) { font-family: var(--font-display); letter-spacing: -0.005em; }
   .text-glow { color: rgb(var(--glow-rgb)); }
   .bg-glow { background-color: rgb(var(--glow-rgb)); }
   .border-glow { border-color: rgb(var(--glow-rgb)); }

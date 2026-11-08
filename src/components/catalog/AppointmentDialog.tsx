@@ -1,6 +1,7 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Dialog } from "@/components/ui/Dialog";
+import { useTrapTab } from "./useTrapTab";
 import { useTx } from "@/lib/i18n";
 import { ADDRESS } from "@/lib/i18n/common";
 import { useStore } from "@/lib/store";
@@ -24,6 +25,8 @@ export function AppointmentDialog({ open, onClose, fixture }: Props) {
   const [when, setWhen] = useState(WHEN[0].id);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const bodyRef = useRef<HTMLDivElement>(null);
+  useTrapTab(bodyRef, open);
 
   useEffect(() => { if (open) { setSent(false); setError(null); } }, [open]);
 
@@ -40,6 +43,7 @@ export function AppointmentDialog({ open, onClose, fixture }: Props) {
 
   return (
     <Dialog open={open} onClose={onClose} title={t({ he: "ראו באולם", en: "See it in the showroom" })}>
+      <div ref={bodyRef}>
       {sent ? (
         <div className="flex flex-col gap-4" data-testid="appointment-success" aria-live="polite">
           <p className="font-display text-2xl lit-text">{t({ he: "נחזור אליכם לתיאום ביקור באולם בבני ברק", en: "We’ll call you back to arrange a visit to the Bnei Brak showroom" })}</p>
@@ -75,6 +79,7 @@ export function AppointmentDialog({ open, onClose, fixture }: Props) {
           </div>
         </form>
       )}
+      </div>
     </Dialog>
   );
 }

@@ -52,7 +52,8 @@ export function CatalogClient() {
       <section className="container-x lg:grid lg:grid-cols-[17rem_minmax(0,1fr)] lg:items-start lg:gap-12" aria-label={t({ he: "קטלוג גופי תאורה", en: "Fixture catalogue" })}>
         <aside className="hidden lg:block" aria-label={t({ he: "סינון", en: "Filters" })} data-testid="filter-rail">
           <div className="no-scrollbar sticky top-[calc(var(--header-h)+1.5rem)] max-h-[calc(100dvh-var(--header-h)-3rem)] overflow-y-auto border-e hairline pe-6">
-            <SwitchOn offOpacity={0.3}>{groups("rail")}</SwitchOn>
+            {/* The rail is the control panel: it switches on with the page, not when 20% of a clipped 1500px block scrolls into view. */}
+            <SwitchOn on offOpacity={0.3} delay={160}>{groups("rail")}</SwitchOn>
           </div>
         </aside>
 

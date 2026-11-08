@@ -183,8 +183,8 @@ export function RelightStudio() {
                 <div className="flex flex-wrap gap-2">
                   <button type="button" className="btn btn-primary" onClick={() => downloadDataUrl(result.after, `kamchi-relight-${fixture.slug}.png`)}>{t({ he: "הורדה", en: "Download" })}</button>
                   <button type="button" className="btn btn-brass" onClick={() => setStudioOpen(true)}>{t({ he: "שלחו למעצב", en: "Send to a designer" })}</button>
-                  <button type="button" className="btn" onClick={() => setProjectOpen(true)}>{t({ he: "להוסיף לפרויקט", en: "Add to a project" })}</button>
-                  <TransitionLink href={`/catalog/${fixture.slug}`} className="btn">{t({ he: "לקטלוג", en: "Catalogue page" })}</TransitionLink>
+                  <button type="button" className="btn" onClick={() => setProjectOpen(true)}>{t({ he: "הוספה לפרויקט", en: "Add to a project" })}</button>
+                  <TransitionLink href={`/catalog/${fixture.slug}`} className="btn">{t({ he: "לדף בקטלוג", en: "Catalogue page" })}</TransitionLink>
                   <button type="button" className="btn btn-sm ms-auto" onClick={() => { setPhase("idle"); setResult(null); }}>{t({ he: "גוף אחר על אותה תמונה", en: "Another fixture, same photo" })}</button>
                 </div>
               </SwitchOn>
@@ -217,7 +217,7 @@ export function RelightStudio() {
                   style={{ aspectRatio: 3 / 2 }}
                 >
                   <SwitchOn glow="pool" glowSize={560} glowOffset={{ y: "92%" }} className="flex flex-col items-center gap-5">
-                    <div className="w-28 md:w-36"><FixtureArt fixture={fixture} lit={dragOver} suspension /></div>
+                    <div className="w-28 md:w-36"><FixtureArt fixture={fixture} lit suspension /></div>
                     <p className="font-display text-2xl leading-tight text-paper md:text-3xl">{t({ he: "גררו לכאן תמונה של החדר", en: "Drop a photo of the room here" })}</p>
                     <p className="max-w-sm text-sm text-muted">{t({ he: "תמונה מהטלפון מספיקה. התמונה מוקטנת ל־1600 פיקסל במכשיר שלכם לפני השליחה.", en: "A phone photo is enough. It is downscaled to 1600 px on your device before upload." })}</p>
                     <div className="flex flex-wrap justify-center gap-2">
@@ -228,11 +228,11 @@ export function RelightStudio() {
                 </div>
               )
             )}
-            <input ref={fileRef} type="file" accept="image/*" capture="environment" className="sr-only" tabIndex={-1} onChange={onPick} aria-label={t({ he: "העלאת תמונה", en: "Upload a photo" })} />
+            <input ref={fileRef} type="file" accept="image/*" className="sr-only" tabIndex={-1} onChange={onPick} aria-label={t({ he: "העלאת תמונה", en: "Upload a photo" })} />
           </div>
 
           {/* ── Steps ── */}
-          <aside className="min-w-0 lg:border-s lg:hairline lg:ps-10" aria-label={t({ he: "שלבי ההדמיה", en: "Simulation steps" })}>
+          <aside className="min-w-0 lg:border-s lg:border-ash/70 lg:ps-10" aria-label={t({ he: "שלבי ההדמיה", en: "Simulation steps" })}>
             <ol className="flex flex-col gap-8">
               <li>
                 <div className="flex items-baseline justify-between gap-3">
@@ -275,7 +275,7 @@ export function RelightStudio() {
       </div>
 
       <StudioDialog open={studioOpen} onClose={() => setStudioOpen(false)} title={t({ he: "שלחו למעצב", en: "Send to a designer" })} cta={t({ he: "שליחה", en: "Send" })} onPick={sendToDesigner} />
-      <ProjectRoomDialog open={projectOpen} onClose={() => setProjectOpen(false)} title={t({ he: "להוסיף לפרויקט", en: "Add to a project" })} cta={t({ he: "הוספה", en: "Add" })} onPick={addToProject} />
+      <ProjectRoomDialog open={projectOpen} onClose={() => setProjectOpen(false)} title={t({ he: "הוספה לפרויקט", en: "Add to a project" })} cta={t({ he: "הוספה", en: "Add" })} onPick={addToProject} />
       <ToastStack toasts={toasts} />
     </>
   );

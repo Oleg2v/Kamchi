@@ -4,8 +4,7 @@
  * in a lighting drawing. Identical fixtures share one caption (×2, ×3).
  * On narrow widths <CaptionList/> stacks them under the image instead.
  */
-import { useLang } from "@/lib/i18n";
-import { formatIls, tx } from "@/lib/i18n";
+import { formatIls, tx, useLang } from "@/lib/i18n";
 import { DEMO_PRICE, SHOWROOM } from "@/lib/i18n/common";
 import type { LightId } from "./light-controller";
 import { LIGHTS } from "./light-controller";
@@ -22,7 +21,7 @@ export interface CaptionGroup {
   caption: HeroLight["caption"];
 }
 
-const CAPTION_W = 200;
+const CAPTION_W = 212;
 
 const groupOf = (ids: LightId[]) => LIGHTS.filter((l) => ids.includes(l.id));
 
@@ -41,7 +40,7 @@ function CaptionBody({ g, lang }: { g: CaptionGroup; lang: "he" | "en" }) {
         <span>{c.brand}</span>
         {g.members.length > 1 && <span className="text-muted">×{g.members.length}</span>}
       </p>
-      <p className="font-display mt-1 text-[1.25rem] leading-tight text-paper" lang="en">{c.model}</p>
+      <p className="font-display [&:lang(en)]:font-display-en mt-1 text-[1.25rem] leading-tight text-paper" lang="en">{c.model}</p>
       <p className="mt-1 text-[0.78rem] text-muted">{tx(lang, SHOWROOM)}</p>
       <p className="mt-1.5 font-mono text-[0.78rem]">
         <span className="num text-paper">{formatIls(c.price, lang)}</span>
@@ -106,7 +105,8 @@ export function Captions({ box, lit, instant = false }: Props) {
               animation: on && !instant ? "incandescent 120ms var(--ease-incandescent) forwards" : "none",
               transition: on ? "none" : "opacity 80ms linear",
               textShadow: "0 1px 2px rgb(0 0 0 / 0.9), 0 0 14px rgb(0 0 0 / 0.85)",
-              background: "linear-gradient(to left, rgb(5 5 5 / 0.55), rgb(5 5 5 / 0))",
+              // darkest behind the spine (inline-start), fading toward the leader side
+              background: `linear-gradient(to ${lang === "he" ? "left" : "right"}, rgb(5 5 5 / 0.55), rgb(5 5 5 / 0))`,
             }}
             aria-hidden={!on}
           >

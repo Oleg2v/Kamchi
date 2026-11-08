@@ -19,7 +19,7 @@ export function ToastStack({ toasts }: { toasts: ToastItem[] }) {
   return (
     <div aria-live="polite" role="status" className="pointer-events-none fixed bottom-16 z-[85] flex w-[min(100vw-2rem,22rem)] flex-col gap-2" style={{ insetInlineEnd: "1rem" }}>
       {toasts.map((t) => (
-        <div key={t.id} className="panel flash-warm border-glow/60 px-4 py-3 text-sm text-paper">
+        <div key={t.id} className="panel flash-warm border-glow px-4 py-3 text-sm text-paper">
           {t.text}
         </div>
       ))}

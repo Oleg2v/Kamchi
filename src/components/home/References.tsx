@@ -3,6 +3,7 @@
 import { TransitionLink } from "@/components/brand/TransitionLink";
 import { SwitchOn } from "@/components/light/SwitchOn";
 import { useTx } from "@/lib/i18n";
+import { Arrow } from "./Arrow";
 
 const REFERENCES = [
   { he: "משרדי Google ישראל", en: "Google Israel offices" },
@@ -22,10 +23,10 @@ export function References() {
         <div className="flex flex-col gap-6 md:flex-row md:items-baseline md:justify-between">
           <h2 id="refs-h" className="eyebrow">{t({ he: "פרויקטים נבחרים", en: "Selected projects" })}</h2>
           <TransitionLink href="/projects" className="font-mono text-[0.72rem] tracking-[0.14em] text-brass-light hover:text-glow">
-            {t({ he: "לכל הפרויקטים", en: "All projects" })} ←
+            {t({ he: "לכל הפרויקטים", en: "All projects" })} <Arrow />
           </TransitionLink>
         </div>
-        <ul className="mt-6 flex flex-wrap items-baseline gap-x-5 gap-y-3 font-display text-2xl leading-tight text-paper md:text-[2rem]">
+        <ul className="mt-6 flex flex-wrap items-baseline gap-x-5 gap-y-3 font-display [&:lang(en)]:font-display-en text-2xl leading-tight text-paper md:text-[2rem]">
           {REFERENCES.map((r, i) => (
             <li key={r.en} className="flex items-baseline gap-5">
               <span>{t(r)}</span>

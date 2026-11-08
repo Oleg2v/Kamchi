@@ -3,9 +3,9 @@ import type { FixtureType, Space, Dimming, LeadTime, OrderStatus, ProjectStatus,
 
 export const NAV: { href: string; label: Bi }[] = [
   { href: "/catalog", label: { he: "קטלוג", en: "Catalogue" } },
-  { href: "/relight", label: { he: "תאירו לי את הסלון", en: "Light my living room" } },
+  { href: "/relight", label: { he: "תאירו לי את הסלון", en: "Light my room" } },
   { href: "/plan", label: { he: "תוכנית תאורה", en: "Lighting plan" } },
-  { href: "/consultant", label: { he: "היועץ", en: "The consultant" } },
+  { href: "/consultant", label: { he: "היועץ", en: "Consultant" } },
   { href: "/projects", label: { he: "פרויקטים", en: "Projects" } },
   { href: "/about", label: { he: "אודות", en: "About" } },
 ];

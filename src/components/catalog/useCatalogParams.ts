@@ -1,6 +1,6 @@
 "use client";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { startTransition, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   clearParams,
   parseParams,
@@ -14,12 +14,12 @@ import {
 } from "@/lib/catalog/filter";
 
 /**
- * Catalogue state lives in the URL (useSearchParams + router.replace), so
- * /catalog?brand=artemide works from anywhere. A thin optimistic layer keeps
- * chips instant while the router catches up.
+ * Catalogue state lives in the URL, so /catalog?brand=artemide works from anywhere.
+ * Writes go through the native history API (Next syncs useSearchParams with
+ * pushState/replaceState), so a chip never waits for a server round-trip; a thin
+ * optimistic layer keeps the grid instant while the router state catches up.
  */
 export function useCatalogParams() {
-  const router = useRouter();
   const pathname = usePathname();
   const sp = useSearchParams();
   const fromUrl = useMemo(() => parseParams(sp), [sp]);
@@ -44,9 +44,9 @@ export function useCatalogParams() {
       pending.current = ser;
       if (pendingTimer.current) clearTimeout(pendingTimer.current);
       pendingTimer.current = setTimeout(() => { pending.current = null; }, 2500);
-      startTransition(() => router.replace(`${pathname}${ser}`, { scroll: false }));
+      if (typeof window !== "undefined") window.history.replaceState(null, "", `${pathname}${ser}`);
     },
-    [router, pathname],
+    [pathname],
   );
 
   const ref = useRef(params);

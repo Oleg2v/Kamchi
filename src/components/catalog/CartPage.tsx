@@ -14,7 +14,7 @@ import { getBrand, getFixture } from "@/lib/data";
 import { useHydrated } from "@/lib/hooks/useHydrated";
 import { useInView } from "@/lib/hooks/useInView";
 import { formatIls, useLang, useTx } from "@/lib/i18n";
-import { FINISH_LABEL, LEAD_TIME_LABEL } from "@/lib/i18n/common";
+import { FINISH_LABEL, FIXTURE_TYPE_LABEL, LEAD_TIME_LABEL } from "@/lib/i18n/common";
 import { useLiveFixture, useStore } from "@/lib/store";
 import type { CartItem, Fixture, LeadTime } from "@/lib/types";
 
@@ -30,14 +30,14 @@ function CartLine({ item, fixture }: { item: CartItem; fixture: Fixture }) {
   const brand = getBrand(fixture.brand);
   const leadTime = live?.leadTime ?? fixture.leadTime;
   return (
-    <li ref={ref} className="grid grid-cols-[4.5rem_minmax(0,1fr)] gap-x-4 gap-y-3 border-b hairline py-5 md:grid-cols-[5.5rem_minmax(0,1fr)_auto_7rem_7rem] md:items-center md:gap-x-6" data-testid="cart-line" data-fixture={fixture.id}>
+    <li ref={ref} className="grid grid-cols-[4.5rem_minmax(0,1fr)] gap-x-4 gap-y-3 border-b hairline py-5 md:grid-cols-[5.5rem_minmax(0,1fr)_auto_7rem_7.5rem] md:items-center md:gap-x-6" data-testid="cart-line" data-fixture={fixture.id}>
       <TransitionLink href={`/catalog/${fixture.slug}`} className="block aspect-[10/13] border hairline bg-night" aria-label={fixture.name}>
         <LampFrame fixture={fixture} lit={inView} offOpacity={0.5} className="h-full w-full p-1.5" />
       </TransitionLink>
       <div className="min-w-0">
         <p className="eyebrow truncate">{brand?.name ?? fixture.brand}</p>
         <TransitionLink href={`/catalog/${fixture.slug}`} className="font-display text-xl leading-tight hover:text-glow md:text-2xl" lang="en">{fixture.name}</TransitionLink>
-        <p className="text-sm text-muted">{fixture.nameHe}</p>
+        <p className="text-sm text-muted">{lang === "he" ? fixture.nameHe : t(FIXTURE_TYPE_LABEL[fixture.type])}</p>
         <p className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted">
           {item.finish && <span className="inline-flex items-center gap-1.5"><FinishSwatch id={item.finish} className="h-3 w-3" />{t(FINISH_LABEL[item.finish])}</span>}
           <span className={leadTime === "stock" ? "text-glow" : ""}>{t(LEAD_TIME_LABEL[leadTime])}</span>
@@ -50,7 +50,7 @@ function CartLine({ item, fixture }: { item: CartItem; fixture: Fixture }) {
       <p className="hidden text-sm md:block md:text-end"><span className="num" dir="ltr">{formatIls(fixture.price, lang)}</span><span className="block text-[0.66rem] text-muted">{t({ he: "ליחידה", en: "each" })}</span></p>
       <p className="col-start-2 text-sm md:col-start-auto md:text-end">
         <span className="num text-base text-paper" dir="ltr" data-testid="line-total">{formatIls(fixture.price * item.qty, lang)}</span>
-        <button type="button" onClick={() => removeFromCart(fixture.id)} className="ms-4 hidden text-xs text-muted underline-offset-4 hover:text-glow hover:underline md:inline" aria-label={t({ he: `הסרת ${fixture.nameHe} מהסל`, en: `Remove ${fixture.name} from cart` })}>{t({ he: "הסרה", en: "Remove" })}</button>
+        <button type="button" onClick={() => removeFromCart(fixture.id)} className="mt-0.5 hidden text-[0.66rem] text-muted underline-offset-4 hover:text-glow hover:underline md:block md:ms-auto" aria-label={t({ he: `הסרת ${fixture.nameHe} מהסל`, en: `Remove ${fixture.name} from cart` })}>{t({ he: "הסרה", en: "Remove" })}</button>
       </p>
     </li>
   );
@@ -128,7 +128,7 @@ export function CartPage() {
           {lines.map((l) => <CartLine key={l.item.fixtureId} item={l.item} fixture={l.fixture} />)}
         </ul>
 
-        <SwitchOn as="aside" offOpacity={0.3} delay={120} className="panel p-6 lg:sticky lg:top-[calc(var(--header-h)+1.5rem)]" aria-label={t({ he: "סיכום", en: "Summary" })}>
+        <SwitchOn as="aside" on offOpacity={0.3} delay={160} className="panel p-6 lg:sticky lg:top-[calc(var(--header-h)+1.5rem)]" aria-label={t({ he: "סיכום", en: "Summary" })}>
           <h2 className="eyebrow">{t({ he: "סיכום", en: "Summary" })}</h2>
           <dl className="mt-4 flex flex-col gap-2 text-sm">
             <div className="flex items-baseline justify-between gap-4"><dt className="text-muted">{t({ he: "סכום ביניים", en: "Subtotal" })}</dt><dd className="num text-2xl text-paper" dir="ltr" data-testid="subtotal">{formatIls(subtotal, lang)}</dd></div>
@@ -145,7 +145,7 @@ export function CartPage() {
               className="text-sm text-muted underline-offset-4 hover:text-glow hover:underline"
               data-testid="clear-cart"
             >
-              {t({ he: "רוקן סל", en: "Empty cart" })}
+              {t({ he: "ריקון הסל", en: "Empty the cart" })}
             </button>
           </div>
         </SwitchOn>
